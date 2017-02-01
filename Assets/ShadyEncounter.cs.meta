@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 183563d959f565b44b265008d508510c
+timeCreated: 1485817100
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - shadyEncounter: {fileID: 21300000, guid: f90b77a6b13229649b04b579dd0b7a47, type: 3}
+  - ShowCard: {instanceID: 0}
+  - cam: {instanceID: 0}
+  - sr: {instanceID: 0}
+  - Player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
