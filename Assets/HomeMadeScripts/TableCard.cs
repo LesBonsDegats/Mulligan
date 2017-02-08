@@ -50,19 +50,29 @@ public class TableCard : MonoBehaviour
 
             //STAPLE ENDS
 
-            else if (!isDone)                // INSERT EVENT HERE
+            else if (!isDone)               
             {
                 Parchemin.gameObject.SetActive(true);
                 sr.sprite = Image;
 
                 switch (name)
                 {
+
+
                     case "ShadyEncounter":
                         Recit.text = "A mysterious man challenges thee..";
+                        // INSERT EVENTS
+
+
+
                         break;
+
+
                     case "TheGate":
                         Recit.text = "You see a large gate, which seems to be well guarded by sentinels \n Even though you don't really know whether the inhabitants  \n of the town beyond are hostile or not, you feel uncertain \n about revealing yourself already. \n What do you wish to do ?";
                         break;
+
+
 
 
                 }
