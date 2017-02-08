@@ -3,7 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Inventory
+  - Inventory1
+  - Inventory2
+  - Inventory3
+  - Inventory4
+  - Inventory5
+  - Inventory6
+  - Inventory7
+  - Inventory8
+  - Inventory9
+  - Inventory10
+  - Inventory11
+  - Inventory12
+  - Inventory13
+  - Inventory14
+  - Inventory15
+  - Inventory16
+  - Inventory17
+  - Inventory20
+  - other
   layers:
   - Default
   - TransparentFX
