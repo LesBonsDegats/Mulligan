@@ -32,9 +32,10 @@ public class jauges : MonoBehaviour {
         {
             float delta_taille = init_coef_taille * delta;
             this.transform.localScale += new Vector3(0, 0, delta_taille);
+            this.transform.localPosition += new Vector3(-delta_taille / 2, 0, 0);
         }
 
-     //   this.transform.localPosition += new Vector3(0, 0, delta_taille / 2);
+
     }
 
     private void OnMouseEnter()
