@@ -35,7 +35,7 @@ public class TableCard : MonoBehaviour
     private bool d = false;
     public string path = "";
 
-    public Image Parchemin;
+    public GameObject Parchemin;
     public Text Recit;
     public Text Titre;
 
@@ -142,7 +142,7 @@ public class TableCard : MonoBehaviour
         return paragraph;
     }
 
-    public bool nextDialogue(string pathto)
+    public void nextDialogue(string pathto)
     {
 
         System.Random rnd = new System.Random();
@@ -239,7 +239,6 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 3#1":
                         playCard();
-                        return false;
                         break;
 
                     case "TheGate 1#1":
@@ -250,6 +249,50 @@ public class TableCard : MonoBehaviour
                         B4text.text = "Aller à l'armurerie pour affuter votre arme";
 
                         break;
+
+                    case "TheGate 1#11":
+                        Recit.text = paragraph("L'alcool vient réchauffer votre sang durement éprouvé, vous voyez dans l'écume des pintes le reflet joyeux de vos dernières aventures.");
+                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
+                        Button2.enabled = false;
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        path = "TheGate 1#1>";
+
+                        break;
+
+                    case "TheGate 1#12":
+                        Recit.text = paragraph("Dans l'intimité de l'autel, vous trouvez le réconfort et une présence bienfaitrice. Est-ce un message des Grands, porteur de fortune ? Seul l'avenir vous le dira.");
+                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
+                        Button2.enabled = false;
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        path = "TheGate 1#1>";
+
+                        break;
+
+                    case "TheGate 1#13":
+                        Recit.text = paragraph("Assis à l'abri sous l'arche d'une poterne, vous entreprenez de confectionner un pansement pour couvrir vos plaies. ");
+                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
+                        Button2.enabled = false;
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        path = "TheGate 1#1>";
+                        break;
+
+                    case "TheGate 1#14":
+                        Recit.text = paragraph("L'armurier vous laisse utiliser sa meule par vous même. Vous vous donnez à coeur joie de ranimer le tranchant des beaux jours de votre arme.");
+                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
+                        Button2.enabled = false;
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        path = "TheGate 1#1>";
+                        break;
+
+                    case "TheGate 1#1>1":
+                        Endcard();
+                        break;
+
+
                 }
                 break;
 
@@ -258,9 +301,17 @@ public class TableCard : MonoBehaviour
         clicked = false;
         StartCoroutine(WaitForClick());
 
-        return true;
 
     }
+
+
+    public void Endcard()
+    {
+        s.canMove = true;
+        Parchemin.SetActive(false);
+        path = "";
+    }
+
 
     private string getFirstWord(string str)
     {
