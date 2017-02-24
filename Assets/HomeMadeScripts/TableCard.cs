@@ -188,12 +188,12 @@ public class TableCard : MonoBehaviour
 
                         if (tirage < 3)
                         {
-                            Recit.text = "";
+                            Recit.text = paragraph("Alors que vous vous avancez furtivement de votre but, une voix sévère vient briser vos rêves de tavernes et de boisson. \"Qui va la ?\" Il semblerait que les gardes ne fassent pas mince affaire de leur besogne, ce soir.. ");
 
-                            B1text.text = "Sincerely apologize for the misunderstanding and leave";
-                            B2text.text = "Introduce yourself";
-                            B3text.text = "Ask for permission to come into the city";
-                            B4text.text = "Boldly insult the guard";
+                            B1text.text = "Vous excuser de ce terrible malentendu et expliquer vos intentions pacifiques";
+                            B2text.text = "Demander la permission de rentrer dans la ville";
+                            B3text.text = "Vous présenter fièrement";
+                            B4text.text = "S'enfuir tant qu'il est encore temps!";
                         }
                         else
                         {
@@ -247,7 +247,7 @@ public class TableCard : MonoBehaviour
                         B1text.text = "Aller à la taverne: (coût: 3 or)";
                         B2text.text = "Vous rendre au temple pour vous recueillir";
                         B3text.text = "Profiter de l'occasion pour panser vos blessures";
-                        B4text.text = "Aller à l'armurerie pour affuter votre armes";
+                        B4text.text = "Aller à l'armurerie pour affuter votre arme";
 
                         break;
                 }
