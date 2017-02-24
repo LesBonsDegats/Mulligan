@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -70,9 +67,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -84,7 +78,10 @@
     <Compile Include="Assets\CharacterControls.cs" />
     <Compile Include="Assets\HomeMadeScripts\Card.cs" />
     <Compile Include="Assets\HomeMadeScripts\CardBack.cs" />
+    <Compile Include="Assets\HomeMadeScripts\Dialogue.cs" />
+    <Compile Include="Assets\HomeMadeScripts\DialogueWindow.cs" />
     <Compile Include="Assets\HomeMadeScripts\InventaireSlot.cs" />
+    <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />
     <Compile Include="Assets\HomeMadeScripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\PCard.cs" />

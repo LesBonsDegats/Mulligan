@@ -32,3 +32,4 @@ public class camLookMouse : MonoBehaviour {
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 	}
 }
+    

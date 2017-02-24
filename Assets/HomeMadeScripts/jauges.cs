@@ -14,6 +14,7 @@ public class jauges : MonoBehaviour {
     {
         life = init_max;
         init_coef_taille = this.transform.localScale.z / init_max;
+      
 
     }
 	//j'ai dégagé le update qui n'était pas nécessaire

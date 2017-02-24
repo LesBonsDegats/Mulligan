@@ -21,8 +21,7 @@ public class InventaireSlot : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update() { 
 	}
 
     public void setId(int a)
@@ -34,4 +33,7 @@ public class InventaireSlot : MonoBehaviour {
 
         sr.sprite = image;
     }
+
+    
+
 }

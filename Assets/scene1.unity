@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.6, y: 23.8}
+  m_AnchoredPosition: {x: 5.3, y: 23.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33652639
@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 56963867}
   - component: {fileID: 56963866}
   - component: {fileID: 56963865}
+  - component: {fileID: 56963869}
   m_Layer: 0
   m_Name: TCard2
   m_TagString: other
@@ -309,6 +310,38 @@ Transform:
   m_Father: {fileID: 418327977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56963869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56963864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &62486500
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +368,7 @@ RectTransform:
   m_GameObject: {fileID: 62486500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.13512726, y: 0.1957856, z: 0.24783668}
+  m_LocalScale: {x: 0.13512726, y: 0.27873096, z: 0.24783668}
   m_Children:
   - {fileID: 1440141612}
   m_Father: {fileID: 708040540}
@@ -343,7 +376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.5, y: -16}
+  m_AnchoredPosition: {x: 11.52, y: -14.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62486502
@@ -514,7 +547,7 @@ GameObject:
   - component: {fileID: 75592434}
   - component: {fileID: 75592438}
   m_Layer: 0
-  m_Name: PCard1
+  m_Name: Crossroad
   m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,16 +628,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 1037d65a503c36a4897807bb9943136c, type: 3}
-  name: 
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  CompleteButton: {fileID: 0}
+  cardName: Crossroad
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 0}
+  B2text: {fileID: 0}
+  B3text: {fileID: 0}
+  B4text: {fileID: 0}
+  path: 
   Parchemin: {fileID: 708040541}
   Recit: {fileID: 1154867521}
+  Titre: {fileID: 0}
   isDone: 0
   s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &84953428
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +673,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 84953428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.13514198, y: 0.1958071, z: 0.24783668}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.13514198, y: 0.23836774, z: 0.24783668}
   m_Children:
   - {fileID: 1728414239}
   m_Father: {fileID: 708040540}
@@ -639,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.5, y: -23.3}
+  m_AnchoredPosition: {x: 11.51, y: -22.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84953430
@@ -751,23 +794,6 @@ MonoBehaviour:
   eligibles: 
   cases: 
   revealed: 
-  Inventory1: {fileID: 515899912}
-  Inventory2: {fileID: 989846749}
-  Inventory3: {fileID: 1313244561}
-  Inventory4: {fileID: 1501179713}
-  Inventory5: {fileID: 1502245291}
-  Inventory6: {fileID: 402990631}
-  Inventory7: {fileID: 1658606994}
-  Inventory8: {fileID: 849242658}
-  Inventory9: {fileID: 1122937765}
-  InventoryHelmet: {fileID: 337789218}
-  InventoryLeftHand: {fileID: 1056061219}
-  InventoryChest: {fileID: 1499833559}
-  InventoryRightHand: {fileID: 366927933}
-  InventoryGreaves: {fileID: 757383348}
-  InventoryTalisman1: {fileID: 1544367362}
-  InventoryTalisman2: {fileID: 1966918362}
-  InventoryTalisman3: {fileID: 1273762004}
   ShowCard: {fileID: 1541080680}
   sr: {fileID: 1541080682}
   CardStart: {fileID: 443261924}
@@ -798,7 +824,8 @@ MonoBehaviour:
   floor: {fileID: 1635046179}
   camera: {fileID: 140618114}
   camrotator: {fileID: 2111100447}
-  inventory: {fileID: 0}
+  inventory: {fileID: 622805078}
+  inventoryscript: {fileID: 622805081}
   go: {fileID: 766466705}
   bossCard: {fileID: 357737863}
   token: {fileID: 357244050}
@@ -808,10 +835,9 @@ MonoBehaviour:
   az: 0
   hitx: 0
   hitz: 0
+  currentx: 0
+  currentz: 10
   floorlvl: 6
-  holding: 0
-  holdid: 0
-  chosen: {fileID: 0}
 --- !u!81 &140618116
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1288,7 +1314,7 @@ GameObject:
   - component: {fileID: 357698069}
   - component: {fileID: 357698068}
   m_Layer: 5
-  m_Name: Text
+  m_Name: B1Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,14 +1328,14 @@ RectTransform:
   m_GameObject: {fileID: 357698066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8986429, y: 0.67488116, z: 1.8318067}
   m_Children: []
   m_Father: {fileID: 1537807523}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.1, y: -0.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357698068
@@ -1333,18 +1359,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Attendre qu'il descende remettre la roue pour se cacher dans les marchandises
 --- !u!222 &357698069
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2128,6 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622805079}
   - component: {fileID: 622805080}
+  - component: {fileID: 622805081}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2188,6 +2215,39 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &622805081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622805078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035ef0ea8e601624d88d12b252134d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 140618114}
+  s: {fileID: 140618115}
+  Inventory1: {fileID: 515899912}
+  Inventory2: {fileID: 989846749}
+  Inventory3: {fileID: 1313244561}
+  Inventory4: {fileID: 1501179713}
+  Inventory5: {fileID: 1502245291}
+  Inventory6: {fileID: 402990631}
+  Inventory7: {fileID: 1658606994}
+  Inventory8: {fileID: 849242658}
+  Inventory9: {fileID: 1122937765}
+  InventoryHelmet: {fileID: 337789218}
+  InventoryLeftHand: {fileID: 1056061219}
+  InventoryChest: {fileID: 1499833559}
+  InventoryRightHand: {fileID: 366927933}
+  InventoryGreaves: {fileID: 757383348}
+  InventoryTalisman1: {fileID: 1544367362}
+  InventoryTalisman2: {fileID: 1966918362}
+  InventoryTalisman3: {fileID: 1273762004}
+  holding: 0
+  holdid: 0
+  chosen: {fileID: 0}
 --- !u!1 &648582888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,6 +2296,7 @@ GameObject:
   - component: {fileID: 683010766}
   - component: {fileID: 683010765}
   - component: {fileID: 683010764}
+  - component: {fileID: 683010768}
   m_Layer: 0
   m_Name: RCard2
   m_TagString: other
@@ -2306,6 +2367,38 @@ Transform:
   m_Father: {fileID: 418327977}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683010768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683010763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &708040539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &708040540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2330,8 +2423,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708040539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.498084, y: 5.108189, z: 4.0349154}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalScale: {x: 13.555162, y: 8.657509, z: 5.3516865}
   m_Children:
   - {fileID: 1154867520}
   - {fileID: 33652638}
@@ -2344,7 +2437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -413, y: 79}
+  m_AnchoredPosition: {x: -320.4, y: 80.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708040541
@@ -2990,6 +3083,7 @@ GameObject:
   - component: {fileID: 979229320}
   - component: {fileID: 979229319}
   - component: {fileID: 979229318}
+  - component: {fileID: 979229321}
   m_Layer: 0
   m_Name: PCard5
   m_TagString: other
@@ -3060,6 +3154,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 979229316}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &979229321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979229316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &989846745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3290,7 @@ GameObject:
   - component: {fileID: 1036721781}
   - component: {fileID: 1036721780}
   - component: {fileID: 1036721779}
+  - component: {fileID: 1036721782}
   m_Layer: 0
   m_Name: PCard3
   m_TagString: other
@@ -3234,6 +3361,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036721777}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1036721782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036721777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1056061217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,7 +3978,7 @@ GameObject:
   - component: {fileID: 1223098626}
   - component: {fileID: 1223098625}
   m_Layer: 5
-  m_Name: Text
+  m_Name: B2Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3864,10 +4023,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3895,7 +4054,7 @@ GameObject:
   - component: {fileID: 1231243460}
   - component: {fileID: 1231243464}
   m_Layer: 0
-  m_Name: PCard2
+  m_Name: TheGate
   m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3976,16 +4135,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
-  name: TheGate
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  CompleteButton: {fileID: 0}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
   Parchemin: {fileID: 708040541}
   Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
   isDone: 0
   s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1273762000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4259,7 @@ GameObject:
   - component: {fileID: 1307866297}
   - component: {fileID: 1307866296}
   - component: {fileID: 1307866295}
+  - component: {fileID: 1307866298}
   m_Layer: 0
   m_Name: RCard3
   m_TagString: other
@@ -4160,6 +4330,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1307866293}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1307866298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307866293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1313244557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,7 +4481,7 @@ RectTransform:
   m_GameObject: {fileID: 1337633374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
-  m_LocalScale: {x: 0.13512726, y: 0.1957856, z: 0.24783668}
+  m_LocalScale: {x: 0.13512726, y: 0.2525626, z: 0.24783668}
   m_Children:
   - {fileID: 1223098624}
   m_Father: {fileID: 708040540}
@@ -4287,7 +4489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.9, y: -23.1}
+  m_AnchoredPosition: {x: -11.9, y: -22.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337633376
@@ -4585,6 +4787,7 @@ GameObject:
   - component: {fileID: 1408538986}
   - component: {fileID: 1408538985}
   - component: {fileID: 1408538984}
+  - component: {fileID: 1408538987}
   m_Layer: 0
   m_Name: PCard4
   m_TagString: other
@@ -4655,6 +4858,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408538982}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1408538987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1408538982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1440141611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4666,7 +4901,7 @@ GameObject:
   - component: {fileID: 1440141614}
   - component: {fileID: 1440141613}
   m_Layer: 5
-  m_Name: Text
+  m_Name: B3Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4711,10 +4946,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5034,7 +5269,7 @@ RectTransform:
   m_GameObject: {fileID: 1537807522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
-  m_LocalScale: {x: 0.13511276, y: 0.19576411, z: 0.24783675}
+  m_LocalScale: {x: 0.13511276, y: 0.27665016, z: 0.24783675}
   m_Children:
   - {fileID: 357698067}
   m_Father: {fileID: 708040540}
@@ -5042,7 +5277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.89, y: -15.7}
+  m_AnchoredPosition: {x: -11.88, y: -14.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1537807524
@@ -5684,7 +5919,7 @@ GameObject:
   - component: {fileID: 1728414241}
   - component: {fileID: 1728414240}
   m_Layer: 5
-  m_Name: Text
+  m_Name: B4Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5729,10 +5964,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5855,6 +6090,7 @@ GameObject:
   - component: {fileID: 1791488304}
   - component: {fileID: 1791488303}
   - component: {fileID: 1791488302}
+  - component: {fileID: 1791488305}
   m_Layer: 0
   m_Name: TCard3
   m_TagString: other
@@ -5925,6 +6161,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1791488300}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1791488305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791488300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1808341552
 GameObject:
   m_ObjectHideFlags: 0
@@ -6013,7 +6281,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1808341552}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 1
   playOnAwake: 1
@@ -8735,17 +9003,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: f90b77a6b13229649b04b579dd0b7a47, type: 3}
-  name: ShadyEncounter
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  CompleteButton: {fileID: 0}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
   Parchemin: {fileID: 708040541}
   Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
   isDone: 0
   s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &1966918358
 GameObject:
   m_ObjectHideFlags: 0
@@ -9149,6 +9427,7 @@ GameObject:
   - component: {fileID: 2119770316}
   - component: {fileID: 2119770315}
   - component: {fileID: 2119770314}
+  - component: {fileID: 2119770318}
   m_Layer: 0
   m_Name: TCard1
   m_TagString: other
@@ -9219,3 +9498,35 @@ Transform:
   m_Father: {fileID: 418327977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119770318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119770313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: TheGate
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  path: 
+  Parchemin: {fileID: 708040541}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
