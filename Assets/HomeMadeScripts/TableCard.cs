@@ -76,16 +76,17 @@ public class TableCard : MonoBehaviour
         switch (cardName)
         {
 
-
-            case "ShadyEncounter":
-                path = "ShadyEncounter ";
+            case "TheGate":
+                path = "TheGate ";
                 Titre.text = "The Gate";
                 break;
 
-
-            case "TheGate":
-                path = "TheGate ";
+            case "Gobelins!":
+                path = "Gobelins! ";
+                Titre.text = "Gobelins!";
                 break;
+
+            
 
         }
 
@@ -215,6 +216,8 @@ public class TableCard : MonoBehaviour
 
                         break;
 
+                    
+
 
                     case "TheGate 12":
                         Recit.text = paragraph("Un rictus se dessine sur le visage d'un des gardes. Entrer dans la ville ? Ah! Un r'negat comm' toi ? T'sais c'qu'on risque pour ça ? Par pour moins qu'deux écus! ");
@@ -232,7 +235,8 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 122":
-
+                        Endcard();
+                        return;
 
                     case "TheGate 13":
                         path = "TheGate 1>";
@@ -253,7 +257,7 @@ public class TableCard : MonoBehaviour
 
 
                     case "TheGate 1>1":
-                        Recit.text = paragraph("Les gardes vous dévisagent avec méfiance.. Jouer la carte de la sincérité suffira-t-il à faire oublier ces présentations peu avantageuses ? Pour l'heure, la seule réponse que vous obtenez de la garde est un silence glacial. \"Pourquoi qu'on vous laisserait v'nir, vagabond ? Vous autres n'apportez qu'des problèmes");
+                        Recit.text = paragraph("Les gardes vous dévisagent avec méfiance.. Jouer la carte de la sincérité suffira-t-il à faire oublier ces présentations peu avantageuses ? Pour l'heure, la seule réponse que vous obtenez de la garde est un silence glacial. \"Pourquoi qu'on vous laisserait v'nir, vagabond ? Vous autres n'semez qu'des problèmes sur vot' chemin");
 
                         B1text.text = "Tenter d'attirer l'empathie du garde";
                         B2text.text = "Intimider les gardes";
@@ -265,8 +269,7 @@ public class TableCard : MonoBehaviour
 
                         // jet de charisme
 
-                        //réussite
-
+                       
                         //réussite -> 
 
                         path = "TheGate 1#1";
@@ -293,9 +296,7 @@ public class TableCard : MonoBehaviour
                         return;
 
                     case "1>14":
-                        path = "TheGate 141";
-                        nextDialogue(path);
-
+                        Endcard();
                         return;
 
                     case "TheGate 2":
@@ -334,7 +335,7 @@ public class TableCard : MonoBehaviour
                         if (tirage == 0)
                         {
 
-                            Recit.text = paragraph("Après une attente, qui sous la pluie vous parut bien longue, vous entendez le bruit rocailleux d'une cariole sur la route. Vous risquez un regard hors de votre cachette. Une caravane de marchand. Les chevaux s'arretent soudain dans un enfer de henissements.               \"Une roue a du sauter\", vous pensez.");
+                            Recit.text = paragraph("Après une attente, qui sous la pluie vous parut bien longue, vous entendez le bruit rocailleux d'une cariole sur la route. Vous risquez un regard hors de votre cachette. Une caravane de marchand. Les chevaux s'arretent soudain dans un enfer de henissements.  \"Une roue a du sauter\", vous pensez.");
 
                             B1text.text = "Attendre qu'il descende remettre la roue pour se cacher dans les marchandises";
                             B2text.text = "Proposer votre aide";
@@ -348,6 +349,40 @@ public class TableCard : MonoBehaviour
 
                             Continuer("Continuer");
                         }
+                        break;
+
+
+                    case "TheGate 31":
+                        //jet agi
+                        // -> réussite
+                        path = "TheGate 1#";
+                        Continuer("Entrer dans la ville");
+                        break;
+
+                    case "TheGate 32":
+                        //jet char
+                        // -> réussite
+                        path = "TheGate 1#";
+                        Continuer("Entrer dans la ville");
+                        break;
+
+                    case "TheGate 33":
+                        Recit.text = paragraph("Votre méfait accompli vous pillez le cadavre encore chaud du marchand, et prenez la fuite avant que la caravane immobile attire l'attention des gardes..");
+                        Continuer("Continuer");
+                        break;
+
+                    case "TheGate 34":
+                        Recit.text = paragraph("Le marchand remet sa route en place et reprend son chemin. Vous avez manqué l'occasion.. Il est temps de reprendre votre voyage");
+                        Continuer("Poursuivre votre périple");
+
+                        break;
+
+                    case "TheGate 341":
+                        Endcard();
+                        return;
+
+                    case "TheGate 331":
+                        Endcard();
                         break;
 
                     case "TheGate 3#1":
@@ -394,10 +429,30 @@ public class TableCard : MonoBehaviour
                         Endcard();
                         break;
 
+                    
+
+                    case "TheGate 4":
+                        Endcard();
+                        return;
+
 
                 }
                 break;
 
+
+
+            case "Gobelins!":
+                switch (path)
+                {
+                    case "Gobelins! ":
+                        Recit.text = paragraph("Une horde de gobelins vous attaque! Aux armes !");
+                        Continuer("Combattre!");
+                        break;
+                    case "Gobelins! 1":
+                        Endcard();
+                        break;
+                }
+                break;
         }
 
         clicked = false;

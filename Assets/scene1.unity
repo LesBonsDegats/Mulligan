@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 75592434}
   - component: {fileID: 75592438}
   m_Layer: 0
-  m_Name: Crossroad
+  m_Name: Gobelins!
   m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +597,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 29ddf4e0dc28e224185282194618c898, type: 2}
+  - {fileID: 2100000, guid: b0567ca557b57de4ab256baff8f5339c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -658,12 +658,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  Image: {fileID: 21300000, guid: 64965b42483693b4ebafea5fb634c323, type: 3}
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  cardName: TheGate
+  cardName: Gobelins!
   Button1: {fileID: 1537807524}
   Button2: {fileID: 1337633376}
   Button3: {fileID: 62486502}
