@@ -636,7 +636,19 @@ public class TableCard : MonoBehaviour
         }
     }
 
+    private bool Jet(int attribut, int difficulté)
+    {
+        System.Random rnd = new System.Random();
+        int tirage = rnd.Next(difficulté + (attribut / 10));
+
+        return (attribut > difficulté);
+    }
+    
+    
+    
     //STAPLE
+
+    
 
 
     private void OnMouseEnter()
