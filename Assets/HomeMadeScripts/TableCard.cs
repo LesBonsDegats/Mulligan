@@ -34,6 +34,7 @@ public class TableCard : MonoBehaviour
     private bool c = false;
     private bool d = false;
     public string path = "";
+    private float relation = 0f;
 
     public GameObject Parchemin;
     public Text Recit;
@@ -70,6 +71,7 @@ public class TableCard : MonoBehaviour
         b = false;
         c = false;
         d = false;
+        relation = 0;
 
         switch (cardName)
         {
@@ -117,9 +119,9 @@ public class TableCard : MonoBehaviour
         string paragraph = "";
 
 
-        while (L - index > 71)
+        while (L - index > 67)
         {
-            pas = 71;
+            pas = 67;
 
             while (str[pas + index] != ' ')
             {
@@ -163,22 +165,20 @@ public class TableCard : MonoBehaviour
         B3text.text = "";
         B4text.text = "";
 
-        switch (getFirstWord(pathto))
+        switch (this.cardName)
         {
-            case "TheGate":
-                
+            case "TheGate":    
+
                 switch(pathto)
                 {
                     case "TheGate ":
 
                         Recit.text = paragraph("Alors que la pluie battante vous extenue dans vos perégrinations sur les routes sans fin de Landskøm, vous apercevez les larges portes d'une ville. Une athmosphère inquiétante se dégage des lieux. Vous voyez de mornes soldats pénétrant l'enceinte, probablement de retour de quelque pillage.. Vous ne savez si les habitants de la ville vous sont hostiles ou non, mais vous sentez que vous n'êtes pas le bienvenu.. Que voulez vous faire ?");
 
-
                         B1text.text = "S'approcher discretement de la ville..";
                         B2text.text = "Sortir de votre cachette et heler le garde";
                         B3text.text = "Rester caché pour quelques temps..";
                         B4text.text = "Poursuivre votre périple";
-
 
                     break;
 
@@ -207,9 +207,125 @@ public class TableCard : MonoBehaviour
                         }
                     break;
 
-                    case "TheGate 2":
-                        Recit.text = "";
+                    case "TheGate 11":
+                        path = "TheGate 1>";
+                        Recit.text = paragraph("Les gardes ne semblent pas d'humeur à tergiverser. Sans doute avez vous interrompu une trépidante partie de cartes ?");
+
+                        Continuer("Continuer");
+
                         break;
+
+
+                    case "TheGate 12":
+                        Recit.text = paragraph("Un rictus se dessine sur le visage d'un des gardes. Entrer dans la ville ? Ah! Un r'negat comm' toi ? T'sais c'qu'on risque pour ça ? Par pour moins qu'deux écus! ");
+
+                        B1text.text = "Accepter l'offre (coût : 2 or)";
+                        B2text.text = "Refuser et poursuivre votre périple";
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+
+                        break;
+
+                    case "TheGate 121":
+                        path = "TheGate 1#1";
+                        nextDialogue(path);
+                        break;
+
+                    case "TheGate 122":
+
+
+                    case "TheGate 13":
+                        path = "TheGate 1>";
+                        Recit.text = paragraph("Même dans l'embarras où vous êtes plongés, vous vous efforcez de ne pas perdre la face. Vous expliquez posément aux gardes ce qui vous ammène ici, en espérant qu'ils soient recéptifs à vos malheurs.");
+                        Continuer("Continuer");
+
+                        break;
+
+                    case "TheGate 14":
+                        Recit.text = paragraph("Voyant les gardes s'approcher, vous vous enfuyez à grandes enjambées. Ces derniers ne prennent pas le temps de poursuivre la vermine que vous êtes à leur yeux, et reprennent leur partie de cartes..");
+                        Continuer("Poursuivre votre périple");
+
+                        break;
+
+                    case "TheGate 141":
+                        Endcard();
+                        break;
+
+
+                    case "TheGate 1>1":
+                        Recit.text = paragraph("Les gardes vous dévisagent avec méfiance.. Jouer la carte de la sincérité suffira-t-il à faire oublier ces présentations peu avantageuses ? Pour l'heure, la seule réponse que vous obtenez de la garde est un silence glacial. \"Pourquoi qu'on vous laisserait v'nir, vagabond ? Vous autres n'apportez qu'des problèmes");
+
+                        B1text.text = "Tenter d'attirer l'empathie du garde";
+                        B2text.text = "Intimider les gardes";
+                        B3text.text = "Payer l'entrée dans la ville (coût : 1 or)";
+                        B4text.text = "Renoncer à entrer dans la ville et pousuivre votre voyage";
+                        break;
+
+                    case "TheGate 1>11":
+
+                        // jet de charisme
+
+                        //réussite
+
+                        //réussite -> 
+
+                        path = "TheGate 1#1";
+                        nextDialogue(path);
+                        return;
+                        
+
+                    case "TheGate 1>12":
+
+                        // jet de charisme + force
+
+                        //réussite -> 
+
+                        path = "TheGate 1#1";
+                        nextDialogue(path);
+                        return;
+
+
+                    case "TheGate 1>13":
+                        // -1 or
+
+                        path = "TheGate 1#1";
+                        nextDialogue(path);
+                        return;
+
+                    case "1>14":
+                        path = "TheGate 141";
+                        nextDialogue(path);
+
+                        return;
+
+                    case "TheGate 2":
+                        Recit.text = paragraph("Attendant, seul dans la lumière, l'apparition de votre interlocuteur, un vent glacial vous secoue de toutes parts. Des bruits de pas. En rythme. Un régiment de gardes sort de la grande porte, et vient s'approcher de vous..");
+                        B1text.text = "Expliquer vos intentions pacifiques";
+                        B2text.text = "Demander la permission de rentrer dans la ville";
+                        B3text.text = "Vous présenter fièrement";
+                        B4text.text = "S'enfuir tant qu'il est encore temps!";
+
+                        break;
+
+                    case "TheGate 21":
+                        path = "TheGate 11";
+                        nextDialogue(path);
+                        return;
+
+                    case "TheGate 22":
+                        path = "TheGate 12";
+                        nextDialogue(path);
+                        return;
+
+                    case "TheGate 23":
+                        path = "TheGate 13";
+                        nextDialogue(path);
+                        return;
+
+                    case "TheGate 24":
+                        path = "TheGate 14";
+                        nextDialogue(path);
+                        return;
 
                     case "TheGate 3":
 
@@ -230,10 +346,7 @@ public class TableCard : MonoBehaviour
                             path += '#';
                             Recit.text = paragraph("Un rongeur, une relève, deux gardes parlant de femmes.. Vous ne ressentez que le froid et l'impression d'avoir attendu pour rien.");
 
-                            B1text.text = "Continuer";
-                            Button2.enabled = false;
-                            Button3.enabled = false;
-                            Button4.enabled = false;
+                            Continuer("Continuer");
                         }
                         break;
 
@@ -252,39 +365,28 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 1#11":
                         Recit.text = paragraph("L'alcool vient réchauffer votre sang durement éprouvé, vous voyez dans l'écume des pintes le reflet joyeux de vos dernières aventures.");
-                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
-                        Button2.enabled = false;
-                        Button3.enabled = false;
-                        Button4.enabled = false;
+                        Continuer("Sortir de la ville et poursuivre votre voyage");
                         path = "TheGate 1#1>";
 
                         break;
 
                     case "TheGate 1#12":
                         Recit.text = paragraph("Dans l'intimité de l'autel, vous trouvez le réconfort et une présence bienfaitrice. Est-ce un message des Grands, porteur de fortune ? Seul l'avenir vous le dira.");
-                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
-                        Button2.enabled = false;
-                        Button3.enabled = false;
-                        Button4.enabled = false;
+                        Continuer("Sortir de la ville et poursuivre votre voyage");
                         path = "TheGate 1#1>";
 
                         break;
 
                     case "TheGate 1#13":
                         Recit.text = paragraph("Assis à l'abri sous l'arche d'une poterne, vous entreprenez de confectionner un pansement pour couvrir vos plaies. ");
-                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
-                        Button2.enabled = false;
-                        Button3.enabled = false;
-                        Button4.enabled = false;
+                        Continuer("Sortir de la ville et poursuivre votre voyage");
                         path = "TheGate 1#1>";
                         break;
 
                     case "TheGate 1#14":
                         Recit.text = paragraph("L'armurier vous laisse utiliser sa meule par vous même. Vous vous donnez à coeur joie de ranimer le tranchant des beaux jours de votre arme.");
-                        B1text.text = "Sortir de la ville et poursuivre votre voyage";
-                        Button2.enabled = false;
-                        Button3.enabled = false;
-                        Button4.enabled = false;
+                        Continuer("Sortir de la ville et poursuivre votre voyage");
+
                         path = "TheGate 1#1>";
                         break;
 
@@ -311,7 +413,7 @@ public class TableCard : MonoBehaviour
         Parchemin.SetActive(false);
         path = "";
     }
-
+    /*
 
     private string getFirstWord(string str)
     {
@@ -326,7 +428,7 @@ public class TableCard : MonoBehaviour
         }
         return word;
     }
-
+    */
 
     public bool Dial()
     {
@@ -358,6 +460,14 @@ public class TableCard : MonoBehaviour
               
     }
     
+    private void Continuer(string str)
+    {
+        B1text.text = str;
+        Button2.enabled = false;
+        Button3.enabled = false;
+        Button4.enabled = false;
+    }
+
 
         // Update is called once per frame
         void Update()

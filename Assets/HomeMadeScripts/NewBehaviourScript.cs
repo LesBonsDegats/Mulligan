@@ -467,9 +467,9 @@ public class NewBehaviourScript : MonoBehaviour
                 }
             }
 
+        }
 
-
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 List<GameObject> children = new List<GameObject>();
                 foreach (Transform child in floor.transform) children.Add(child.gameObject);
@@ -495,7 +495,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         }
     }
-}
+
 
 
 
