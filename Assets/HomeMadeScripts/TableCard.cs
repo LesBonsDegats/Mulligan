@@ -29,6 +29,8 @@ public class TableCard : MonoBehaviour
     public Text B3text;
     public Text B4text;
 
+    public Text RewardText;
+
     private bool a = false;
     private bool b = false;
     private bool c = false;
@@ -50,7 +52,6 @@ public class TableCard : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         Button1.onClick.AddListener(PressButton1);
         Button2.onClick.AddListener(PressButton2);
         Button3.onClick.AddListener(PressButton3);
@@ -65,6 +66,7 @@ public class TableCard : MonoBehaviour
 
     private void playCard()
     {
+        RewardText.text = "";
         cardPlaying = true;
         clicked = false;
         a = false;
@@ -78,13 +80,19 @@ public class TableCard : MonoBehaviour
 
             case "TheGate":
                 path = "TheGate ";
-                Titre.text = "The Gate";
+                Titre.text = "La Porte";
                 break;
 
             case "Gobelins!":
                 path = "Gobelins! ";
                 Titre.text = "Gobelins!";
                 break;
+
+            case "LaSource":
+                path = "LaSource ";
+                Titre.text = "La Source";
+                break;
+            
 
             
 
@@ -222,6 +230,7 @@ public class TableCard : MonoBehaviour
                     case "TheGate 12":
                         Recit.text = paragraph("Un rictus se dessine sur le visage d'un des gardes. Entrer dans la ville ? Ah! Un r'negat comm' toi ? T'sais c'qu'on risque pour ça ? Par pour moins qu'deux écus! ");
 
+                        Button1.enabled = (s.gold >= 2);
                         B1text.text = "Accepter l'offre (coût : 2 or)";
                         B2text.text = "Refuser et poursuivre votre périple";
                         Button3.enabled = false;
@@ -230,8 +239,10 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 121":
-                        path = "TheGate 1#1";
-                        nextDialogue(path);
+                        Recit.text = paragraph("Non sans réchignement, vous donnez au garde le prix exigé en soupirant à l'idée qu'il dépense en argent et en filles de joie votre argent si dûrement gagné..");
+                        basicReward(-2, 0, 0, 0);
+                        path = "TheGate 1#";
+                        Continuer("Continuer");
                         break;
 
                     case "TheGate 122":
@@ -368,6 +379,7 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 33":
                         Recit.text = paragraph("Votre méfait accompli vous pillez le cadavre encore chaud du marchand, et prenez la fuite avant que la caravane immobile attire l'attention des gardes..");
+                        basicReward(6, 0, 0, -4);
                         Continuer("Continuer");
                         break;
 
@@ -427,9 +439,7 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 1#1>1":
                         Endcard();
-                        break;
-
-                    
+                        break; 
 
                     case "TheGate 4":
                         Endcard();
@@ -453,8 +463,85 @@ public class TableCard : MonoBehaviour
                         break;
                 }
                 break;
-        }
 
+            case "LaSource":
+                switch (path)
+                {
+                    case "LaSource ":
+                        Recit.text = paragraph("Vous vous approchez d'un point d'eau où vous esperez vous resourcer.Alors que vous commencez à monter votre campement, vous distinguez des étincelles dans l'azur des flots. Un objet se trouve sous l'eau..Vous estimez qu'une dizaine de mètres vous sépare du trésor.. Que souhaitez-vous faire ?");
+
+                        B1text.text = "Laisser votre armure de coté et plonger dans l'eau";
+                        B2text.text = "Vous reposer au bord de l'eau quelques instants";
+                        B3text.text = "Boire l'eau du lac";
+                        B4text.text = "Poursuivre votre périple";
+
+
+                        break;
+
+                    case "LaSource 1":
+                        Recit.text = paragraph("Votre estimation était bien optimiste.. Le trésor est quelques mètres plus bas. L'air commence à manquer et vous sentez votre pouls s'emballer. Le bon sens vous pousse à remonter, l'avidité à descendre plus profondément.. ");
+
+                        B1text.text = "Remonter à la surface";
+                        B2text.text = "Descendre plus bas";
+
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        break;
+
+
+                    case "LaSource 11":
+                        Recit.text = paragraph("De retour à la surface, vous voyez un bandit s'en prenant à votre bivouac. Vous voyant de retour, il dégaine un coutelas et vous charge comme un bélier. ");
+
+                        Continuer("Se défendre!");
+                        break;
+
+                    case "LaSource 12":
+                        Recit.text = paragraph("A chaque mètre que vous parcourez il vous semble que le trésor est un peu plus loin.. Vous devez vous rendre à l'évidence, vous ne parviendez pas au but, il est temps de faire demi-tour..");
+
+                        Continuer("Remonter à la surface..");
+                        break;
+
+                    case "LaSource 121":
+                        Recit.text = paragraph("De retour à la surface, vous n'avez pas le temps de reprendre votre souffle que vous constatez que votre bivouac a été pillé.. Animaux ? Bandits ? Qui sait. Pour l'heure, vous devez reprendre votre route.");
+
+                        Continuer("Reprendre la route");
+                        break;
+
+                    case "LaSource 1211":
+                        Endcard();
+                        return;
+
+                    case "LaSource 2":
+                        Recit.text = paragraph("Le fond de l'air est doux et le bruit blanc de l'eau baigne les lieux dans une tranquilité infinie. Ressourcé, vous reprenez votre chemin.");
+
+                        Continuer("Reprendre votre périple");
+                        break;
+
+                    case "LaSource 21":
+                        Endcard();
+                        return;
+
+                    case "LaSource 3":
+                        Recit.text = paragraph("Fraîche et amère, l'eau vient rincer vos entrailles assechées par l'effort. Le liquide coule désormais dans vos veines, et vous emplie d'une force nouvelle. Il est temps de reprendre votre périple !");
+                        Continuer("Reprendre votre route");
+                        break;
+
+                    case "LaSource 31":
+                        Endcard();
+                        return;
+
+                    case "LaSource 4":
+                        Recit.text = paragraph("Poursuivre votre périple");
+                        break;
+
+                    case "LaSource 41":
+                        Endcard();
+                        return;
+
+                }
+                break;
+        }
+        
         clicked = false;
         StartCoroutine(WaitForClick());
 
@@ -468,22 +555,7 @@ public class TableCard : MonoBehaviour
         Parchemin.SetActive(false);
         path = "";
     }
-    /*
 
-    private string getFirstWord(string str)
-    {
-        int compteur = 0;
-        string word = "";
-        int L = str.Length;
-
-        while (str[compteur] != ' ' && compteur < L)
-        {
-            word += str[compteur];
-            compteur++;
-        }
-        return word;
-    }
-    */
 
     public bool Dial()
     {
@@ -522,6 +594,12 @@ public class TableCard : MonoBehaviour
         Button3.enabled = false;
         Button4.enabled = false;
     }
+
+
+
+
+
+    // Update is called once per frame'
 
 
         // Update is called once per frame
@@ -604,6 +682,48 @@ public class TableCard : MonoBehaviour
             d = true;
             clicked = true;
         }
+    }
+
+
+    private void basicReward (int gold, int life, int hunger, int moral)
+    {
+        if (gold != 0)
+        {
+            if (gold > 0)
+                RewardText.text += "Vous avez gagné " + gold.ToString() + " écus\n";
+            else
+                RewardText.text += "Vous avez perdu " + (-gold).ToString() + " écus\n";
+
+            s.gold += gold;
+        }
+
+        if (life != 0)
+        {
+            if (life > 0)
+                RewardText.text += "Vous avez gagné " + life.ToString() + " points de vie\n";
+            else
+                RewardText.text += "Vous avez perdu " + (-life).ToString() + " points de vie\n";
+
+            s.life += life;
+        }
+
+        if (hunger != 0)
+        {
+            if (hunger > 0)
+                RewardText.text += "Vous avez gagné " + hunger.ToString() + " points de faim\n";
+            else
+                RewardText.text += "Vous avez perdu " + (-hunger).ToString() + " points de faim\n";
+        }
+
+        if (moral != 0)
+        {
+            if (moral > 0)
+                RewardText.text += "Vous avez gagné " + moral.ToString() + " points de moral\n";
+            else
+                RewardText.text += "Vous avez perdu " + (-moral).ToString() + " points de moral\n";
+        }
+
+
     }
 
 

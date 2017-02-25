@@ -18,6 +18,10 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject Hungerbar;
     public GameObject Moralbar;
 
+    private jauges lifebar;
+    private jauges hungerbar;
+    private jauges moralbar;
+
 
     public GameObject CardT;
     public GameObject CardP;
@@ -78,6 +82,34 @@ public class NewBehaviourScript : MonoBehaviour
     private int decalagex = 4;
     private int decalagez = 3;
 
+    // attributes
+
+    public int life;
+    public int lifemax;
+
+    public int hunger;
+    public int hungermax;
+
+    public int moral;
+    public int moralmax;
+
+    public int xp;
+    public int xpmax;
+
+    public int gold;
+
+    public int strenght;
+    public int agility;
+    public int intel;
+    public int charisma;
+    public int luck;
+
+    
+
+
+
+
+
 
 
 
@@ -86,6 +118,12 @@ public class NewBehaviourScript : MonoBehaviour
     {
         inventoryscript = inventory.GetComponent<Inventory>();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
+
+        hungerbar = Hungerbar.GetComponent<jauges>();
+        lifebar = Lifebar.GetComponent<jauges>();
+        moralbar = Moralbar.GetComponent<jauges>();
+
+
         iniLvl(6);
 
 
@@ -438,8 +476,8 @@ public class NewBehaviourScript : MonoBehaviour
 
                     moving = true;
 
-                    jauges faim = Hungerbar.GetComponent<jauges>();
-                    faim.change(-1);
+
+                    hungerbar.change(-1);
 
 
                     //    canMove = false; à désactiver pdt tests.

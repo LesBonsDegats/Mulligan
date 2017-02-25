@@ -5,29 +5,35 @@ using System.Collections;
 public class jauges : MonoBehaviour {
 
     public int init_max;
-    public int life;
+    public int attribute;
     public float init_coef_taille;
+    public GameObject cam;
+    public NewBehaviourScript s;
+    public string type;
 
     public Text IntIndicator;
     // Use this for initialization
     void Start ()
     {
-        life = init_max;
-        init_coef_taille = this.transform.localScale.z / init_max;
-      
+      init_coef_taille = this.transform.localScale.z / init_max;
+        s = cam.GetComponent<NewBehaviourScript>();
+
+        attribute = init_max;
 
     }
 	//j'ai dégagé le update qui n'était pas nécessaire
     public void change(int delta)
     {
-        life += delta;
-        if (life< 0)
+        
+        
+        attribute += delta;
+        if (attribute< 0)
         {
-            life = 0;
+            attribute = 0;
         }
-        else if (life > init_max)
+        else if (attribute > init_max)
         {
-            life = init_max;
+            attribute = init_max;
         }
         else
         {
@@ -36,12 +42,31 @@ public class jauges : MonoBehaviour {
             this.transform.localPosition += new Vector3(-delta_taille / 2, 0, 0);
         }
 
+        switch (type)
+        {
+            case "life":
+                s.life = attribute;
+                s.lifemax = init_max;
+                break;
+
+            case "hunger":
+                s.hunger = attribute;
+                s.lifemax = init_max;
+                break;
+
+            case "moral":
+                s.moral = attribute;
+                s.moralmax = attribute;
+                break;
+        }
+
+
 
     }
 
     private void OnMouseEnter()
     {
-        IntIndicator.text = life.ToString() + " / " + init_max.ToString();
+        IntIndicator.text = attribute.ToString() + " / " + init_max.ToString();
     }
 
     private void OnMouseExit()

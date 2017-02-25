@@ -257,7 +257,7 @@ Transform:
   m_Children:
   - {fileID: 1887356046}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &56963864
 GameObject:
@@ -366,6 +366,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -672,6 +673,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -869,6 +871,20 @@ MonoBehaviour:
   currentx: 0
   currentz: 10
   floorlvl: 6
+  life: 0
+  lifemax: 0
+  hunger: 0
+  hungermax: 0
+  moral: 0
+  moralmax: 0
+  xp: 0
+  xpmax: 0
+  gold: 50
+  strenght: 10
+  agility: 10
+  intel: 10
+  charisma: 10
+  luck: 10
 --- !u!81 &140618116
 AudioListener:
   m_ObjectHideFlags: 0
@@ -937,6 +953,7 @@ Transform:
   - {fileID: 1541080681}
   - {fileID: 622805079}
   - {fileID: 279408776}
+  - {fileID: 1183391394}
   m_Father: {fileID: 2111100451}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1055,8 +1072,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   init_max: 100
-  life: 100
+  attribute: 0
   init_coef_taille: 0
+  cam: {fileID: 140618114}
+  s: {fileID: 140618115}
+  type: life
   IntIndicator: {fileID: 475475743}
 --- !u!222 &183486626
 CanvasRenderer:
@@ -1183,7 +1203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &273111451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1191,15 +1211,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 273111450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.018679846}
-  m_LocalScale: {x: 0.102759466, y: 0.09454109, z: 0.06514137}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 0.0973105, y: 0.10826994, z: 0.023874506}
   m_Children: []
   m_Father: {fileID: 708040540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.364136, y: -3.6501846}
+  m_AnchoredPosition: {x: -13.66, y: 1.35}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273111452
@@ -1214,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.1397059, g: 0.2168355, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1223,7 +1243,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1231,8 +1251,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'New Text
 
@@ -2054,7 +2074,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 475475741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 37}
+  m_LocalPosition: {x: 0, y: 0, z: 77.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1183391394}
@@ -2062,7 +2082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -546, y: -233}
+  m_AnchoredPosition: {x: -358, y: -170}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475475743
@@ -2291,8 +2311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   init_max: 50
-  life: 0
+  attribute: 0
   init_coef_taille: 0
+  cam: {fileID: 140618114}
+  s: {fileID: 140618115}
+  type: 
   IntIndicator: {fileID: 1550176268}
 --- !u!1 &574006063
 GameObject:
@@ -2712,6 +2735,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -3500,6 +3524,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -3613,7 +3638,7 @@ GameObject:
   - component: {fileID: 1036721779}
   - component: {fileID: 1036721782}
   m_Layer: 0
-  m_Name: PCard3
+  m_Name: LaSource
   m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3645,7 +3670,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c172294fde957dc49a08fea8c16a3c18, type: 2}
+  - {fileID: 2100000, guid: a2a81d99cedc09c4c8f3ed4ce6f519a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3693,12 +3718,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  Image: {fileID: 21300000, guid: 6856b152727e68947989513004e0c5e8, type: 3}
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  cardName: TheGate
+  cardName: LaSource
   Button1: {fileID: 1537807524}
   Button2: {fileID: 1337633376}
   Button3: {fileID: 62486502}
@@ -3707,6 +3732,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -3742,7 +3768,7 @@ Transform:
   - {fileID: 267398308}
   - {fileID: 1110143573}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056061217
 GameObject:
@@ -4351,7 +4377,7 @@ Canvas:
   serializedVersion: 2
   m_RenderMode: 1
   m_Camera: {fileID: 140618119}
-  m_PlaneDistance: 2
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4373,8 +4399,8 @@ RectTransform:
   - {fileID: 475475742}
   - {fileID: 1340989891}
   - {fileID: 1550176270}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 140618120}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4562,6 +4588,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -4769,6 +4796,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -5004,7 +5032,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1340989890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 178}
+  m_LocalPosition: {x: 0, y: 0, z: 75}
   m_LocalScale: {x: 0.99911624, y: 0.99911624, z: 0.99911654}
   m_Children: []
   m_Father: {fileID: 1183391394}
@@ -5012,7 +5040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -673, y: -390}
+  m_AnchoredPosition: {x: -356.6, y: -237}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340989892
@@ -5297,6 +5325,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -5996,7 +6025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -582, y: -292}
+  m_AnchoredPosition: {x: -354.3, y: -204}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1607689620
@@ -6490,8 +6519,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   init_max: 20
-  life: 20
+  attribute: 0
   init_coef_taille: 0
+  cam: {fileID: 140618114}
+  s: {fileID: 140618115}
+  type: 
   IntIndicator: {fileID: 1340989892}
 --- !u!1 &1791488300
 GameObject:
@@ -6600,6 +6632,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -9431,6 +9464,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
@@ -10075,6 +10109,7 @@ MonoBehaviour:
   B2text: {fileID: 1223098625}
   B3text: {fileID: 1440141613}
   B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
   path: 
   Parchemin: {fileID: 708040539}
   Recit: {fileID: 1154867521}
