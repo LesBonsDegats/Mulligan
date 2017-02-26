@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -90,13 +84,14 @@
     <Compile Include="Assets\HomeMadeScripts\Card.cs" />
     <Compile Include="Assets\HomeMadeScripts\CardBack.cs" />
     <Compile Include="Assets\HomeMadeScripts\CharacterControls.cs" />
-    <Compile Include="Assets\HomeMadeScripts\Dialogue.cs" />
     <Compile Include="Assets\HomeMadeScripts\DialogueWindow.cs" />
     <Compile Include="Assets\HomeMadeScripts\InventaireSlot.cs" />
     <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />
+    <Compile Include="Assets\HomeMadeScripts\MainMenuScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\PCard.cs" />
+    <Compile Include="Assets\HomeMadeScripts\PauseMenu.cs" />
     <Compile Include="Assets\HomeMadeScripts\RCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\RefreshButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\TCard.cs" />
@@ -106,7 +101,6 @@
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />
-    <Compile Include="Assets\MainMenuScript.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -145,7 +139,6 @@
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\PauseMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

@@ -174,6 +174,7 @@ public class TableCard : MonoBehaviour
         B2text.text = "";
         B3text.text = "";
         B4text.text = "";
+        RewardText.text = "";
 
         switch (this.cardName)
         {
@@ -183,7 +184,7 @@ public class TableCard : MonoBehaviour
                 {
                     case "TheGate ":
 
-                        Recit.text = paragraph("Alors que la pluie battante vous extenue dans vos perégrinations sur les routes sans fin de Landskøm, vous apercevez les larges portes d'une ville. Une athmosphère inquiétante se dégage des lieux. Vous voyez de mornes soldats pénétrant l'enceinte, probablement de retour de quelque pillage.. Vous ne savez si les habitants de la ville vous sont hostiles ou non, mais vous sentez que vous n'êtes pas le bienvenu.. Que voulez vous faire ?");
+                        Recit.text = paragraph("Alors que la pluie battante vous extenue dans vos perégrinations sur les routes sans fin de Landskøm, vous apercevez les larges portes d'une ville. Une atmosphère inquiétante se dégage des lieux. Vous voyez de mornes soldats pénétrant l'enceinte, probablement de retour de quelques pillages.. Vous ne savez si les habitants de la ville vous sont hostiles ou non, mais vous sentez que vous n'êtes pas le bienvenu.. Que voulez vous faire ?");
 
                         B1text.text = "S'approcher discretement de la ville..";
                         B2text.text = "Sortir de votre cachette et heler le garde";
@@ -211,7 +212,6 @@ public class TableCard : MonoBehaviour
                             Recit.text = paragraph("Un groupe de voyageurs s'approche de la ville, une occasion pour vous de vous mêler à la foule!");
                             B1text.text = "Continuer";
                             B2text.text = "Poursuivre votre voyage";
-
                             Button3.enabled = false;
                             Button4.enabled = false;
                         }
@@ -220,9 +220,7 @@ public class TableCard : MonoBehaviour
                     case "TheGate 11":
                         path = "TheGate 1>";
                         Recit.text = paragraph("Les gardes ne semblent pas d'humeur à tergiverser. Sans doute avez vous interrompu une trépidante partie de cartes ?");
-
                         Continuer("Continuer");
-
                         break;
 
                     
@@ -230,9 +228,8 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 12":
                         Recit.text = paragraph("Un rictus se dessine sur le visage d'un des gardes. Entrer dans la ville ? Ah! Un r'negat comm' toi ? T'sais c'qu'on risque pour ça ? Par pour moins qu'deux écus! ");
-
-                        Button1.enabled = (s.gold >= 2);
                         B1text.text = "Accepter l'offre (coût : 2 or)";
+                        Button1.enabled = s.gold >= 2;
                         B2text.text = "Refuser et poursuivre votre périple";
                         Button3.enabled = false;
                         Button4.enabled = false;
@@ -240,7 +237,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 121":
-                        Recit.text = paragraph("Non sans réchignement, vous donnez au garde le prix exigé en soupirant à l'idée qu'il dépense en argent et en filles de joie votre argent si dûrement gagné..");
+                        Recit.text = paragraph("Non sans réchigner, vous donnez au garde le prix exigé en soupirant à l'idée qu'il dépense en argent et en filles de joie votre argent si dûrement gagné..");
                         basicReward(-2, 0, 0, 0);
                         path = "TheGate 1#";
                         Continuer("Continuer");
@@ -269,8 +266,7 @@ public class TableCard : MonoBehaviour
 
 
                     case "TheGate 1>1":
-                        Recit.text = paragraph("Les gardes vous dévisagent avec méfiance.. Jouer la carte de la sincérité suffira-t-il à faire oublier ces présentations peu avantageuses ? Pour l'heure, la seule réponse que vous obtenez de la garde est un silence glacial. \"Pourquoi qu'on vous laisserait v'nir, vagabond ? Vous autres n'semez qu'des problèmes sur vot' chemin");
-
+                        Recit.text = paragraph("Les gardes vous dévisagent avec méfiance.. Jouer la carte de la sincérité suffira-t-il à faire oublier ces présentations peu avantageuses ? Pour l'heure, la seule réponse que vous obtenez de la garde est un silence glacial. Un des vigiles brise finalement l'attente: \"Pourquoi qu'on vous laisserait v'nir, vagabond ? Vous autres n'semez qu'des problèmes sur vot' chemin");
                         B1text.text = "Tenter d'attirer l'empathie du garde";
                         B2text.text = "Intimider les gardes";
                         B3text.text = "Payer l'entrée dans la ville (coût : 1 or)";
@@ -297,10 +293,12 @@ public class TableCard : MonoBehaviour
 
 
                     case "TheGate 1>13":
-                        // -1 or
 
-                        path = "TheGate 1#1";
-                        nextDialogue(path);
+                        Recit.text = paragraph("Non sans réchigner, vous donnez au garde le prix exigé en soupirant à l'idée qu'il dépense en argent et en filles de joie votre argent si dûrement gagné..");
+                        basicReward(-1, 0, 0, 0);
+
+                        path = "TheGate 1#";
+                        Continuer("Entrer dans la ville");
                         return;
 
                     case "1>14":
@@ -501,7 +499,7 @@ public class TableCard : MonoBehaviour
                     case "LaSource 121":
                         Recit.text = paragraph("De retour à la surface, vous n'avez pas le temps de reprendre votre souffle que vous constatez que votre bivouac a été pillé.. Animaux ? Bandits ? Qui sait. Pour l'heure, vous devez reprendre votre route.");
 
-                        Continuer("Reprendre la route");
+                        Continuer("Poursuivre votre périple");
                         break;
 
                     case "LaSource 1211":
@@ -623,8 +621,7 @@ public class TableCard : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.B))
             {
-                Parchemin.gameObject.SetActive(false);
-                isDone = true;
+                Endcard();
             }    
         }        
         else
