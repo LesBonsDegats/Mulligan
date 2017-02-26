@@ -15,18 +15,56 @@ public class jauges : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-      init_coef_taille = this.transform.localScale.z / init_max;
-        s = cam.GetComponent<NewBehaviourScript>();
 
+        s = cam.GetComponent<NewBehaviourScript>();
+        switch (type)
+        {
+            case "life":
+                init_max = s.lifemax;
+                break;
+
+            case "hunger":
+                init_max = s.hungermax;
+                break;
+
+            case "moral":
+                init_max = s.moralmax;
+                break;
+
+
+        }
         attribute = init_max;
+        init_coef_taille = this.transform.localScale.z / init_max;
+    
 
     }
 	//j'ai dégagé le update qui n'était pas nécessaire
-    public void change(int delta)
+    public void update()
     {
+        int t1 = attribute;
+
+
+        switch (type)
+        {
+            case "life":
+                attribute = s.life;
+                init_max = s.lifemax;
+                break;
+
+            case "hunger":
+                attribute = s.hunger;
+                init_max = s.hungermax;
+                break;
+
+            case "moral":
+                attribute = s.moral;
+                init_max = s.moralmax;
+                break;
+        }
+
+        int delta = attribute - t1;
         
-        
-        attribute += delta;
+
         if (attribute< 0)
         {
             attribute = 0;
@@ -40,24 +78,6 @@ public class jauges : MonoBehaviour {
             float delta_taille = init_coef_taille * delta;
             this.transform.localScale += new Vector3(0, 0, delta_taille);
             this.transform.localPosition += new Vector3(-delta_taille / 2, 0, 0);
-        }
-
-        switch (type)
-        {
-            case "life":
-                s.life = attribute;
-                s.lifemax = init_max;
-                break;
-
-            case "hunger":
-                s.hunger = attribute;
-                s.lifemax = init_max;
-                break;
-
-            case "moral":
-                s.moral = attribute;
-                s.moralmax = attribute;
-                break;
         }
 
 

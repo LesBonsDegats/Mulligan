@@ -14,13 +14,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     public GameObject CardStart;
 
-    public GameObject Lifebar;
-    public GameObject Hungerbar;
-    public GameObject Moralbar;
 
-    private jauges lifebar;
-    private jauges hungerbar;
-    private jauges moralbar;
+    public jauges lifebar;
+    public jauges hungerbar;
+    public jauges moralbar;
 
 
     public GameObject CardT;
@@ -104,14 +101,6 @@ public class NewBehaviourScript : MonoBehaviour
     public int charisma;
     public int luck;
 
-    
-
-
-
-
-
-
-
 
     // Use this for initialization
     void Start()
@@ -119,9 +108,6 @@ public class NewBehaviourScript : MonoBehaviour
         inventoryscript = inventory.GetComponent<Inventory>();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
 
-        hungerbar = Hungerbar.GetComponent<jauges>();
-        lifebar = Lifebar.GetComponent<jauges>();
-        moralbar = Moralbar.GetComponent<jauges>();
 
 
         iniLvl(6);
@@ -477,7 +463,8 @@ public class NewBehaviourScript : MonoBehaviour
                     moving = true;
 
 
-                    hungerbar.change(-1);
+                    hunger--;
+                    hungerbar.update();
 
 
                     //    canMove = false; à désactiver pdt tests.

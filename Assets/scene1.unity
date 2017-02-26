@@ -832,9 +832,9 @@ MonoBehaviour:
   ShowCard: {fileID: 1541080680}
   sr: {fileID: 1541080682}
   CardStart: {fileID: 443261924}
-  Lifebar: {fileID: 183486620}
-  Hungerbar: {fileID: 517459217}
-  Moralbar: {fileID: 1746977017}
+  lifebar: {fileID: 183486625}
+  hungerbar: {fileID: 517459222}
+  moralbar: {fileID: 1746977022}
   CardT: {fileID: 1645926740}
   CardP: {fileID: 1119128168}
   CardR: {fileID: 1607689620}
@@ -873,12 +873,12 @@ MonoBehaviour:
   currentx: 0
   currentz: 10
   floorlvl: 6
-  life: 0
-  lifemax: 0
-  hunger: 0
-  hungermax: 0
-  moral: 0
-  moralmax: 0
+  life: 100
+  lifemax: 100
+  hunger: 50
+  hungermax: 50
+  moral: 100
+  moralmax: 100
   xp: 0
   xpmax: 0
   gold: 0
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   init_coef_taille: 0
   cam: {fileID: 140618114}
   s: {fileID: 140618115}
-  type: 
+  type: hunger
   IntIndicator: {fileID: 1550176268}
 --- !u!1 &546063618
 GameObject:
@@ -4286,6 +4286,55 @@ MonoBehaviour:
   isDone: 0
   s: {fileID: 140618115}
   clicked: 0
+--- !u!1 &1041490232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1041490233}
+  - component: {fileID: 1041490235}
+  - component: {fileID: 1041490234}
+  m_Layer: 0
+  m_Name: invisibleroof
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1041490233
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041490232}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.600006, y: 9.9, z: -3.1000977}
+  m_LocalScale: {x: 64.493935, y: 1, z: 53.898018}
+  m_Children: []
+  m_Father: {fileID: 1052248991}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1041490234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041490232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1041490235
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041490232}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1052248990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4362,7 @@ Transform:
   m_Children:
   - {fileID: 267398308}
   - {fileID: 1110143573}
+  - {fileID: 1041490233}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5921,7 +5971,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 529a9c33c42954343868c4a20fded39e, type: 2}
+  - {fileID: 2100000, guid: d67eb82ae650e4746badfec3ac288d46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5969,12 +6019,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 21300000, guid: 5eb652d00222e3a4d82d8769090b16fc, type: 3}
+  Image: {fileID: 21300000, guid: f0fffc8b772d583469e6293e538db352, type: 3}
   ShowCard: {fileID: 1541080680}
   cam: {fileID: 140618114}
   sr: {fileID: 1541080682}
   Player: {fileID: 357244050}
-  cardName: TheGate
+  cardName: HordeSquelette
   Button1: {fileID: 1537807524}
   Button2: {fileID: 1337633376}
   Button3: {fileID: 62486502}
@@ -7250,12 +7300,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d78d8b69f2c04d903ec48f534a47a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  init_max: 20
+  init_max: 100
   attribute: 0
   init_coef_taille: 0
   cam: {fileID: 140618114}
   s: {fileID: 140618115}
-  type: 
+  type: moral
   IntIndicator: {fileID: 1340989892}
 --- !u!1 &1771640585
 GameObject:

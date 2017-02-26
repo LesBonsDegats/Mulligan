@@ -93,6 +93,11 @@ public class TableCard : MonoBehaviour
                 path = "LaSource ";
                 Titre.text = "La Source";
                 break;
+
+            case "HordeSquelette":
+                path = "HordeSquelette ";
+                Titre.text = "Les Hordes du Fléau";
+                break;
             
 
             
@@ -352,7 +357,7 @@ public class TableCard : MonoBehaviour
                         {
                             path += '#';
                             Recit.text = paragraph("Un rongeur, une relève, deux gardes parlant de femmes.. Vous ne ressentez que le froid et l'impression d'avoir attendu pour rien.");
-
+                            basicReward(0, 0, -1, 0);
                             Continuer("Continuer");
                         }
                         break;
@@ -373,7 +378,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 33":
-                        Recit.text = paragraph("Votre méfait accompli vous pillez le cadavre encore chaud du marchand, et prenez la fuite avant que la caravane immobile attire l'attention des gardes..");
+                        Recit.text = paragraph("Votre méfait accompli, vous pillez le cadavre encore chaud du marchand, et prenez la fuite avant que la caravane immobile attire l'attention des gardes..");
                         basicReward(6, 0, 0, -4);
                         Continuer("Continuer");
                         break;
@@ -398,6 +403,8 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 1#1":
                         Recit.text = paragraph("Vous parvenez à entrer dans la ville sans encombre, mais souhaitez ne pas vous y éterniser.. Que voulez vous faire ?");
+                        Button1.enabled = (s.gold >= 3);
+
                         B1text.text = "Aller à la taverne: (coût: 3 or)";
                         B2text.text = "Vous rendre au temple pour vous recueillir";
                         B3text.text = "Profiter de l'occasion pour panser vos blessures";
@@ -407,6 +414,8 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 1#11":
                         Recit.text = paragraph("L'alcool vient réchauffer votre sang durement éprouvé, vous voyez dans l'écume des pintes le reflet joyeux de vos dernières aventures.");
+                        basicReward(-3, 0, 50, 10);
+
                         Continuer("Sortir de la ville et poursuivre votre voyage");
                         path = "TheGate 1#1>";
 
@@ -414,6 +423,8 @@ public class TableCard : MonoBehaviour
 
                     case "TheGate 1#12":
                         Recit.text = paragraph("Dans l'intimité de l'autel, vous trouvez le réconfort et une présence bienfaitrice. Est-ce un message des Grands, porteur de fortune ? Seul l'avenir vous le dira.");
+                        basicReward(0, 5, 0, 30);
+
                         Continuer("Sortir de la ville et poursuivre votre voyage");
                         path = "TheGate 1#1>";
 
@@ -454,13 +465,20 @@ public class TableCard : MonoBehaviour
                         Continuer("Combattre!");
                         break;
                     case "Gobelins! 1":
-                        Endcard();
+                        Recit.text = paragraph("Victorieux des créatures infâmes, vous finissez de piller les dépouilles, espérant trouver quelques écus entre deux colifichets d'os et et de silex.");
+                        basicReward(2, 0, 0, 0);
+                        Continuer("Reprendre votre périple");
+
                         break;
+
+                    case "Gobelins! 11":
+                        Endcard();
+                        return;
                 }
                 break;
 
             case "LaSource":
-                switch (path)
+                switch (pathto)
                 {
                     case "LaSource ":
                         Recit.text = paragraph("Vous vous approchez d'un point d'eau où vous esperez vous resourcer.Alors que vous commencez à monter votre campement, vous distinguez des étincelles dans l'azur des flots. Un objet se trouve sous l'eau..Vous estimez qu'une dizaine de mètres vous sépare du trésor.. Que souhaitez-vous faire ?");
@@ -488,6 +506,14 @@ public class TableCard : MonoBehaviour
                         Recit.text = paragraph("De retour à la surface, vous voyez un bandit s'en prenant à votre bivouac. Vous voyant de retour, il dégaine un coutelas et vous charge comme un bélier. ");
 
                         Continuer("Se défendre!");
+                        break;
+
+                    case "LaSource 111":
+                        Recit.text = paragraph("La vermine terassée, vous recupérer quelques babioles de sa bourse, qui vous l'esperez auront quelque valeur que ce soit aux yeux d'un marchand");
+                        basicReward(2, 0, 0, 0);
+
+                        Continuer("Poursuivre votre périple");
+                        path = "LaSource 121";
                         break;
 
                     case "LaSource 12":
@@ -534,6 +560,33 @@ public class TableCard : MonoBehaviour
                         return;
 
                 }
+                break;
+
+            case "HordeSquelette":
+
+                switch(pathto)
+                {
+                    case "HordeSquelette ":
+                        Recit.text = paragraph("Le Fléau s'est déja étendu sur ses terres. L'air empeste la mort et les seules plantes poussant ici ne survivent que grace à la peste, charriant les dépouilles torturées.. Alors que vous vous efforcez de quitter les lieux au plus vite, une horde de squelettes animés vous attaque!");
+
+                        Continuer("Combattre!");
+                        break;
+
+                    case "HordeSquelette 1":
+                        Recit.text = paragraph("Les os des squelettes redeviennent poussières, et leurs armes s'ensevelissent sous la terre. Vous sentez une présence s'élever vers le ciel, et le vent vous apporte des murmures d'outretombe: \"Merci.\"");
+                        Continuer("Reprendre votre périple");
+                        break;
+
+                    case "HordeSquelette 11":
+                        Endcard();
+
+                        break;
+                }
+
+
+
+
+
                 break;
         }
         
@@ -711,6 +764,7 @@ public class TableCard : MonoBehaviour
                 RewardText.text += "Vous avez perdu " + (-life).ToString() + " points de vie\n";
 
             s.life += life;
+            s.lifebar.update();
         }
 
         if (hunger != 0)
@@ -719,14 +773,20 @@ public class TableCard : MonoBehaviour
                 RewardText.text += "Vous avez gagné " + hunger.ToString() + " points de faim\n";
             else
                 RewardText.text += "Vous avez perdu " + (-hunger).ToString() + " points de faim\n";
+
+            s.hunger += hunger;
+            s.hungerbar.update();
         }
 
         if (moral != 0)
         {
             if (moral > 0)
-                RewardText.text += "Vous avez gagné " + moral.ToString() + " points de moral\n";
+                RewardText.text += "Vous avez gagné " + moral.ToString() + " points de morale\n";
             else
-                RewardText.text += "Vous avez perdu " + (-moral).ToString() + " points de moral\n";
+                RewardText.text += "Vous avez perdu " + (-moral).ToString() + " points de morale\n";
+
+            s.moral += moral;
+            s.moralbar.update();
         }
 
 
