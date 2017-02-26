@@ -37,6 +37,7 @@ public class TableCard : MonoBehaviour
     private bool d = false;
     public string path = "";
     private float relation = 0f;
+    private bool swtch;
 
     public GameObject Parchemin;
     public Text Recit;
@@ -277,12 +278,8 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 1>11":
-
-                        // jet de charisme
-
-                       
-                        //réussite -> 
-
+                        swtch = Jet(s.charisma, 20);
+                    
                         path = "TheGate 1#1";
                         nextDialogue(path);
                         return;
