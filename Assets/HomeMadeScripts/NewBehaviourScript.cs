@@ -71,6 +71,9 @@ public class NewBehaviourScript : MonoBehaviour
     public int hitx = 0;
     public int hitz = 0;
 
+    public float lastposx = 40;
+    public float lastposz = 30;
+
     public int currentx = 0;
     public int currentz = 10;
 
@@ -452,6 +455,10 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 if (isAdj(token, hit) && canMove)
                 {
+
+                    lastposx = token.transform.position.x;
+                    lastposz = token.transform.position.z;
+
                     hitx = (int)hit.transform.position.x;
                     hitz = (int)hit.transform.position.z;
 

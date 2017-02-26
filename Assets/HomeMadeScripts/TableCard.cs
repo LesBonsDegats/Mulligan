@@ -98,6 +98,21 @@ public class TableCard : MonoBehaviour
                 path = "HordeSquelette ";
                 Titre.text = "Les Hordes du Fléau";
                 break;
+
+            case "Silhouette":
+                path = "Silhouette ";
+                Titre.text = "Silhouette";
+                break;
+
+            case "LeCol":
+                path = "LeCol ";
+                Titre.text = "LeCol";
+                break;
+
+            case "LaDame":
+                path = "LaDame ";
+                Titre.text = "La Dame";
+                break;
             
 
             
@@ -249,7 +264,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 122":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                     case "TheGate 13":
@@ -266,7 +281,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 141":
-                        Endcard();
+                        Endcard(true);
                         break;
 
 
@@ -306,8 +321,8 @@ public class TableCard : MonoBehaviour
                         Continuer("Entrer dans la ville");
                         return;
 
-                    case "1>14":
-                        Endcard();
+                    case "TheGate 1>14":
+                        Endcard(true);
                         return;
 
                     case "TheGate 2":
@@ -390,11 +405,11 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 341":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                     case "TheGate 331":
-                        Endcard();
+                        Endcard(true);
                         break;
 
                     case "TheGate 3#1":
@@ -444,11 +459,11 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "TheGate 1#1>1":
-                        Endcard();
+                        Endcard(true);
                         break; 
 
                     case "TheGate 4":
-                        Endcard();
+                        Endcard(false);
                         return;
 
 
@@ -472,7 +487,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "Gobelins! 11":
-                        Endcard();
+                        Endcard(true);
                         return;
                 }
                 break;
@@ -481,7 +496,7 @@ public class TableCard : MonoBehaviour
                 switch (pathto)
                 {
                     case "LaSource ":
-                        Recit.text = paragraph("Vous vous approchez d'un point d'eau où vous esperez vous resourcer.Alors que vous commencez à monter votre campement, vous distinguez des étincelles dans l'azur des flots. Un objet se trouve sous l'eau..Vous estimez qu'une dizaine de mètres vous sépare du trésor.. Que souhaitez-vous faire ?");
+                        Recit.text = paragraph("Vous vous approchez d'un point d'eau où vous esperez vous resourcer. Alors que vous commencez à monter votre campement, vous distinguez des étincelles dans l'azur des flots. Un objet se trouve sous l'eau.. Vous estimez qu'une dizaine de mètres vous sépare du trésor.. Que souhaitez-vous faire ?");
 
                         B1text.text = "Laisser votre armure de coté et plonger dans l'eau";
                         B2text.text = "Vous reposer au bord de l'eau quelques instants";
@@ -529,7 +544,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "LaSource 1211":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                     case "LaSource 2":
@@ -539,7 +554,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "LaSource 21":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                     case "LaSource 3":
@@ -548,7 +563,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "LaSource 31":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                     case "LaSource 4":
@@ -556,7 +571,7 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "LaSource 41":
-                        Endcard();
+                        Endcard(true);
                         return;
 
                 }
@@ -578,15 +593,150 @@ public class TableCard : MonoBehaviour
                         break;
 
                     case "HordeSquelette 11":
-                        Endcard();
+                        Endcard(true);
 
                         break;
                 }
 
+                break;
+
+            case "Silhouette":
+
+                switch(pathto)
+                {
+                    case "Silhouette ":
+                        Recit.text = paragraph("Vous arrivez à l'orée d'une forêt, où vous voyez une ombre se dresser entre les arbres. Une silhouette. Probablement d'une femme? Vous avez l'impression qu'elle vous appelle.. Une envie irresistible de la suivre dans la forêt vous prend. Que désirez vous faire ?");
+                        B1text.text = "Poursuivre la silhouette";
+                        B2text.text = "Resister à l'appel et continuer votre chemin";
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        break;
+
+                    case "Silhouette 1":
+                        Recit.text = paragraph("Vous vous enfoncez dans les sous-bois, où vous perdez la silhouette de vue. Une intuition irrépressible vous incite à poursuivre tout droit à travers les fourrés. L'endroit grouille de vie et vous pesez chaque pas de peur d'écraser une créature rampante qui aurait été au mauvais endroit au mauvais moment..");
+                        B1text.text = "Suivre votre instinct";
+                        B2text.text = "Abandonner la poursuite et chasser";
+                        B3text.text = "Abandonner la piste et se reposer";
+                        B4text.text = "Faire demi-tour";
+                        break;
+
+                    case "Silhouette 2":
+                        Endcard(true);
+                        break;
+
+                    case "Silhouette 11":
+                        Recit.text = paragraph("Votre coeur vous mène jusqu'à un énorme bosquet, orné de feuilles noires et de fleurs bleues minuit. vous trouvez, posé sur le sol, un artefact enchanté.. Etait-ce donc lui qui vous appelait tout ce temps ? Désirez vous le prendre ? Vous décidez de vous frayer un passage à travers la forêt avant que la nuit ne tombe.");
+
+                        B1text.text = "Prendre l'artefact et sortir de la forêt";
+                        B2text.text = "Laisser l'artefact et sortir de la forêt";
+
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        break;
+
+                    case "Silhouette 111":
+                        Endcard(true);
+                        return;
+
+                    case "Silhouette 112":
+                        Endcard(true);
+                        return;
+
+                    case "Silhouette 12":
+                        //jet agi
+                        Recit.text = paragraph("A quatres pattes dans la terre vous passez une heure ou deux à traquer la bête. Butin de chasse: quelques rongeurs, quelques insectes, de quoi survivre une ou deux nuits de plus..");
+                        Continuer("Sortir de la forêt et reprendre votre voyage");
+                        basicReward(0, 0, 5, 0);
+                        break;
+
+                    case "Silhouette 121":
+                        Endcard(true);
+                        return;
+
+                    case "Silhouette 13":
+                        Recit.text = paragraph("Vous vous asseyez sur une buche à l'ombre d'un grand chêne ou vous appreciez cette matinée ensoleillée. Un vent d'ouest vient carresser votre joue , emplissant vos narines d'odeurs d'érable et de fenouil. Il est l'heure de reprendre votre voyage!");
+                        Continuer("Sortir de la forêt et reprendre votre voyage");
+                        basicReward(0, 2, 0, 0);
+                        
+                        break;
+
+                    case "Silhouette 131":
+                        Endcard(true);
+                        break;
+
+                    case "Silhouette 14":
+                        Recit.text = "Essouflé et las d'avoir couru en vain, vous commencez à rebrousser chemin. Vous sentez une grande aggressivité dans les lieux. Les arbres se racornissent et les racines se ploient. Vous pressez le pas avant que les choses prennent une tournure autrement plus inquiétante..";
+                        Continuer("Sortir de la forêt et reprendre votre voyage");
+                        basicReward(0, 0, 0, -2);
+                        break;
+
+                    case "Silhouette 141":
+                        Endcard(true);
+                        break;
+                }
+
+                break;
+
+            case "LeCol":
+                switch (pathto)
+                {
+
+                    case "LeCol ":
+                        Recit.text = paragraph("Votre route s'envole vers des cîmes enneigées dont vous ignorez les dangers. Vous estimez que la traversée du col ne sera pas aisée.. Vous avez encore la possibilité de faire demi-tour pour chercher un autre chemin..");
+
+                        B1text.text = "Braver le col";
+                        B2text.text = "Faire demi-tour";
+                        Button3.enabled = false;
+                        Button4.enabled = false;
+                        break;
+
+                    case "LeCol 1":
+                        Recit.text = paragraph("La traversée dure deux jours est en semée d'embûches. A plusieurs reprises vous échappez à des avalanches et éboulements qui auraient eu raison de moins chanceux que vous. Vous arrivez finalement de l'autre coté, extenué, mais heureux d'avoir fini la traversée.");
+                        Continuer("Poursuivre votre périple");
+                        basicReward(0, 0, -10, 0);
+
+                        break;
+
+                    case "LeCol 2":
+                        Endcard(false);
+                        DemiTour();
+                        return;
 
 
+                    case "LeCol 11":
+                        Endcard(false);
+                        return;
 
+                }
+                break;
 
+            case "LaDame":
+
+                switch(pathto)
+                {
+                    case "LaDame ":
+                       Recit.text = paragraph("Vous arrivez près d'un lac où une étrange femme vous attend. Des ronces et des racines entourent ses membres et il vous semble que des bourgeons éclosent dans ses cheveux. Elle tient dans ses mains une majestueuse épée avec une revérence sans nom..");
+        
+                       B1text.text = "S'approcher de la dame";
+                       B2text.text = "Poursuivre votre périple";
+                       Button3.enabled = false;
+                       Button4.enabled = false;
+                  break;
+
+                    case "LaDame 1":
+                        Recit.text = paragraph("La dame vous voit et un sourire s'esquisse sur son visage. Sans dire un mot, elle vous donne l'épée et, les yeux pleins de mélancolie, elle se laisse tomber dans le lac qui, par quelque sortilège, se recouvre de ronces, de roses et de chardon.");
+                        //ajouter une épée.
+                        Continuer("Poursuivre votre périplé");
+                        break;
+
+                    case "LaDame 2":
+                        Endcard(false);
+                        break;
+
+                    case "LaDame 11":
+                        Endcard(true);
+                        break;
+                }
                 break;
         }
         
@@ -597,11 +747,13 @@ public class TableCard : MonoBehaviour
     }
 
 
-    public void Endcard()
+    public void Endcard(bool a)
     {
         s.canMove = true;
         Parchemin.SetActive(false);
         path = "";
+        isDone = a;
+        
     }
 
 
@@ -674,11 +826,12 @@ public class TableCard : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.B))
             {
-                Endcard();
+                Endcard(true);
             }    
         }        
         else
         {
+            cardPlaying = false;
             stch = false;
         }
     }
@@ -790,6 +943,11 @@ public class TableCard : MonoBehaviour
         }
 
 
+    }
+
+    public void DemiTour()
+    {
+        Player.transform.position = new Vector3(s.lastposx, 1, s.lastposz);
     }
 
 
