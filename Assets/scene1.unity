@@ -2285,6 +2285,7 @@ GameObject:
   - component: {fileID: 443261927}
   - component: {fileID: 443261926}
   - component: {fileID: 443261925}
+  - component: {fileID: 443261929}
   m_Layer: 0
   m_Name: CardStart
   m_TagString: Untagged
@@ -2355,6 +2356,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &443261929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443261924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 1037d65a503c36a4897807bb9943136c, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: Start
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
+  path: 
+  Parchemin: {fileID: 708040539}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 1
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &460072569
 GameObject:
   m_ObjectHideFlags: 0
@@ -11282,6 +11316,7 @@ GameObject:
   - component: {fileID: 2010656483}
   - component: {fileID: 2010656482}
   - component: {fileID: 2010656486}
+  - component: {fileID: 2010656487}
   m_Layer: 0
   m_Name: bossCard
   m_TagString: Untagged
@@ -11367,6 +11402,39 @@ MonoBehaviour:
   cardBack: {fileID: 21300000, guid: 309de52557ca4de40ae6f9a781037830, type: 3}
   ShowCard: {fileID: 1541080680}
   sr: {fileID: 1541080682}
+--- !u!114 &2010656487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2010656481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e14e45c33584e8ccaa587e2578bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 21300000, guid: 1037d65a503c36a4897807bb9943136c, type: 3}
+  ShowCard: {fileID: 1541080680}
+  cam: {fileID: 140618114}
+  sr: {fileID: 1541080682}
+  Player: {fileID: 357244050}
+  cardName: Boss
+  Button1: {fileID: 1537807524}
+  Button2: {fileID: 1337633376}
+  Button3: {fileID: 62486502}
+  Button4: {fileID: 84953430}
+  B1text: {fileID: 357698068}
+  B2text: {fileID: 1223098625}
+  B3text: {fileID: 1440141613}
+  B4text: {fileID: 1728414240}
+  RewardText: {fileID: 273111452}
+  path: 
+  Parchemin: {fileID: 708040539}
+  Recit: {fileID: 1154867521}
+  Titre: {fileID: 33652639}
+  isDone: 0
+  s: {fileID: 140618115}
+  clicked: 0
 --- !u!1 &2055237697
 GameObject:
   m_ObjectHideFlags: 0

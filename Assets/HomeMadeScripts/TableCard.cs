@@ -187,6 +187,11 @@ public class TableCard : MonoBehaviour
         Button3.enabled = true;
         Button4.enabled = true;
 
+        Button1.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
+        Button2.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
+        Button3.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
+        Button4.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
+
 
 
         B1text.text = "";
@@ -598,7 +603,7 @@ public class TableCard : MonoBehaviour
                 switch(pathto)
                 {
                     case "Silhouette ":
-                        Recit.text = paragraph("Vous arrivez à l'orée d'une forêt, où vous voyez une ombre se dresser entre les arbres. Une silhouette. Probablement d'une femme? Vous avez l'impression qu'elle vous appelle.. Une envie irresistible de la suivre dans la forêt vous prend. Que désirez vous faire ?");
+                        Recit.text = paragraph("Vous arrivez à l'orée d'une forêt, où vous voyez une ombre se dresser entre les arbres. Une silhouette. Probablement d'une femme? Vous avez l'impression qu'elle vous appelle.. Une envie irresistible de la suivre dans la forêt vous prend.Que désirez vous faire?");
                         B1text.text = "Poursuivre la silhouette";
                         B2text.text = "Resister à l'appel et continuer votre chemin";
                         Button3.enabled = false;
@@ -786,15 +791,6 @@ public class TableCard : MonoBehaviour
               
     }
     
-    private void Continuer(string str)
-    {
-        B1text.text = str;
-        Button2.enabled = false;
-        Button3.enabled = false;
-        Button4.enabled = false;
-    }
-
-
 
 
 

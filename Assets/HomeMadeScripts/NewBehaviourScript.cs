@@ -474,7 +474,7 @@ public class NewBehaviourScript : MonoBehaviour
                     hungerbar.update();
 
 
-                    //    canMove = false; à désactiver pdt tests.
+                    canMove = false;
 
                     //    token.transform.position = hit.transform.position;
                     if (!isIn((int)(hit.transform.position.x) * 100 / decalagex + (int)(hit.transform.position.z) / decalagez, revealed))
