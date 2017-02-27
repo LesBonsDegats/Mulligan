@@ -97,6 +97,8 @@
     <Compile Include="Assets\HomeMadeScripts\TCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\TableCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\bossCardFold.cs" />
+    <Compile Include="Assets\HomeMadeScripts\bout.cs" />
+    <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
