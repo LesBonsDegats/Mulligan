@@ -89,6 +89,7 @@
     <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />
     <Compile Include="Assets\HomeMadeScripts\MainMenuScript.cs" />
+    <Compile Include="Assets\HomeMadeScripts\MouseLook.cs" />
     <Compile Include="Assets\HomeMadeScripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\PCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\PauseMenu.cs" />
@@ -96,8 +97,8 @@
     <Compile Include="Assets\HomeMadeScripts\RefreshButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\TCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\TableCard.cs" />
+    <Compile Include="Assets\HomeMadeScripts\Target.cs" />
     <Compile Include="Assets\HomeMadeScripts\bossCardFold.cs" />
-    <Compile Include="Assets\HomeMadeScripts\bout.cs" />
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+    <Compile Include="Assets\fightcontroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

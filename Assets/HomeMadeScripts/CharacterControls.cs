@@ -7,7 +7,7 @@ using System.Collections;
 public class CharacterControls : MonoBehaviour
 {
 
-    public float speed = 8.0f;
+    public float speed;
     public float gravity = 10.0f;
     public float maxVelocityChange = 10.0f;
     public bool canJump = true;
@@ -24,6 +24,11 @@ public class CharacterControls : MonoBehaviour
 
     void FixedUpdate()
     {
+
+
+        Vector3 velocity = new Vector3(0, 0, 0);
+        Vector3 velocityChange = new Vector3(0, 0, 0);
+
         if (grounded)
         {
             // Calculate how fast we should be moving
@@ -33,22 +38,32 @@ public class CharacterControls : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                speed *= 10;
+                speed *= 5;
+
+                targetVelocity *= speed;
+
+
+                // Apply a force that attempts to reach our target velocity
+                velocity = r.velocity;
+                velocityChange = (targetVelocity - velocity);
+                speed /= 5;
             }
+            else
+            {
+                targetVelocity *= speed;
 
-            targetVelocity *= speed;
-         
 
-            // Apply a force that attempts to reach our target velocity
-            Vector3 velocity = r.velocity;
-            Vector3 velocityChange = (targetVelocity - velocity);
-
-            speed = 8;
+                // Apply a force that attempts to reach our target velocity
+                velocity = r.velocity;
+                velocityChange = (targetVelocity - velocity);
+           
+            }
+   
 
 
             if (canJump && Input.GetButton("Jump"))
             {
-                r.velocity = new Vector3(velocity.x / 1.2f, CalculateJumpVerticalSpeed(), velocity.z/1.2f);
+                r.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
             }
             else
             {
@@ -60,7 +75,7 @@ public class CharacterControls : MonoBehaviour
         }
 
         // We apply gravity manually for more tuning control
-        r.AddForce(new Vector3(0, -gravity * r.mass, 0));
+        r.AddForce(new Vector3(velocity.x, -gravity * r.mass, velocity.z));
 
         grounded = false;
     }

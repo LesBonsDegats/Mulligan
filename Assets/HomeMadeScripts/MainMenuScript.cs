@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public void Start()
+    {
+        Cursor.visible = true;
+    }
 
-	public void Load_Scene ()
+
+    public void Load_Scene ()
     {
         Application.LoadLevel("Scene1");
 	}
