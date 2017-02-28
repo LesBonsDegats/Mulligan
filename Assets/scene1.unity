@@ -1096,6 +1096,8 @@ MonoBehaviour:
   intel: 10
   charisma: 10
   luck: 10
+  isFighting: 0
+  sC: {fileID: 2111100452}
 --- !u!81 &140618116
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3064,14 +3066,13 @@ GameObject:
   - component: {fileID: 588865565}
   - component: {fileID: 588865564}
   - component: {fileID: 588865568}
-  - component: {fileID: 588865569}
   m_Layer: 0
   m_Name: Camjoueur
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &588865562
 Transform:
   m_ObjectHideFlags: 0
@@ -3164,24 +3165,6 @@ MonoBehaviour:
   isAttacking1: 0
   isAttacking2: 0
   isAttacking3: 0
---- !u!114 &588865569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 588865561}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447b1d6abb69c5940bbb2a3ad34d451e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  sensitivityX: 15
-  sensitivityY: 15
-  minimumX: -360
-  maximumX: 360
-  minimumY: -60
-  maximumY: 60
 --- !u!1 &622805078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,6 +5872,9 @@ GameObject:
   - component: {fileID: 1329695708}
   - component: {fileID: 1329695707}
   - component: {fileID: 1329695711}
+  - component: {fileID: 1329695712}
+  - component: {fileID: 1329695713}
+  - component: {fileID: 1329695714}
   m_Layer: 0
   m_Name: targetCube
   m_TagString: Untagged
@@ -5953,7 +5939,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1329695706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 346.78, y: 0.6, z: -2641.09}
+  m_LocalPosition: {x: 346.78, y: 0.6, z: -2633.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5972,6 +5958,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 584809128}
   f: {fileID: 588865568}
+  life: 50
+--- !u!114 &1329695712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329695706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7dbd79837ba3f349908ae0b64d155de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1887356045}
+  playerCollider: {fileID: 1887356050}
+  closeEnough: 0
+  canDash: 1
+  isDashing: 0
+  speed: 20
+  targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &1329695713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329695706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07e7e611b56c904fa56664d7ef50327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1887356046}
+--- !u!54 &1329695714
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1329695706}
+  serializedVersion: 2
+  m_Mass: 80
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1337633374
 GameObject:
   m_ObjectHideFlags: 0
@@ -11264,6 +11296,7 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
+  pm: {fileID: 140618122}
 --- !u!1 &1945461691
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,7 +102,9 @@
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
+    <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
+    <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />

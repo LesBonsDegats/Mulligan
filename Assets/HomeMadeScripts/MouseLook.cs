@@ -23,25 +23,30 @@ using UnityEngine;
         Quaternion originalRotation;
         Quaternion originalRotationCam;
 
+         public PauseMenu pm;
+
         void Update()
         {
 
-                // Read the mouse input axis
-                rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-                rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-   
-                
 
-                rotationX = ClampAngle(rotationX, minimumX, maximumX);
-                rotationY = ClampAngle(rotationY, minimumY, maximumY);
-
-                Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-                Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
-
-                transform.localRotation = originalRotation * xQuaternion;
-                camera.transform.localRotation = originalRotation * yQuaternion;
+        if (!pm.isActive)
+        {
+            // Read the mouse input axis
+            rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 
 
+
+            rotationX = ClampAngle(rotationX, minimumX, maximumX);
+            rotationY = ClampAngle(rotationY, minimumY, maximumY);
+
+            Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+            Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
+
+            transform.localRotation = originalRotation * xQuaternion;
+            camera.transform.localRotation = originalRotation * yQuaternion;
+
+        }
         }
 
         void Start()

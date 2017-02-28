@@ -18,15 +18,15 @@ public class switchCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-
-            onBoard = !onBoard;
-            Cursor.visible = onBoard;
-
-            cam2.SetActive(!cam2.activeInHierarchy);          
-        }
 
 
 	}
+
+    public void changeCamera()
+    {
+        onBoard = !onBoard;
+        Cursor.visible = onBoard;
+
+        cam2.SetActive(!cam2.activeInHierarchy);
+    }
 }

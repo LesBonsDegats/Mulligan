@@ -7,6 +7,8 @@ public class Target : MonoBehaviour {
     public Collider weapon;
     public fightcontroller f;
 
+    public int life;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,8 +25,21 @@ public class Target : MonoBehaviour {
     {
         if (collision.collider == weapon && f.isAttacking)
         {
-            this.gameObject.SetActive(false);
+            bool isDead = loseLife(10);
+            if (isDead)
+            {
+                this.gameObject.SetActive(false);
+            }
+
+            this.transform.Translate(new Vector3(0, 0, -2));
 
         }
+    }
+
+    private bool loseLife(int dmg)
+    {
+        life -= dmg;
+
+        return (life < 0);
     }
 }

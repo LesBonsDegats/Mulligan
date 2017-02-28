@@ -105,6 +105,10 @@ public class NewBehaviourScript : MonoBehaviour
     public int luck;
 
 
+    public bool isFighting = false;
+    public switchCamera sC;
+
+
     // Use this for initialization
     void Start()
     {
@@ -423,6 +427,19 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
 
+    public void launchFight()
+    {
+        sC.changeCamera();
+        isFighting = true;
+
+    }
+
+    public void endFight()
+    {
+        sC.changeCamera();
+        isFighting = false;
+    }
+
 
 
     // Update is called once per frame
@@ -447,7 +464,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isFighting)
         {
 
 
@@ -501,7 +518,20 @@ public class NewBehaviourScript : MonoBehaviour
 
         }
 
-            if (Input.GetKeyDown(KeyCode.C))
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (!isFighting)
+            {
+                launchFight();
+            }
+            else
+            {
+                endFight();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
             {
                 List<GameObject> children = new List<GameObject>();
                 foreach (Transform child in floor.transform) children.Add(child.gameObject);
