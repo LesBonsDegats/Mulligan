@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class textScript : MonoBehaviour {
-    NewBehaviourScript s;
+   public NewBehaviourScript s;
     Text vie;
     Text nourriture;
     Text or;
@@ -18,13 +18,16 @@ public class textScript : MonoBehaviour {
     Text nom;
     // Use this for initialization
     void Start () {
+
+
         change_text();
 	}
 	public void change_text()
     {
-        vie.text = "vie:" + s.life.ToString();
+        vie.text = "vie: " + s.life.ToString();
         nourriture.text = "nourriture:" + s.hunger.ToString();
-        or.text = "or:" + s.gold.ToString();
+        or.text = "or: " + s.gold.ToString();
+        moral.text = "moral: " + s.moral.ToString();
     } 
 	// Update is called once per frame
 	void Update () {
