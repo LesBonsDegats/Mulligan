@@ -16,27 +16,42 @@ public class fightcontroller : MonoBehaviour {
     public bool isAttacking2 = false;
     public bool isAttacking3 = false;
 
-    private IEnumerator delaiAttaque1;
 
 	// Use this for initialization
 	void Start () {
-        delaiAttaque1 = attackTime(0, 50);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0)) 
         {
+/*
+            if (isAttacking2)
+            {
+                hit.SetTrigger("hit3");
+                isAttacking = true;
+                isAttacking1 = false;
+                isAttacking2 = false;
+                isAttacking3 = true;
 
-            if (isAttacking)
+                StopAllCoroutines();
+                StartCoroutine(combo());
+                StartCoroutine(Attacktime(6.67f));
+
+            }
+
+        */
+            if (isAttacking1)
             {
                 hit.SetTrigger("hit2");
                 isAttacking = true;
-                isAttacking1 = true;
+                isAttacking1 = false;
                 isAttacking2 = true;
+                isAttacking3 = false;
 
                 StopAllCoroutines();
-                StartCoroutine(attackTime(1, 50));
+                StartCoroutine("combo");
+                StartCoroutine("Attacktime",6.67f);
 
             }
             else
@@ -47,9 +62,11 @@ public class fightcontroller : MonoBehaviour {
                 hit.SetTrigger("hit1");
                 isAttacking = true;
                 isAttacking1 = true;
+                isAttacking2 = false;
+                isAttacking3 = false;
 
-
-                StartCoroutine(attackTime(0, 50));
+                StartCoroutine("combo");
+                StartCoroutine("Attacktime",6.67f);
             }
       //      }
 
@@ -74,36 +91,57 @@ public class fightcontroller : MonoBehaviour {
 
 
 	}
-    IEnumerator attackTime(int attaqueid, int attackspeed)
-    {
 
+
+    IEnumerator Attacktime (float attackspeed)
+    {
         bool swtch = false;
-        while (true)
+        bool fix = true;
+        while (fix)
         {
             if (swtch)
             {
+                compteur++;
+                isAttacking = false;
 
-
-                switch (attaqueid)
-                {
-                    case 0:
-                        isAttacking1 = false;
-                        isAttacking = false;
-                        compteur++;
-                        break;
-                    case 1:
-                        isAttacking = false;
-                        isAttacking1 = false;
-                        isAttacking2 = false;
-                        break;
-                }
-
-                StopAllCoroutines();
+                fix = false;
+                StopCoroutine("Attacktime");
             }
 
             swtch = true;
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(1/attackspeed);
+        }
+
+
+
+
+    }
+
+
+    IEnumerator combo()
+    {
+
+        bool swtch = false;
+        bool fix = true;
+        while (fix)
+        {
+            if (swtch)
+            {
+
+ 
+                isAttacking = false;
+                isAttacking1 = false;
+                isAttacking2 = false;
+                isAttacking3 = false;
+
+                fix = false;
+                StopCoroutine("combo");
+            }
+
+            swtch = true;
+
+            yield return new WaitForSeconds(1);
         }
     }
 }

@@ -38,7 +38,7 @@ public class CharacterControls : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                speed *= 5;
+                speed *= 10;
 
                 targetVelocity *= speed;
 
@@ -46,7 +46,7 @@ public class CharacterControls : MonoBehaviour
                 // Apply a force that attempts to reach our target velocity
                 velocity = r.velocity;
                 velocityChange = (targetVelocity - velocity);
-                speed /= 5;
+                speed /= 10;
             }
             else
             {
