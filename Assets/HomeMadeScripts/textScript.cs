@@ -15,10 +15,12 @@ public class textScript : MonoBehaviour {
     public Text Charisme;
     public Text Intelligence;
     public Text nom;
+    public GameObject fiche;
     // Use this for initialization
     void Start () {
         change_text();
-	}
+        gameObject.SetActive(false);
+    }
 	public void change_text()
     {
         vie.text = "Vie : " + s.life.ToString() + "/" + s.lifemax.ToString(); ;
@@ -33,6 +35,19 @@ public class textScript : MonoBehaviour {
         Intelligence.text = "Intelligence:  " + s.intel.ToString();
         nom.text = s.name;
     } 
+    public void cliked()
+    {
+        if(fiche.activeSelf)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+       
+    }
+
 	// Update is called once per frame
 	void Update () {
 		
