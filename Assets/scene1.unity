@@ -4543,6 +4543,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   s: {fileID: 140618115}
+  vie: {fileID: 1621644860}
+  nourriture: {fileID: 1985439053}
+  or: {fileID: 1227309747}
+  experience: {fileID: 1814448630}
+  moral: {fileID: 1424810092}
+  "Agilit\xE9": {fileID: 1503356271}
+  Force: {fileID: 1528891133}
+  Chance: {fileID: 1753043527}
+  Charisme: {fileID: 634195774}
+  Intelligence: {fileID: 182369300}
+  nom: {fileID: 1245379988}
 --- !u!1 &979229316
 GameObject:
   m_ObjectHideFlags: 0
