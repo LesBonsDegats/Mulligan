@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventaireSlot : MonoBehaviour {
 
@@ -12,12 +13,12 @@ public class InventaireSlot : MonoBehaviour {
 
     public int type;
 
-    public SpriteRenderer sr;
-
+    public Image img;
 
 	// Use this for initialization
 	void Start () {
         setId(id);
+        img = this.GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -31,9 +32,13 @@ public class InventaireSlot : MonoBehaviour {
         Items i = MainCam.GetComponent<Items>();
         Sprite image = i.ImageList[a];
 
-        sr.sprite = image;
+        img.sprite = image;
+
+       // i = image;
+
+        
     }
 
-    
+
 
 }

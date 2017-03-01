@@ -918,7 +918,7 @@ public class TableCard : MonoBehaviour
                 RewardText.text += "Vous avez perdu " + (-life).ToString() + " points de vie\n";
 
             s.life += life;
-            s.lifebar.update();
+           // s.lifebar.update();
         }
 
         if (hunger != 0)
@@ -929,7 +929,7 @@ public class TableCard : MonoBehaviour
                 RewardText.text += "Vous avez perdu " + (-hunger).ToString() + " points de faim\n";
 
             s.hunger += hunger;
-            s.hungerbar.update();
+            //s.hungerbar.update();
         }
 
         if (moral != 0)
@@ -940,7 +940,7 @@ public class TableCard : MonoBehaviour
                 RewardText.text += "Vous avez perdu " + (-moral).ToString() + " points de morale\n";
 
             s.moral += moral;
-            s.moralbar.update();
+            //s.moralbar.update();
         }
 
         tS.change_text();
