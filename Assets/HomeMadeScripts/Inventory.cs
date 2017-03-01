@@ -67,93 +67,93 @@ public class Inventory : MonoBehaviour
     public void Clicked(RaycastHit hit)
     {
 
-            int prefixe = 0;
-            prefixe = int.Parse(hit.transform.tag.Substring(9, hit.transform.tag.Length - 9));
+        int prefixe = 0;
+        prefixe = int.Parse(hit.transform.tag.Substring(9, hit.transform.tag.Length - 9));
 
 
 
-            switch (prefixe)
-            {
-                case 1:
+        switch (prefixe)
+        {
+            case 1:
 
-                    chosen = Inventory1;
+                chosen = Inventory1;
 
-                    break;
-                case 2:
-                    chosen = Inventory2;
+                break;
+            case 2:
+                chosen = Inventory2;
 
-                    break;
-                case 3:
-                    chosen = Inventory3;
-                    break;
+                break;
+            case 3:
+                chosen = Inventory3;
+                break;
 
-                case 4:
-                    chosen = Inventory4;
-                    break;
+            case 4:
+                chosen = Inventory4;
+                break;
 
-                case 5:
-                    chosen = Inventory5;
-                    break;
+            case 5:
+                chosen = Inventory5;
+                break;
 
-                case 6:
-                    chosen = Inventory6;
-                    break;
-                case 7:
-                    chosen = Inventory7;
-                    break;
-                case 8:
-                    chosen = Inventory8;
-                    break;
-                case 9:
-                    chosen = Inventory9;
-                    break;
-                case 10:
-                    chosen = InventoryHelmet;
-                    break;
-                case 11:
-                    chosen = InventoryLeftHand;
-                    break;
-                case 12:
-                    chosen = InventoryChest;
-                    break;
-                case 13:
-                    chosen = InventoryRightHand;
-                    break;
-                case 14:
-                    chosen = InventoryGreaves;
-                    break;
-                case 15:
-                    chosen = InventoryTalisman1;
-                    break;
-                case 16:
-                    chosen = InventoryTalisman2;
-                    break;
-                case 17:
-                    chosen = InventoryTalisman3;
-                    break;
+            case 6:
+                chosen = Inventory6;
+                break;
+            case 7:
+                chosen = Inventory7;
+                break;
+            case 8:
+                chosen = Inventory8;
+                break;
+            case 9:
+                chosen = Inventory9;
+                break;
+            case 10:
+                chosen = InventoryHelmet;
+                break;
+            case 11:
+                chosen = InventoryLeftHand;
+                break;
+            case 12:
+                chosen = InventoryChest;
+                break;
+            case 13:
+                chosen = InventoryRightHand;
+                break;
+            case 14:
+                chosen = InventoryGreaves;
+                break;
+            case 15:
+                chosen = InventoryTalisman1;
+                break;
+            case 16:
+                chosen = InventoryTalisman2;
+                break;
+            case 17:
+                chosen = InventoryTalisman3;
+                break;
 
-            }
-
-
+        }
 
 
-            if (chosen.id == 0)
-            {
 
-                // if (holdid / 100 < 1 && prefixe < 10)
-                // {
-                chosen.setId(holdid);
-                holdid = 0;
-                s.canMove = true;
-                // }
-            }
-            else if (holdid == 0)
-            {
-                holdid = chosen.id;
-                chosen.setId(0);
-                s.canMove = false;
-            }
-        
+
+        if (chosen.id == 0)
+        {
+
+            // if (holdid / 100 < 1 && prefixe < 10)
+            // {
+            chosen.setId(holdid);
+            holdid = 0;
+            s.canMove = true;
+            // }
+        }
+        else if (holdid == 0)
+        {
+            holdid = chosen.id;
+            chosen.setId(0);
+            s.canMove = false;
+        }
+
         else if (holdid != 0)
         {
             chosen.setId(holdid);
@@ -187,6 +187,36 @@ public class Inventory : MonoBehaviour
             chosen.setId(itemId);
             return true;
         }
+    }
+
+    public bool RemoveObject()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            Ray CheckBelowHit = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100.0F))
+            {
+                if (hit.transform.parent != this)
+                {
+
+                    //Are u sure ?
+                    holdid = 0;
+                    return true;
+                }
+
+
+
+            }
+
+
+
+        }
+        return false;
+
     }
 }
 

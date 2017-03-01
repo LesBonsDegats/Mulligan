@@ -84,8 +84,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     // attributes
 
+    public string Name;
+
     public int life;
     public int lifemax;
+
 
     public int hunger;
     public int hungermax;
@@ -103,6 +106,8 @@ public class NewBehaviourScript : MonoBehaviour
     public int intel;
     public int charisma;
     public int luck;
+
+    public Canvas fichePerso;
 
 
     public bool isFighting = false;
@@ -464,74 +469,64 @@ public class NewBehaviourScript : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0) && !isFighting)
+        if (!isFighting)
         {
 
-
-            if (Physics.Raycast(ray, out hit, 100.0F))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (isAdj(token, hit) && canMove)
+
+
+                if (Physics.Raycast(ray, out hit, 100.0F))
                 {
-
-                    lastposx = token.transform.position.x;
-                    lastposz = token.transform.position.z;
-
-                    hitx = (int)hit.transform.position.x;
-                    hitz = (int)hit.transform.position.z;
-
-
-
-                    ax = hitx - (int)token.transform.position.x;
-                    az = hitz - (int)token.transform.position.z;
-
-                    moving = true;
-
-
-                    hunger--;
-                    hungerbar.update();
-
-
-                    canMove = false;
-
-                    //    token.transform.position = hit.transform.position;
-                    if (!isIn((int)(hit.transform.position.x) * 100 / decalagex + (int)(hit.transform.position.z) / decalagez, revealed))
+                    if (isAdj(token, hit) && canMove)
                     {
 
-                        float x = hit.transform.position.x / decalagex;
-                        float z = hit.transform.position.z / decalagez;
-                        bool a = reveal((int)x, (int)z);
+                        lastposx = token.transform.position.x;
+                        lastposz = token.transform.position.z;
 
-                        if (a)
+                        hitx = (int)hit.transform.position.x;
+                        hitz = (int)hit.transform.position.z;
+
+
+
+                        ax = hitx - (int)token.transform.position.x;
+                        az = hitz - (int)token.transform.position.z;
+
+                        moving = true;
+
+
+                        hunger--;
+                        hungerbar.update();
+
+
+                        canMove = false;
+
+                        //    token.transform.position = hit.transform.position;
+                        if (!isIn((int)(hit.transform.position.x) * 100 / decalagex + (int)(hit.transform.position.z) / decalagez, revealed))
                         {
-                            hit.collider.gameObject.SetActive(false);
+
+                            float x = hit.transform.position.x / decalagex;
+                            float z = hit.transform.position.z / decalagez;
+                            bool a = reveal((int)x, (int)z);
+
+                            if (a)
+                            {
+                                hit.collider.gameObject.SetActive(false);
+                            }
                         }
+
+
                     }
+                    else if (hit.transform.tag.Length > 9 && hit.transform.tag.Substring(0, 9) == "Inventory")
+                    {
 
-
+                        inventoryscript.Clicked(hit);
+                    }
                 }
-                else if (hit.transform.tag.Length > 9 && hit.transform.tag.Substring(0, 9) == "Inventory")
-                {
 
-                    inventoryscript.Clicked(hit);
-                }
             }
 
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (!isFighting)
-            {
-                launchFight();
-            }
-            else
-            {
-                endFight();
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 List<GameObject> children = new List<GameObject>();
                 foreach (Transform child in floor.transform) children.Add(child.gameObject);
@@ -549,6 +544,27 @@ public class NewBehaviourScript : MonoBehaviour
 
                 iniLvl(floorlvl);
             }
+
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                fichePerso.gameObject.SetActive(!fichePerso.gameObject.activeInHierarchy);
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (!isFighting)
+            {
+                launchFight();
+            }
+            else
+            {
+                endFight();
+            }
+        }
+
+       
 
 
 

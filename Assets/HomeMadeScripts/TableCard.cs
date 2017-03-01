@@ -50,6 +50,12 @@ public class TableCard : MonoBehaviour
     public bool clicked = false;
 
     private NewBehaviourScript mainscript;
+
+    
+    public textScript tS;
+    //public Inventory inventory;
+    
+
     // Use this for initialization
     void Start()
     {
@@ -187,10 +193,10 @@ public class TableCard : MonoBehaviour
         Button3.enabled = true;
         Button4.enabled = true;
 
-        Button1.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
-        Button2.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
-        Button3.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
-        Button4.transform.localScale = new Vector3(0.135f, 0.27f, 0.25f);
+        Button1.transform.localScale = new Vector3(0.09f, 0.25f, 0.25f);
+        Button2.transform.localScale = new Vector3(0.09f, 0.25f, 0.25f);
+        Button3.transform.localScale = new Vector3(0.09f, 0.25f, 0.25f);
+        Button4.transform.localScale = new Vector3(0.09f, 0.25f, 0.25f);
 
 
 
@@ -937,8 +943,8 @@ public class TableCard : MonoBehaviour
             s.moralbar.update();
         }
 
-
-    }
+        tS.change_text();
+       }
 
     public void DemiTour()
     {
@@ -962,9 +968,35 @@ public class TableCard : MonoBehaviour
 
             b.image.color = Color.white;
         }
+    }
 
+    /*
+    public void itemReward(int id)
+    {
+        if (id != 0)
+        {
+            if (!inventory.AddItem(id) )
+            {
+                StartCoroutine(WaitForPlace(id));
+            }
+
+        }
 
     }
 
+    IEnumerator WaitForPlace(int id)
+    {
+        while(true)
+        {
+            if (inventory.RemoveObject())
+            {
+                itemReward(id);
+                StopCoroutine(WaitForPlace(id));
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    */
 
 }

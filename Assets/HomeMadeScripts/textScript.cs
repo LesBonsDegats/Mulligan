@@ -33,20 +33,16 @@ public class textScript : MonoBehaviour {
         Charisme.text = "Charisme:  " + s.charisma.ToString();
         Agilité.text = "Agilité:  " + s.agility.ToString();
         Intelligence.text = "Intelligence:  " + s.intel.ToString();
-        nom.text = s.name;
-    } 
-    public void cliked()
-    {
-        if(fiche.activeSelf)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-        }
-       
+        nom.text = s.Name;
     }
+
+
+
+
+
+    // Update is called once per frame
+    
+
 
 	// Update is called once per frame
 	void Update () {

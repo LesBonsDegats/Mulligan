@@ -84,7 +84,6 @@
     <Compile Include="Assets\HomeMadeScripts\Card.cs" />
     <Compile Include="Assets\HomeMadeScripts\CardBack.cs" />
     <Compile Include="Assets\HomeMadeScripts\CharacterControls.cs" />
-    <Compile Include="Assets\HomeMadeScripts\DialogueWindow.cs" />
     <Compile Include="Assets\HomeMadeScripts\InventaireSlot.cs" />
     <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />
@@ -103,6 +102,7 @@
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
+    <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />
@@ -145,7 +145,6 @@
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\fightcontroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
