@@ -109,6 +109,7 @@
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
+    <Compile Include="Assets\HomeMadeScripts\cubecontroler.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />

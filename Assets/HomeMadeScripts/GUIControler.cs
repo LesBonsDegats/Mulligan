@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class GUIControler : MonoBehaviour {
     Text statustext;
-	// Use this for initialization
-	void Start () {
+    Text mastertext;
+
+    void Start ()
+    {
         statustext = GameObject.Find("statustext").GetComponent<Text>();
+        mastertext = GameObject.Find("mastertext").GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
         statustext.text = "Status: " + PhotonNetwork.connectionStateDetailed.ToString();
-
+        mastertext.text = "Is master client: " + PhotonNetwork.isMasterClient.ToString();
     }
 }

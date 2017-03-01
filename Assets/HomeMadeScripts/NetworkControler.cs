@@ -5,30 +5,34 @@ using UnityEngine;
 public class NetworkControler : MonoBehaviour
 {
     private string gameversion = "0.1";
-    // Use this for initialization
+    public GameObject cubeprefab;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings(gameversion);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //Debug.Log("Status: " + PhotonNetwork.connectionStateDetailed.ToString());
     }
+
     void OnJoinedLobby()
     {
+        Debug.Log("Trying to join a random room");
         PhotonNetwork.JoinRandomRoom();
     }
 
     void OnPhotonRandomJoinFailed()
     {
-        Debug.Log("Can't join the room");
+        Debug.Log("Can't join a room");
         PhotonNetwork.CreateRoom(null);
+        Debug.Log("So i create a new room");
     }
 
     void OnJoinedRoom()
     {
-        Debug.Log("JoinedRoom");
+        Debug.Log("Room joined");
+        PhotonNetwork.Instantiate("Prefabs/" + cubeprefab.name, cubeprefab.transform.position,Quaternion.identity,0);
     }
 }
