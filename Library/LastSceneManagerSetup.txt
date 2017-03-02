@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/test-r\xE9seau.unity"
+- path: Assets/scene1.unity
   isLoaded: 1
   isActive: 1
