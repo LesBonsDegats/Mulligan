@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class Items : MonoBehaviour {
 
-    public Sprite ShadyEncounter;
+    public Sprite vide;
+    public Sprite libre;
+
+    public Sprite sword1;
     public Sprite Crossroad;
     public Sprite The_Gate;
     //etc..
 
+    public GameObject Inventory;
 
-    public List<Sprite> ImageList = new List<Sprite>();
+    public List<Sprite> ImageList = new List<Sprite>() { };
 
 	// Use this for initialization
 	void Start () {
         ImageList = new List<Sprite>
         {
-            null,
-            ShadyEncounter,
+            vide,
+            libre,
+            sword1,
             Crossroad,
             The_Gate
         };
-
+        Inventory.SetActive(true);
 	}
 	
 	// Update is called once per frame

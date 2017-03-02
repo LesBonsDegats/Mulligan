@@ -5,6 +5,9 @@ using System;
 public class NewBehaviourScript : MonoBehaviour
 {
 
+    public string coucou;
+    public string coucou2;
+
     public List<int> eligibles = new List<int>();
     public List<int> cases = new List<int>();
     public List<int> revealed = new List<int>();
@@ -14,11 +17,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     public GameObject CardStart;
 
-
+    /*
     public jauges lifebar;
     public jauges hungerbar;
     public jauges moralbar;
-
+    */
 
     public GameObject CardT;
     public GameObject CardP;
@@ -112,14 +115,14 @@ public class NewBehaviourScript : MonoBehaviour
 
     public bool isFighting = false;
     public switchCamera sC;
-
+    private textScript tS;
 
     // Use this for initialization
     void Start()
     {
         inventoryscript = inventory.GetComponent<Inventory>();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
-
+        tS = fichePerso.GetComponent<textScript>();
 
 
         iniLvl(6);
@@ -494,9 +497,10 @@ public class NewBehaviourScript : MonoBehaviour
 
                         moving = true;
 
-
                         hunger--;
-                        hungerbar.update();
+ 
+                        tS.change_text();
+                   //     hungerbar.update();
 
 
                         canMove = false;
@@ -517,11 +521,14 @@ public class NewBehaviourScript : MonoBehaviour
 
 
                     }
-                    else if (hit.transform.tag.Length > 9 && hit.transform.tag.Substring(0, 9) == "Inventory")
+                    
+                    else if (hit.transform.name.Length > 9 && hit.transform.name.Substring(0, 9) == "Inventory")
                     {
 
                         inventoryscript.Clicked(hit);
                     }
+
+
                 }
 
             }
@@ -571,7 +578,23 @@ public class NewBehaviourScript : MonoBehaviour
 
 
 
+
+
         }
+    /*
+
+    public void loseRessource(int vie, int faim, int moral)
+    {
+        life -= vie;
+        faim -= faim;
+        moral -= moral;
+
+        textScript tS = fichePerso.GetComponent<textScript>();
+        tS.change_text();
+    }
+
+    */
+
     }
 
 
