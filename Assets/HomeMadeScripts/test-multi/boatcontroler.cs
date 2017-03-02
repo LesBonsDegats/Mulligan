@@ -14,21 +14,25 @@ public class boatcontroler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.UpArrow) )
+        if (view.isMine)
         {
-            transform.Translate(Vector3.forward*Time.deltaTime* translationCoef);
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * translationCoef);
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(-Vector3.forward * Time.deltaTime * translationCoef);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Rotate(Vector3.up, Time.deltaTime * rotationCoef);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Rotate(Vector3.up, -Time.deltaTime * rotationCoef);
+            }
         }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(-Vector3.forward * Time.deltaTime * translationCoef);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(Vector3.up , Time.deltaTime * rotationCoef);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(Vector3.up , -Time.deltaTime * rotationCoef);
-        }
+		
     }
 }

@@ -112,6 +112,7 @@
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\BoatNetworkSync.cs" />
     <Compile Include="Assets\HomeMadeScripts\test-multi\GUIControler.cs" />
     <Compile Include="Assets\HomeMadeScripts\test-multi\NetworkControler.cs" />
     <Compile Include="Assets\HomeMadeScripts\test-multi\boatcontroler.cs" />
