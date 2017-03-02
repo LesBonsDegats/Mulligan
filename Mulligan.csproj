@@ -90,13 +90,11 @@
     <Compile Include="Assets\HomeMadeScripts\Card.cs" />
     <Compile Include="Assets\HomeMadeScripts\CardBack.cs" />
     <Compile Include="Assets\HomeMadeScripts\CharacterControls.cs" />
-    <Compile Include="Assets\HomeMadeScripts\GUIControler.cs" />
     <Compile Include="Assets\HomeMadeScripts\InventaireSlot.cs" />
     <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />
     <Compile Include="Assets\HomeMadeScripts\MainMenuScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\MouseLook.cs" />
-    <Compile Include="Assets\HomeMadeScripts\NetworkControler.cs" />
     <Compile Include="Assets\HomeMadeScripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\HomeMadeScripts\PCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\PauseMenu.cs" />
@@ -109,12 +107,16 @@
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
-    <Compile Include="Assets\HomeMadeScripts\cubecontroler.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\GUIControler.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\NetworkControler.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\boatcontroler.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\camerafollow.cs" />
+    <Compile Include="Assets\HomeMadeScripts\test-multi\cubecontroler.cs" />
     <Compile Include="Assets\HomeMadeScripts\textScript.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
@@ -394,6 +396,11 @@
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Wispy Sky\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
