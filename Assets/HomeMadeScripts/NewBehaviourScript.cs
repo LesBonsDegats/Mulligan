@@ -522,7 +522,7 @@ public class NewBehaviourScript : MonoBehaviour
 
                     }
                     
-                    else if (hit.transform.name.Length > 9 && hit.transform.name.Substring(0, 9) == "Inventory")
+                    else
                     {
 
                         inventoryscript.Clicked(hit);

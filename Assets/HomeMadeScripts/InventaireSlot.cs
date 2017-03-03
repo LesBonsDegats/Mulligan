@@ -11,7 +11,7 @@ public class InventaireSlot : MonoBehaviour {
 
     public GameObject MainCam;
 
-    public int type;
+    public string type;
 
     public Image img;
 
@@ -35,8 +35,29 @@ public class InventaireSlot : MonoBehaviour {
         img.sprite = image;
 
        // i = image;
+ 
+    }
 
-        
+
+    public bool hasSameType(string type, int id)
+    {
+        switch (type)
+        {  // changer les valeurs pour changer le nombre d'objets différents possible de chaque catégorie
+            case "lHand":
+                return id < 10;
+            case "helmet":
+                return 10 < id && id < 20;
+            case "chest":
+                return 20 < id && id < 30;
+            case "greaves":
+                return 30 < id && id < 40;
+            case "rHand":
+                return 40 < id && id < 50;
+            case "t":
+                return 50 < id;
+        }
+        return false;
+
     }
 
 

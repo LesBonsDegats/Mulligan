@@ -50,6 +50,7 @@ public class TableCard : MonoBehaviour
     public bool clicked = false;
 
     private NewBehaviourScript mainscript;
+    public Inventory inventory;
 
     
     public textScript tS;
@@ -731,6 +732,7 @@ public class TableCard : MonoBehaviour
                         Recit.text = paragraph("La dame vous voit et un sourire s'esquisse sur son visage. Sans dire un mot, elle vous donne l'épée et, les yeux pleins de mélancolie, elle se laisse tomber dans le lac qui, par quelque sortilège, se recouvre de ronces, de roses et de chardon.");
                         //ajouter une épée.
                         B1text.text = "Poursuivre votre périple";
+                        itemReward(2);
                         break;
 
                     case "LaDame 2":
@@ -970,20 +972,24 @@ public class TableCard : MonoBehaviour
         }
     }
 
-    /*
+    
     public void itemReward(int id)
     {
-        if (id != 0)
+        if (id > 1)
         {
-            if (!inventory.AddItem(id) )
-            {
-                StartCoroutine(WaitForPlace(id));
-            }
+          //  if (!inventory.AddItem(id) )
+        //    {
+        //        StartCoroutine(WaitForPlace(id));
+        //    }
 
         }
 
+        inventory.AddItem(id);
+
     }
 
+
+    /*
     IEnumerator WaitForPlace(int id)
     {
         while(true)

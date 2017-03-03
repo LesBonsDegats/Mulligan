@@ -39,15 +39,29 @@ public class Inventory : MonoBehaviour
     public int holdid = 0;
     public InventaireSlot chosen;
 
+    public bool isYes;
+    public bool clicked = false;
+
+
+    public GameObject AreYouSure;
+    public Button Button1;
+    public Button Button2;
+
+   
+
     /*
     public GameObject followCursor;
     public SpriteRenderer spriteFollowCursor;
     */
-    private Vector3 mousePosition;
+    //private Vector3 mousePosition;
+
 
     // Use this for initialization
     void Start()
     {
+        Button1.onClick.AddListener(onButtonYesClick);
+        Button2.onClick.AddListener(onButtonNoClick);
+
         chosen = Inventory1;
         s = cam.GetComponent<NewBehaviourScript>();
       //  spriteFollowCursor = followCursor.GetComponent<SpriteRenderer>();
@@ -66,7 +80,6 @@ public class Inventory : MonoBehaviour
             InventoryTalisman2,  InventoryTalisman3
         };
 
-
         AddItem(2);
     }
 
@@ -75,120 +88,128 @@ public class Inventory : MonoBehaviour
     {
         //     followCursor.transform.position = Input.mousePosition;
 
-        
+
     }
 
     public void Clicked(RaycastHit hit)
     {
-
-        compteur++;
-
-        string prefixe = "";
-        prefixe = hit.transform.name.Substring(9, hit.transform.name.Length - 9);
-
-
-
-        switch (prefixe)
-        {
-            case "1":
-
-                chosen = Inventory1;
-
-                break;
-            case "2":
-                chosen = Inventory2;
-
-                break;
-            case "3":
-                chosen = Inventory3;
-                break;
-
-            case "4":
-                chosen = Inventory4;
-                break;
-
-            case "5":
-                chosen = Inventory5;
-                break;
-
-            case "6":
-                chosen = Inventory6;
-                break;
-            case "7":
-                chosen = Inventory7;
-                break;
-            case "8":
-                chosen = Inventory8;
-                break;
-            case "9":
-                chosen = Inventory9;
-                break;
-            case "_Helmet":
-                chosen = InventoryHelmet;
-                break;
-            case "_RightHand":
-                chosen = InventoryRightHand;
-                break;
-            case "_Chest":
-                chosen = InventoryChest;
-                break;
-            case "_LeftHand":
-                chosen = InventoryLeftHand;
-                break;
-            case "_Greaves":
-                chosen = InventoryGreaves;
-                break;
-            case "_Talisman1":
-                chosen = InventoryTalisman1;
-                break;
-            case "_Talisman2":
-                chosen = InventoryTalisman2;
-                break;
-            case "_Talisman3":
-                chosen = InventoryTalisman3;
-                break;
-
-        }
-
-
-
-
-        if (chosen.id == 0)
+        if (hit.transform.name.Length > 9 && hit.transform.name.Substring(0, 9) == "Inventory")
         {
 
-            foreach(InventaireSlot slot in stashSlots)
+            string prefixe = "";
+            prefixe = hit.transform.name.Substring(9, hit.transform.name.Length - 9);
+
+
+
+            switch (prefixe)
             {
-                if (slot.id == 1)
+                case "1":
+                    chosen = Inventory1;
+                    break;
+                case "2":
+                    chosen = Inventory2;
+                    break;
+                case "3":
+                    chosen = Inventory3;
+                    break;
+                case "4":
+                    chosen = Inventory4;
+                    break;
+                case "5":
+                    chosen = Inventory5;
+                    break;
+                case "6":
+                    chosen = Inventory6;
+                    break;
+                case "7":
+                    chosen = Inventory7;
+                    break;
+                case "8":
+                    chosen = Inventory8;
+                    break;
+                case "9":
+                    chosen = Inventory9;
+                    break;
+                case "_Helmet":
+                    chosen = InventoryHelmet;
+                    break;
+                case "_RightHand":
+                    chosen = InventoryRightHand;
+                    break;
+                case "_Chest":
+                    chosen = InventoryChest;
+                    break;
+                case "_LeftHand":
+                    chosen = InventoryLeftHand;
+                    break;
+                case "_Greaves":
+                    chosen = InventoryGreaves;
+                    break;
+                case "_Talisman1":
+                    chosen = InventoryTalisman1;
+                    break;
+                case "_Talisman2":
+                    chosen = InventoryTalisman2;
+                    break;
+                case "_Talisman3":
+                    chosen = InventoryTalisman3;
+                    break;
+            }
+            if (chosen.id == 1)
+            {
+
+                foreach (InventaireSlot slot in stashSlots)
                 {
-                    slot.id = 0;
+                    if (slot.id == 1)
+                    {
+                        slot.setId(0);
+                    }
+                }
+                foreach (InventaireSlot slot in equipSlots)
+                {
+                    if (slot.id == 1)
+                    {
+                        slot.setId(0);
+                    }
                 }
 
+
+                chosen.setId(holdid);
+                holdid = 0;
+                s.canMove = true;
+
             }
-            chosen.setId(holdid);
-            holdid = 0;
-            s.canMove = true;
-
-        }
-        else if (holdid == 0)
-        {
-            holdid = chosen.id;
-            chosen.setId(0);
-            s.canMove = false;
-
-            foreach(InventaireSlot slot in stashSlots)
+            else if (holdid == 0 && chosen.id > 1)
             {
-                if (slot.id == 0)
+                holdid = chosen.id;
+                chosen.setId(0);
+                s.canMove = false;
+
+                foreach (InventaireSlot slot in stashSlots)
                 {
-                    slot.id = 1;
+                    if (slot.id == 0)
+                    {
+                        slot.setId(1);
+                    }
+                }
+                foreach (InventaireSlot slot in equipSlots)
+                {
+                    if (slot.id == 0 && slot.hasSameType(slot.type, holdid))
+                    {
+                        slot.setId(1);
+                    }
                 }
             }
         }
-
-        else if (holdid != 0)
+        else
         {
-            chosen.setId(holdid);
-            holdid = 0;
-            s.canMove = true;
+            if (holdid > 1)
+            {
+                AreYouSure.gameObject.SetActive(true);
+                // remove object
+                StartCoroutine(WaitForCLick());
+            }
+
         }
     }
 
@@ -219,34 +240,56 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool RemoveObject()
+    public void removeItem()
     {
-        if (Input.GetMouseButtonDown(0))
+        holdid = 0;
+        foreach(InventaireSlot slot in stashSlots)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            Ray CheckBelowHit = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100.0F))
+            if (slot.id == 1)
             {
-                if (hit.transform.parent != this)
+                slot.setId(0);
+            }
+        }
+
+        foreach(InventaireSlot slot in equipSlots)
+        {
+            if (slot.id == 1)
+            {
+
+                slot.setId(0);
+            }
+        }
+    }
+
+    public void onButtonYesClick()
+    {
+        isYes = true;
+        clicked = true;
+    }
+
+    public void onButtonNoClick()
+    {
+        isYes = false;
+        clicked = true;
+    }
+
+    IEnumerator WaitForCLick()
+    {
+        while (true)
+        {
+            if (clicked)
+            {
+                clicked = false;
+                if (isYes)
                 {
-
-                    //Are u sure ?
-                    holdid = 0;
-                    return true;
+                    removeItem();
                 }
-
-
-
+                AreYouSure.SetActive(false);
+                StopAllCoroutines();
             }
 
-
-
+            yield return new WaitForEndOfFrame();
         }
-        return false;
-
     }
 }
 
