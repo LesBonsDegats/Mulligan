@@ -24,6 +24,7 @@ TagManager:
   - Inventory17
   - Inventory20
   - other
+  - boat
   layers:
   - Default
   - TransparentFX
