@@ -6,10 +6,11 @@ public class boatcontroler : MonoBehaviour {
     public float rotationCoef = 50f;
     public float translationCoef = 10f;
     PhotonView view;
-
-	// Use this for initialization
-	void Start () {
+    private GameObject canon;
+    // Use this for initialization
+    void Start () {
         view = GetComponent<PhotonView>();
+        canon = GameObject.Find("canon");
     }
 	
 	// Update is called once per frame
@@ -31,6 +32,10 @@ public class boatcontroler : MonoBehaviour {
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 transform.Rotate(Vector3.up, -Time.deltaTime * rotationCoef);
+            }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                canon.SendMessage("fire");
             }
         }
 		
