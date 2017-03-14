@@ -9,20 +9,22 @@ public class PauseMenu : MonoBehaviour
 
 	void Update ()
     {
-        if (isActive == true)
-        {
-            menuObject.SetActive(true);
-            Cursor.visible = true;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            menuObject.SetActive(false);
-            Time.timeScale = 1;
-        }
+       
+       
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Resume_button();  
+            Resume_button();
+            if (isActive == true)
+            {
+                menuObject.SetActive(true);
+                Cursor.visible = true;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                menuObject.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
 	}
     public void Resume_button()

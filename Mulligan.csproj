@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -109,12 +103,14 @@
     <Compile Include="Assets\HomeMadeScripts\TCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\TableCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\Target.cs" />
+    <Compile Include="Assets\HomeMadeScripts\ToolBox.cs" />
     <Compile Include="Assets\HomeMadeScripts\bossCardFold.cs" />
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\camLookMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
+    <Compile Include="Assets\HomeMadeScripts\helpButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\switchCamera.cs" />

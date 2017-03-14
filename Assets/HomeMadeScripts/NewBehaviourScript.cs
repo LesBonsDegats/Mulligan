@@ -4,10 +4,6 @@ using System;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-
-    public string coucou;
-    public string coucou2;
-
     public List<int> eligibles = new List<int>();
     public List<int> cases = new List<int>();
     public List<int> revealed = new List<int>();
@@ -110,7 +106,7 @@ public class NewBehaviourScript : MonoBehaviour
     public int charisma;
     public int luck;
 
-    public Canvas fichePerso;
+    public GameObject fichePerso;
 
 
     public bool isFighting = false;
@@ -466,7 +462,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Ray CheckBelowHit = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    Ray CheckBelowHit = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
 
@@ -481,6 +477,8 @@ public class NewBehaviourScript : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, 100.0F))
                 {
+                   
+
                     if (isAdj(token, hit) && canMove)
                     {
 
@@ -524,7 +522,6 @@ public class NewBehaviourScript : MonoBehaviour
                     
                     else
                     {
-
                         inventoryscript.Clicked(hit);
                     }
 
@@ -554,7 +551,7 @@ public class NewBehaviourScript : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.P))
             {
-                fichePerso.gameObject.SetActive(!fichePerso.gameObject.activeInHierarchy);
+                fichePerso.SetActive(!fichePerso.gameObject.activeInHierarchy);
             }
 
         }
