@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/test-r\xE9seau.unity"
+- path: Assets/2players.unity
   isLoaded: 1
   isActive: 1

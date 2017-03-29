@@ -14,8 +14,6 @@ public class CharacterControls : MonoBehaviour
     public float jumpHeight = 14.0f;
     private bool grounded = false;
     public Rigidbody r;
-
-
     void Awake()
     {
         r.freezeRotation = true;
@@ -28,56 +26,55 @@ public class CharacterControls : MonoBehaviour
 
         Vector3 velocity = new Vector3(0, 0, 0);
         Vector3 velocityChange = new Vector3(0, 0, 0);
-
-        if (grounded)
-        {
-            // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            targetVelocity = transform.TransformDirection(targetVelocity);
-
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (grounded)
             {
-                speed *= 10;
+                // Calculate how fast we should be moving
+                Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                targetVelocity = transform.TransformDirection(targetVelocity);
 
-                targetVelocity *= speed;
+
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    speed *= 10;
+
+                    targetVelocity *= speed;
 
 
-                // Apply a force that attempts to reach our target velocity
-                velocity = r.velocity;
-                velocityChange = (targetVelocity - velocity);
-                speed /= 10;
+                    // Apply a force that attempts to reach our target velocity
+                    velocity = r.velocity;
+                    velocityChange = (targetVelocity - velocity);
+                    speed /= 10;
+                }
+                else
+                {
+                    targetVelocity *= speed;
+
+
+                    // Apply a force that attempts to reach our target velocity
+                    velocity = r.velocity;
+                    velocityChange = (targetVelocity - velocity);
+
+                }
+
+
+
+                if (canJump && Input.GetButton("Jump"))
+                {
+                    r.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+                }
+                else
+                {
+                    r.AddForce(velocityChange, ForceMode.VelocityChange);
+                }
+
+
+
             }
-            else
-            {
-                targetVelocity *= speed;
 
+            // We apply gravity manually for more tuning control
+            r.AddForce(new Vector3(velocity.x, -gravity * r.mass, velocity.z));
 
-                // Apply a force that attempts to reach our target velocity
-                velocity = r.velocity;
-                velocityChange = (targetVelocity - velocity);
-           
-            }
-   
-
-
-            if (canJump && Input.GetButton("Jump"))
-            {
-                r.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
-            }
-            else
-            {
-                r.AddForce(velocityChange, ForceMode.VelocityChange);
-            }
-        
-
-            
-        }
-
-        // We apply gravity manually for more tuning control
-        r.AddForce(new Vector3(velocity.x, -gravity * r.mass, velocity.z));
-
-        grounded = false;
+            grounded = false;
     }
 
     void OnCollisionStay()
