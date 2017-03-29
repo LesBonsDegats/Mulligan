@@ -9,6 +9,8 @@ public class helpButton : MonoBehaviour {
     public GameObject Box;
     public Text t;
 
+    public bool isActive = true;
+
 	// Use this for initialization
 	void Start () {
         toolMessage = toolMessage.Replace("\\n", "\n");
@@ -21,11 +23,11 @@ public class helpButton : MonoBehaviour {
 
     public void OnMouseEnter()
     {
-        SetActive(true, toolMessage, this.transform.position);
-
+        if (isActive)
+        SetActive(true, toolMessage);
     }
 
-    public void SetActive(bool a, string text, Vector3 pos)
+    public void SetActive(bool a, string text)
     {
         if (a)
         {
@@ -37,12 +39,12 @@ public class helpButton : MonoBehaviour {
             Box.SetActive(false);
             t.text = "";
         }
-        t.rectTransform.position = pos + new Vector3(-0.5f, 0, 4);
-        Box.transform.position = pos + new Vector3 (-0.5f, 0, 4);
-        changeSize(allLetters(t.text));
+      //  t.rectTransform.position = pos + new Vector3(-0.5f, 0, 4);
+       // Box.transform.position = pos + new Vector3 (-0.5f, 0, 4);
+       // changeSize(allLetters(t.text));
     }
 
-
+    /*
     public int[] allLetters(string str)
     {
         int[] arr = new int[27];
@@ -109,11 +111,11 @@ public class helpButton : MonoBehaviour {
         Box.transform.localScale = new Vector3(sum * 0.8f, 0.2f * LineNbr, 1);
     }
 
-
+    */
 
     public void OnMouseExit()
     {
-       SetActive(false, toolMessage, this.transform.position);
+       SetActive(false, toolMessage);
     }
 
 }

@@ -81,37 +81,55 @@ public class NewBehaviourScript : MonoBehaviour
     private int decalagex = 4;
     private int decalagez = 3;
 
-    // attributes
 
-    public string Name;
+    public bool isFighting = false;
+    public switchCamera sC;
+    private textScript tS;
 
+    //fiche perso
+    public GameObject fichePerso;
+    // ressources
     public int life;
     public int lifemax;
-
-
     public int hunger;
     public int hungermax;
-
     public int moral;
     public int moralmax;
-
     public int xp;
     public int xpmax;
-
     public int gold;
+    public Compteur life_compt;
+    public Compteur hunger_compt;
+    public Compteur moral_compt;
+    public Compteur gold_compt;
 
+    //caractéristiques du perso
+    public string Name;
     public int strenght;
     public int agility;
     public int intel;
     public int charisma;
     public int luck;
 
-    public GameObject fichePerso;
+    
+    //stats de combat
+    public int idArme;
+    public int idArme2;
+
+    public int idTalisman1;
+    public int idTalisman2;
+    public int idTalisman3;
+
+    public int BladeDmg;
+    public int BluntDmg;
+    public int MagicalDmg;
+    public int ElementalDmg;
+    public int aspeed;
+    public int armor;
+    public int mana;
+    public int stamina;
 
 
-    public bool isFighting = false;
-    public switchCamera sC;
-    private textScript tS;
 
     // Use this for initialization
     void Start()
@@ -119,11 +137,7 @@ public class NewBehaviourScript : MonoBehaviour
         inventoryscript = inventory.GetComponent<Inventory>();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
         tS = fichePerso.GetComponent<textScript>();
-
-
         iniLvl(6);
-
-
     }
 
     public void iniLvl(int nbreCases)
@@ -495,15 +509,9 @@ public class NewBehaviourScript : MonoBehaviour
 
                         moving = true;
 
-                        hunger--;
- 
-                        tS.change_text();
-                   //     hungerbar.update();
-
-
+                        GainRessource(0, 0, -1, 0);
                         canMove = false;
 
-                        //    token.transform.position = hit.transform.position;
                         if (!isIn((int)(hit.transform.position.x) * 100 / decalagex + (int)(hit.transform.position.z) / decalagez, revealed))
                         {
 
@@ -567,30 +575,79 @@ public class NewBehaviourScript : MonoBehaviour
                 endFight();
             }
         }
-
-       
-
-
-
-
-
-
-
-
         }
-    /*
+    
 
-    public void loseRessource(int vie, int faim, int moral)
+    public void GainRessource(int or, int vie, int faim, int karma)
     {
-        life -= vie;
-        faim -= faim;
-        moral -= moral;
+
+        gold += or;
+        life += vie;
+        moral += karma;
+        hunger += faim;
+
+        life = life > lifemax ? lifemax : life;
+        moral = moral > moralmax ? moralmax : moral;
+        hunger = hunger > hungermax ? hungermax : hunger;
+
+        moral_compt.setInt(moral);
+        life_compt.setInt(life, lifemax);
+        hunger_compt.setInt(hunger, hungermax);
+        gold_compt.setInt(gold);
 
         textScript tS = fichePerso.GetComponent<textScript>();
         tS.change_text();
     }
 
-    */
+    public void SetFightAttributes(List<InventaireSlot> equipement)
+    {
+
+        idArme = 0;
+        idArme2 = 0;
+
+        idTalisman1 = 0;
+        idTalisman2 = 0;
+        idTalisman3 = 0;
+        BladeDmg = 0;
+        BluntDmg = 0;
+        MagicalDmg = 0;
+        ElementalDmg = 0;
+        armor = 0;
+        aspeed = 0;
+        mana = 0;
+        stamina = 0;
+
+        // calcul initial de mana et stamina en fct de force, agilité, intelligence
+
+        mana = 25 + (intel * 15);
+        stamina = 25 + (agility * 5) + (strenght * 5);
+
+        //traitement des objets
+        foreach (InventaireSlot item in equipement)
+        {
+            switch(item.id)
+            {
+                case 2: //épée en acier
+                    {
+                        idArme = 2;
+                        BladeDmg += (int)(5 + agility * 0.2);
+                        aspeed = 50; //?
+                    }
+                    break;
+
+
+            }
+            //on augmente l'AS en fonction de l'agilité (un peu)
+            aspeed += (int)(agility * (0.2));
+
+            //application des effets uniques
+
+            //update fiche perso
+            tS.change_text();
+        }
+    }
+
+    
 
     }
 

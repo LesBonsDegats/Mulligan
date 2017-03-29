@@ -14,7 +14,9 @@ public class Items : MonoBehaviour {
 
     public GameObject Inventory;
 
-    public List<Sprite> ImageList = new List<Sprite>() { };
+    public List<Sprite> ImageList = new List<Sprite>();
+
+    public List<string> DescriptionList = new List<string>();
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +27,13 @@ public class Items : MonoBehaviour {
             sword1,
             Crossroad,
             The_Gate
+        };
+
+        DescriptionList = new List<string>
+        {
+            "aaaa",
+            "bbbb",
+            "Epée en Acier" 
         };
         Inventory.SetActive(true);
 	}

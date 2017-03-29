@@ -902,6 +902,8 @@ public class TableCard : MonoBehaviour
 
     private void basicReward (int gold, int life, int hunger, int moral)
     {
+        s.GainRessource(gold, life, hunger, moral);
+
         if (gold != 0)
         {
             if (gold > 0)
@@ -909,7 +911,7 @@ public class TableCard : MonoBehaviour
             else
                 RewardText.text += "Vous avez perdu " + (-gold).ToString() + " écus\n";
 
-            s.gold += gold;
+          //  s.gold += gold;
         }
 
         if (life != 0)
@@ -919,7 +921,7 @@ public class TableCard : MonoBehaviour
             else
                 RewardText.text += "Vous avez perdu " + (-life).ToString() + " points de vie\n";
 
-            s.life += life;
+//            s.life += life;
            // s.lifebar.update();
         }
 
@@ -930,7 +932,8 @@ public class TableCard : MonoBehaviour
             else
                 RewardText.text += "Vous avez perdu " + (-hunger).ToString() + " points de faim\n";
 
-            s.hunger += hunger;
+  //          s.hunger += hunger;
+
             //s.hungerbar.update();
         }
 
@@ -941,11 +944,11 @@ public class TableCard : MonoBehaviour
             else
                 RewardText.text += "Vous avez perdu " + (-moral).ToString() + " points de morale\n";
 
-            s.moral += moral;
+    //        s.moral += moral;
             //s.moralbar.update();
         }
 
-        tS.change_text();
+     //   tS.change_text();
        }
 
     public void DemiTour()

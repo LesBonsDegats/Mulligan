@@ -90,6 +90,7 @@
     <Compile Include="Assets\HomeMadeScripts\Card.cs" />
     <Compile Include="Assets\HomeMadeScripts\CardBack.cs" />
     <Compile Include="Assets\HomeMadeScripts\CharacterControls.cs" />
+    <Compile Include="Assets\HomeMadeScripts\Compteur.cs" />
     <Compile Include="Assets\HomeMadeScripts\InventaireSlot.cs" />
     <Compile Include="Assets\HomeMadeScripts\Inventory.cs" />
     <Compile Include="Assets\HomeMadeScripts\Items.cs" />

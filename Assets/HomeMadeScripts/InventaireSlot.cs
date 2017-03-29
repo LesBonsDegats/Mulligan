@@ -10,16 +10,22 @@ public class InventaireSlot : MonoBehaviour {
 
 
     public GameObject MainCam;
-
     public string type;
-
     public Image img;
+
+    private Items i;
+
+    private helpButton help;
+    private string helpMessage;
 
 	// Use this for initialization
 	void Start () {
-        setId(id);
+  
         img = this.GetComponent<Image>();
-	}
+        help = this.GetComponent<helpButton>();
+        i = MainCam.GetComponent<Items>();
+        setId(id);
+    }
 	
 	// Update is called once per frame
 	void Update() { 
@@ -27,15 +33,14 @@ public class InventaireSlot : MonoBehaviour {
 
     public void setId(int a)
     {
+        help = this.GetComponent<helpButton>();
+        i = MainCam.GetComponent<Items>();
         id = a;
 
-        Items i = MainCam.GetComponent<Items>();
+        help.isActive = id > 1;
         Sprite image = i.ImageList[a];
-
         img.sprite = image;
-
-       // i = image;
- 
+        
     }
 
 
@@ -61,5 +66,9 @@ public class InventaireSlot : MonoBehaviour {
     }
 
 
+    private void OnMouseEnter()
+    {
+        help.toolMessage = i.DescriptionList[id];
+    }
 
 }

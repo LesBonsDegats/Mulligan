@@ -177,6 +177,10 @@ public class Inventory : MonoBehaviour
                 chosen.setId(holdid);
                 holdid = 0;
                 s.canMove = true;
+                if (equipSlots.GetType() != null)
+                {
+                    s.SetFightAttributes(equipSlots);
+                }
 
             }
             else if (holdid == 0 && chosen.id > 1)
@@ -291,6 +295,7 @@ public class Inventory : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-}
+
+    }
 
 

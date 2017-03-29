@@ -52,7 +52,7 @@ public class fightcontroller : MonoBehaviour {
                 StopAllCoroutines();
                 StartCoroutine("combo");
                 StartCoroutine("Attacktime",6.67f);
-
+                
             }
             else
             {
