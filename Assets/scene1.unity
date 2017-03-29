@@ -1377,7 +1377,9 @@ MonoBehaviour:
   currentx: 0
   currentz: 10
   floorlvl: 6
-  Name: Dovakhiin
+  isFighting: 0
+  sC: {fileID: 2111100452}
+  fichePerso: {fileID: 395484292}
   life: 100
   lifemax: 100
   hunger: 50
@@ -1387,18 +1389,29 @@ MonoBehaviour:
   xp: 0
   xpmax: 0
   gold: 0
+  life_compt: {fileID: 2036910777}
+  hunger_compt: {fileID: 1625465495}
+  moral_compt: {fileID: 1738405488}
+  gold_compt: {fileID: 294426922}
+  Name: Dovakhiin
   strenght: 10
   agility: 10
   intel: 10
   charisma: 10
   luck: 10
-  fichePerso: {fileID: 395484292}
-  life_compt: {fileID: 2036910777}
-  hunger_compt: {fileID: 1625465495}
-  moral_compt: {fileID: 1738405488}
-  gold_compt: {fileID: 294426922}
-  isFighting: 0
-  sC: {fileID: 2111100452}
+  idArme: 0
+  idArme2: 0
+  idTalisman1: 0
+  idTalisman2: 0
+  idTalisman3: 0
+  BladeDmg: 0
+  BluntDmg: 0
+  MagicalDmg: 0
+  ElementalDmg: 0
+  aspeed: 0
+  armor: 0
+  mana: 0
+  stamina: 0
 --- !u!81 &140618116
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3506,7 +3519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &588865562
 Transform:
   m_ObjectHideFlags: 0
@@ -3595,10 +3608,22 @@ MonoBehaviour:
   s: {fileID: 140618115}
   hit: {fileID: 584809132}
   compteur: 0
+  charge: 0
   isAttacking: 0
   isAttacking1: 0
   isAttacking2: 0
-  isAttacking3: 0
+  isCharging: 0
+  isAttackingCharged: 0
+  aSpeed: 0
+  BladeDmg: 0
+  BluntDmg: 0
+  MagicDmg: 0
+  ElementalDmg: 0
+  Armor: 0
+  Stamina: 0
+  maxStamina: 0
+  Mana: 0
+  maxMana: 0
 --- !u!1 &634195772
 GameObject:
   m_ObjectHideFlags: 0

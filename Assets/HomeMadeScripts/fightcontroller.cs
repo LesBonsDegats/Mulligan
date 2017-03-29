@@ -2,98 +2,106 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fightcontroller : MonoBehaviour {
+public class fightcontroller : MonoBehaviour
+{
 
     public NewBehaviourScript s;
 
     public Animator hit;
 
     public int compteur = 0;
+    public int charge = 0;
 
     public bool isAttacking = false;
 
     public bool isAttacking1 = false;
     public bool isAttacking2 = false;
-    public bool isAttacking3 = false;
+
+    public bool isCharging = false;
+    public bool isAttackingCharged = false;
+
+    public float aSpeed;
+    public int BladeDmg;
+    public int BluntDmg;
+    public int MagicDmg;
+    public int ElementalDmg;
+    public int Armor;
+
+    public int Stamina;
+    public int maxStamina;
+
+    public int Mana;
+    public int maxMana;
 
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetMouseButtonDown(0)) 
+    // Use this for initialization
+    void Start()
+    {
+        aSpeed = 0.5f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetMouseButton(0) && !isCharging)
         {
-/*
-            if (isAttacking2)
+            isCharging = true;
+            hit.SetTrigger("charge");
+            StartCoroutine("ChargeAttack");
+
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isCharging = false;
+            StopCoroutine("ChargeAttack");
+            //coup chargé
+            if (charge >= 10)
             {
-                hit.SetTrigger("hit3");
-                isAttacking = true;
-                isAttacking1 = false;
-                isAttacking2 = false;
-                isAttacking3 = true;
-
-                StopAllCoroutines();
-                StartCoroutine(combo());
-                StartCoroutine(Attacktime(6.67f));
-
-            }
-
-        */
-            if (isAttacking1)
-            {
-                hit.SetTrigger("hit2");
-                isAttacking = true;
-                isAttacking1 = false;
-                isAttacking2 = true;
-                isAttacking3 = false;
-
-                StopAllCoroutines();
+                hit.SetTrigger("ChargedAttack");
+                isAttackingCharged = true;
+                StartCoroutine(Attacktime(aSpeed));
                 StartCoroutine("combo");
-                StartCoroutine("Attacktime",6.67f);
                 
+
+
             }
             else
             {
 
-                //   if (!isAttacking)
-                //    {
-                hit.SetTrigger("hit1");
-                isAttacking = true;
-                isAttacking1 = true;
-                isAttacking2 = false;
-                isAttacking3 = false;
+                //coup pas chargé
+                if (isAttacking1)
+                {
+                    hit.speed = aSpeed;
+                    hit.SetTrigger("hit2");
+                    isAttacking1 = false;
+                    isAttacking2 = true;
+                    StopAllCoroutines();
+                    StartCoroutine("Attacktime", aSpeed);
+                }
+                else
+                {
+                    hit.speed = aSpeed;
+                    hit.SetTrigger("hit1");
+                    isAttacking1 = true;
+                    isAttacking2 = false;
+                    StartCoroutine("Attacktime", aSpeed);
+                }
+
 
                 StartCoroutine("combo");
-                StartCoroutine("Attacktime",6.67f);
+                isAttacking = isAttacking1 || isAttacking2;
+
             }
-      //      }
-
-            /*
-            else if (isAttacking1)
-            {
-                hit.SetTrigger("hit2");
-                isAttacking2 = true
-                StartCoroutine(coroutine);
-            }
-            else if (isAttacking2)
-            {
-                hit.SetTrigger("hit3");
-                isAttacking3 = true;
-            }
-
-            isAttacking = true;
-
-    */
-
+            charge = 0;
         }
 
 
-	}
+    }
 
 
-    IEnumerator Attacktime (float attackspeed)
+    IEnumerator Attacktime(float attackspeed)
     {
         bool swtch = false;
         bool fix = true;
@@ -101,7 +109,6 @@ public class fightcontroller : MonoBehaviour {
         {
             if (swtch)
             {
-                compteur++;
                 isAttacking = false;
 
                 fix = false;
@@ -110,16 +117,29 @@ public class fightcontroller : MonoBehaviour {
 
             swtch = true;
 
-            yield return new WaitForSeconds(1/attackspeed);
+            yield return new WaitForSeconds(5 / attackspeed);
         }
+    }
 
-
-
-
+    IEnumerator ChargeAttack()
+    {
+        while (true)
+        {
+            charge++;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 
-    IEnumerator combo()
+
+
+
+
+
+
+
+
+IEnumerator combo()
     {
 
         bool swtch = false;
@@ -133,7 +153,6 @@ public class fightcontroller : MonoBehaviour {
                 isAttacking = false;
                 isAttacking1 = false;
                 isAttacking2 = false;
-                isAttacking3 = false;
 
                 fix = false;
                 StopCoroutine("combo");
