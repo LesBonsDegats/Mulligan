@@ -29,11 +29,11 @@ public class multiCharacterControls : MonoBehaviour
     void FixedUpdate()
     {
 
-
-        Vector3 velocity = new Vector3(0, 0, 0);
-        Vector3 velocityChange = new Vector3(0, 0, 0);
         if (view.isMine)
         {
+            Vector3 velocity = new Vector3(0, 0, 0);
+            Vector3 velocityChange = new Vector3(0, 0, 0);
+        
             if (grounded)
             {
                 // Calculate how fast we should be moving

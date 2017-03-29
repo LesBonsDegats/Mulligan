@@ -50,7 +50,7 @@ using UnityEngine;
                 */
             originalRotation = transform.localRotation;
             originalRotationCam = camera.transform.localRotation;
-        view = GetComponent<PhotonView>();
+            view = GetComponent<PhotonView>();
     }
 
         public static float ClampAngle(float angle, float min, float max)
