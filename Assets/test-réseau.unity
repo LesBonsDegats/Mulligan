@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb38c8e591905547b3ce9835ef4c23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeprefab: {fileID: 1370737647686410, guid: 306f0efbf2e9bff49998337d826f74eb, type: 2}
+  cubeprefab: {fileID: 1329052461694708, guid: 306f0efbf2e9bff49998337d826f74eb, type: 2}
 --- !u!4 &272791542
 Transform:
   m_ObjectHideFlags: 0
