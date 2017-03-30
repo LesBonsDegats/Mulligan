@@ -109,7 +109,9 @@
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
+    <Compile Include="Assets\HomeMadeScripts\fightController1.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
+    <Compile Include="Assets\HomeMadeScripts\fightcontrollerMulti.cs" />
     <Compile Include="Assets\HomeMadeScripts\helpButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
@@ -312,6 +314,7 @@
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Fantasy RPG Icon Set- Free\Notes.txt" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />

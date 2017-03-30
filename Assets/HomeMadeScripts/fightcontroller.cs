@@ -35,12 +35,11 @@ public class fightcontroller : MonoBehaviour
 
     public int Mana;
     public int maxMana;
-    private PhotonView view;
+
 
     // Use this for initialization
     void Start()
     {
-        view = parent.GetComponent<PhotonView>();
         aSpeed = 0.3f;
         weapon = this.GetComponentInChildren<Collider>();
     }
@@ -48,8 +47,7 @@ public class fightcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (view.isMine)
-        {
+    
             AnimatorStateInfo animInfo = hit.GetCurrentAnimatorStateInfo(0);
             isAttacking = animInfo.IsName("hit1") || animInfo.IsName("hit2") || animInfo.IsName("chargedHit");
             if (Input.GetMouseButtonDown(1) && !isAttacking)
@@ -129,7 +127,7 @@ public class fightcontroller : MonoBehaviour
             }
         }
 
-    }
+    
 
 
     IEnumerator Attacktime(float attackspeed)
@@ -168,7 +166,7 @@ public class fightcontroller : MonoBehaviour
 
 
 
-IEnumerator combo()
+    IEnumerator combo()
     {
 
         bool swtch = false;
