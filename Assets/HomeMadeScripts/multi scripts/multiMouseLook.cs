@@ -44,13 +44,19 @@ using UnityEngine;
     }
         void Start()
         {
-            // Make the rigid body not change rotation
-           /* if (rigidbody)
-                rigidbody.freezeRotation = true;
-                */
+        // Make the rigid body not change rotation
+        /* if (rigidbody)
+             rigidbody.freezeRotation = true;
+             */
+        view = GetComponent<PhotonView>();
+        if(view.isMine)
+        {
+            Camera film = camera.GetComponent<Camera>();
+            film.enabled = true;
             originalRotation = transform.localRotation;
             originalRotationCam = camera.transform.localRotation;
-            view = GetComponent<PhotonView>();
+        }
+
     }
 
         public static float ClampAngle(float angle, float min, float max)
