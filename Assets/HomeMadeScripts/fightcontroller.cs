@@ -5,6 +5,8 @@ using UnityEngine;
 public class fightcontroller : MonoBehaviour
 {
 
+    public Collider weapon;
+
     public NewBehaviourScript s;
 
     public Animator hit;
@@ -19,6 +21,8 @@ public class fightcontroller : MonoBehaviour
 
     public bool isCharging = false;
     public bool isAttackingCharged = false;
+
+    public bool isBlocking;
 
     public float aSpeed;
     public int BladeDmg;
@@ -37,29 +41,52 @@ public class fightcontroller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        aSpeed = 0.5f;
+        aSpeed = 0.3f;
+        weapon = this.GetComponentInChildren<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        AnimatorStateInfo animInfo = hit.GetCurrentAnimatorStateInfo(0);
+        isAttacking = animInfo.IsName("hit1") || animInfo.IsName("hit2") || animInfo.IsName("chargedHit");
+        if (Input.GetMouseButtonDown(1) && !isAttacking)
+        {
+            hit.speed = 1;
+            weapon.enabled = true;
+            isBlocking = true;
+            hit.SetBool("block", true);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            weapon.enabled = false;
+            isBlocking = false;
+            hit.SetBool("block", false);
+        }
+
 
         if (Input.GetMouseButton(0) && !isCharging)
         {
+            hit.speed = 1;
+            hit.SetBool("charging", true);
             isCharging = true;
             hit.SetTrigger("charge");
             StartCoroutine("ChargeAttack");
 
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
+            weapon.enabled = true;
+            hit.SetBool("charging", false);
             isCharging = false;
             StopCoroutine("ChargeAttack");
             //coup chargé
             if (charge >= 10)
             {
-                hit.SetTrigger("ChargedAttack");
+                //   hit.SetTrigger("ChargedAttack");
+
+                hit.speed = aSpeed * 0.9f;
+                hit.SetTrigger("hit1");
                 isAttackingCharged = true;
                 StartCoroutine(Attacktime(aSpeed));
                 StartCoroutine("combo");
@@ -71,6 +98,7 @@ public class fightcontroller : MonoBehaviour
             {
 
                 //coup pas chargé
+             //   hit.SetBool("test", true);
                 if (isAttacking1)
                 {
                     hit.speed = aSpeed;
@@ -91,9 +119,10 @@ public class fightcontroller : MonoBehaviour
 
 
                 StartCoroutine("combo");
-                isAttacking = isAttacking1 || isAttacking2;
-
             }
+
+           
+          //  isAttacking = isAttacking1 || isAttacking2 || isAttackingCharged;
             charge = 0;
         }
 
@@ -126,11 +155,9 @@ public class fightcontroller : MonoBehaviour
         while (true)
         {
             charge++;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.07f);
         }
     }
-
-
 
 
 
@@ -148,11 +175,10 @@ IEnumerator combo()
         {
             if (swtch)
             {
-
- 
-                isAttacking = false;
                 isAttacking1 = false;
                 isAttacking2 = false;
+                isAttackingCharged = false;
+                weapon.enabled = false;
 
                 fix = false;
                 StopCoroutine("combo");
@@ -160,7 +186,7 @@ IEnumerator combo()
 
             swtch = true;
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
         }
     }
 }

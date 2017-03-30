@@ -25,6 +25,7 @@ public class Target : MonoBehaviour {
     {
         if (collision.collider == weapon && f.isAttacking)
         {
+            f.weapon.enabled = false;
             bool isDead = loseLife(10);
             if (isDead)
             {
