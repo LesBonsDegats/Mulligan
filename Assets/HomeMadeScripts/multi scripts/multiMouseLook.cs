@@ -51,6 +51,8 @@ using UnityEngine;
         view = GetComponent<PhotonView>();
         if(view.isMine)
         {
+            AudioListener ear = camera.GetComponent<AudioListener>();
+            ear.enabled = true;
             Camera film = camera.GetComponent<Camera>();
             film.enabled = true;
             originalRotation = transform.localRotation;
