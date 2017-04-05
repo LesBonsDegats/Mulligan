@@ -112,6 +112,30 @@ public class NewBehaviourScript : MonoBehaviour
     public int charisma;
     public int luck;
 
+    private bool[] Abilities;
+    public List<string> allAbilities = new List<string>
+    {
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19"
+    };
     
     //stats de combat
     public int idArme;
@@ -135,6 +159,12 @@ public class NewBehaviourScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Abilities = new bool[20];
+        for (int i = 0; i < 19; i++)
+        {
+            Abilities[i] = false;
+        }
+
         inventoryscript = inventory.GetComponent<Inventory>();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
         tS = fichePerso.GetComponent<textScript>();
@@ -588,6 +618,16 @@ public class NewBehaviourScript : MonoBehaviour
         level++;
         tS.gameObject.SetActive(true);
         tS.LevelUp();
+
+    }
+
+    public void getAbility(string str)
+    {
+        switch (str)
+        {
+
+
+        }
 
     }
 

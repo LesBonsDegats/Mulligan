@@ -29,8 +29,28 @@ public class textScript : MonoBehaviour {
     public Button ChaMoins;
     public Button LckMoins;
 
+    public Text ChooseOne;
+    public Button Choice1;
+    public Button Choice2;
+
+    private Text Choice1_Text;
+    private Text Choice2_Text;
+
+    private string Choice1_ability;
+    private string Choice2_ability;
+
+    private Image Choice1_img;
+    private Image Choice2_img;
+    private int chosen;
+
     public Button ConfirmButton;
     public Text ConfirmText;
+
+    public Scrollbar AbilityScroll;
+    public Text AbilityText;
+
+    public string GlobalAbilities; //toutes les compétences acquises
+    public string CurrentAbilities;//ce qu'on en voit (scrollbar)
 
     private List<Button> PlusMoinsButtons = new List<Button>();
     private int PotentialFrc = 0;
@@ -41,13 +61,24 @@ public class textScript : MonoBehaviour {
 
     public int specPoints = 0;
 
-    void Start () {
+    void Start ()
+    {
+
+        GlobalAbilities = "";
         change_text();
         gameObject.SetActive(false);
         nom.text = s.Name + ", niveau 1";
 
+        Choice1_img = Choice1.GetComponent<Image>();
+        Choice2_img = Choice2.GetComponent<Image>();
+
+        Choice1_Text = Choice1.GetComponentInChildren<Text>();
+        Choice2_Text = Choice2.GetComponentInChildren<Text>();
+
         PlusMoinsButtons = new List<Button>
-    {
+      {
+        Choice1,
+        Choice2,
         FrcPlus,
         AgiPlus,
         IntPlus,
@@ -59,8 +90,36 @@ public class textScript : MonoBehaviour {
         ChaMoins,
         LckMoins,
         ConfirmButton
-    };
+     };
 
+    }
+
+    public string Get6LinesStartFromK(string txt, int k)
+    {
+        string str = "";
+        int L = txt.Length;
+        int compteur = 0;
+
+
+        while(k > 0 && compteur < L)
+        {
+            if (txt[compteur] == '\n')
+                k--;
+            compteur++;
+        }
+        k = 6;
+        while (k > 0)
+        {
+            while (compteur < L && txt[compteur] != '\n')
+            {
+                str += txt[compteur];
+                compteur++;
+            }
+            compteur++;
+            str += '\n';
+            k--;
+        }
+        return str;
     }
     public void change_text()
     {
@@ -75,6 +134,22 @@ public class textScript : MonoBehaviour {
         Agilité.text = "Agilité:  " + (s.agility + PotentialAgi).ToString();
         Intelligence.text = "Intelligence:  " + (s.intel + PotentialInt).ToString();
     }
+
+    public void Choose(int choice)// 1 ou 2
+    {
+        chosen = choice;
+        if (chosen == 1)
+        {
+            Choice1_img.color = Color.yellow;
+            Choice2_img.color = Color.white;
+        }
+        else if (chosen == 2)
+        {
+            Choice2_img.color = Color.yellow;
+            Choice1_img.color = Color.white;
+        }
+    }
+
 
     public void addPotentialPoint(int attributeId)
     {
@@ -107,8 +182,23 @@ public class textScript : MonoBehaviour {
     public void LevelUp()
     {
         nom.text = "Vous atteignez le niveau "+s.level.ToString()+" !";
+        ChooseOne.gameObject.SetActive(true);
         s.canMove = false;
         specPoints++;
+
+        System.Random rnd = new System.Random();
+
+        int count = s.allAbilities.Count;
+        Choice1_ability = s.allAbilities[rnd.Next(count)];
+        s.allAbilities.Remove(Choice1_ability);
+        count--;
+
+        Choice2_ability = s.allAbilities[rnd.Next(count)];
+        s.allAbilities.Remove(Choice2_ability);
+
+        Choice1_Text.text = Choice1_ability;
+        Choice2_Text.text = Choice2_ability;
+
 
         foreach (Button b in PlusMoinsButtons)
         {
@@ -127,23 +217,44 @@ public class textScript : MonoBehaviour {
         s.charisma += PotentialCha;
         s.luck += PotentialLck;
 
+
+        if (chosen == 1)
+        {
+            s.allAbilities.Add(Choice2_ability);
+            GlobalAbilities += Choice1_ability + '\n';
+            s.getAbility(Choice1_ability);
+        }
+        else
+        {
+            s.allAbilities.Add(Choice1_ability);
+            GlobalAbilities += Choice2_ability + '\n';
+            s.getAbility(Choice2_ability);
+        }
+        AbilityTextUpdate();
+
         PotentialFrc = 0;
         PotentialAgi = 0;
         PotentialInt = 0;
         PotentialCha = 0;
         PotentialLck = 0;
 
+        Choice1_img.color = Color.white;
+        Choice2_img.color = Color.white;
+
         foreach (Button b in PlusMoinsButtons)
         {
             b.gameObject.SetActive(false);
         }
         nom.text = s.Name + ", niveau " + s.level;
+        ChooseOne.gameObject.SetActive(false);
         s.canMove = true;
     }
 
     public void ButtonUpdate()
     {
-        for (int i = 0; i < 5; i++)
+
+
+        for (int i = 2; i < 5; i++)
         {
             PlusMoinsButtons[i].enabled = (specPoints > 0);
         }
@@ -153,12 +264,16 @@ public class textScript : MonoBehaviour {
         ChaMoins.enabled = PotentialCha > 0;
         LckMoins.enabled = PotentialLck > 0;
 
-        ConfirmText.enabled = specPoints == 0;
+        ConfirmButton.enabled = specPoints == 0;
         ConfirmText.text = specPoints > 0 ? specPoints.ToString() : "Confirmer";
     }
 
 
+    public void AbilityTextUpdate()
+    {
+        AbilityText.text = Get6LinesStartFromK(GlobalAbilities, (int)(AbilityScroll.value * 6f));
 
+    }
 
     // Update is called once per frame
     
