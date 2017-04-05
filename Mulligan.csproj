@@ -109,12 +109,11 @@
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
-    <Compile Include="Assets\HomeMadeScripts\fightController1.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
-    <Compile Include="Assets\HomeMadeScripts\fightcontrollerMulti.cs" />
     <Compile Include="Assets\HomeMadeScripts\helpButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
+    <Compile Include="Assets\HomeMadeScripts\multi scripts\fightcontrollerMulti.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\multiCharacterControls.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\multiMouseLook.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\test-multi\BoatNetworkSync.cs" />
