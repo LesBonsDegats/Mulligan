@@ -25,6 +25,7 @@ TagManager:
   - Inventory20
   - other
   - boat
+  - weapon
   layers:
   - Default
   - TransparentFX

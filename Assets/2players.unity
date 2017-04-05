@@ -295,6 +295,77 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!1001 &616022590
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 348.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2648.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914505847654974, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379669252362106, guid: fc654c2eab6d2ba41b8d586edfb71ce9,
+        type: 2}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114379669252362106, guid: fc654c2eab6d2ba41b8d586edfb71ce9,
+        type: 2}
+      propertyPath: instantiationId
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fc654c2eab6d2ba41b8d586edfb71ce9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &616022591 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1232823811318946, guid: fc654c2eab6d2ba41b8d586edfb71ce9,
+    type: 2}
+  m_PrefabInternal: {fileID: 616022590}
+--- !u!114 &616022592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616022591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636494107f6a234db3a63a2e7f3d07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  f: {fileID: 0}
+  life: 0
 --- !u!1 &646333533
 GameObject:
   m_ObjectHideFlags: 0
