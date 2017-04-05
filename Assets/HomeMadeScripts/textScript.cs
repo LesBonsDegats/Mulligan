@@ -30,6 +30,7 @@ public class textScript : MonoBehaviour {
     public Button LckMoins;
 
     public Button ConfirmButton;
+    public Text ConfirmText;
 
     private List<Button> PlusMoinsButtons = new List<Button>();
     private int PotentialFrc = 0;
@@ -38,11 +39,12 @@ public class textScript : MonoBehaviour {
     private int PotentialCha = 0;
     private int PotentialLck = 0;
 
-    private int specPoints = 0;
+    public int specPoints = 0;
 
     void Start () {
         change_text();
         gameObject.SetActive(false);
+        nom.text = s.Name + ", niveau 1";
 
         PlusMoinsButtons = new List<Button>
     {
@@ -71,8 +73,7 @@ public class textScript : MonoBehaviour {
         Chance.text = "Chance:  " + (s.luck +PotentialLck).ToString();
         Charisme.text = "Charisme:  " + (s.charisma +PotentialCha).ToString();
         Agilité.text = "Agilité:  " + (s.agility + PotentialAgi).ToString();
-        Intelligence.text = "Intelligence:  " + (s.intel + PotentialAgi).ToString();
-        nom.text = s.Name;
+        Intelligence.text = "Intelligence:  " + (s.intel + PotentialInt).ToString();
     }
 
     public void addPotentialPoint(int attributeId)
@@ -98,11 +99,15 @@ public class textScript : MonoBehaviour {
         specPoints++;
         change_text();
         ButtonUpdate();
+
+        
     }
 
 
     public void LevelUp()
     {
+        nom.text = "Vous atteignez le niveau "+s.level.ToString()+" !";
+        s.canMove = false;
         specPoints++;
 
         foreach (Button b in PlusMoinsButtons)
@@ -110,22 +115,7 @@ public class textScript : MonoBehaviour {
             b.gameObject.SetActive(true);
         }
         ButtonUpdate();
-
-        /*
-        FrcPlus.onClick.AddListener(() => addPotentialPoint(ref PotentialFrc));
-        AgiPlus.onClick.AddListener(() => addPotentialPoint(ref PotentialAgi));
-        IntPlus.onClick.AddListener(() => addPotentialPoint(ref PotentialInt));
-        ChaPlus.onClick.AddListener(() => addPotentialPoint(ref PotentialCha));
-        LckPlus.onClick.AddListener(() => addPotentialPoint(ref PotentialLck));
-
-        FrcMoins.onClick.AddListener(() => addPotentialPoint(ref PotentialFrc));
-        AgiMoins.onClick.AddListener(() => addPotentialPoint(ref PotentialAgi));
-        IntMoins.onClick.AddListener(() => addPotentialPoint(ref PotentialInt));
-        ChaMoins.onClick.AddListener(() => addPotentialPoint(ref PotentialCha));
-        LckMoins.onClick.AddListener(() => addPotentialPoint(ref PotentialLck));
-        */
-
-      //  ConfirmButton.onClick.AddListener(() => Confirm());
+        change_text();
     }
 
 
@@ -147,6 +137,8 @@ public class textScript : MonoBehaviour {
         {
             b.gameObject.SetActive(false);
         }
+        nom.text = s.Name + ", niveau " + s.level;
+        s.canMove = true;
     }
 
     public void ButtonUpdate()
@@ -161,8 +153,7 @@ public class textScript : MonoBehaviour {
         ChaMoins.enabled = PotentialCha > 0;
         LckMoins.enabled = PotentialLck > 0;
 
-        Text ConfirmText = ConfirmButton.GetComponent<Text>();
-
+        ConfirmText.enabled = specPoints == 0;
         ConfirmText.text = specPoints > 0 ? specPoints.ToString() : "Confirmer";
     }
 
@@ -175,9 +166,5 @@ public class textScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.U))
-        {
-            LevelUp();
-        }
 	}
 }

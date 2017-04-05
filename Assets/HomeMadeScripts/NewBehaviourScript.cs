@@ -89,6 +89,7 @@ public class NewBehaviourScript : MonoBehaviour
     //fiche perso
     public GameObject fichePerso;
     // ressources
+    public int level = 1;
     public int life;
     public int lifemax;
     public int hunger;
@@ -556,8 +557,12 @@ public class NewBehaviourScript : MonoBehaviour
 
                 iniLvl(floorlvl);
             }
+            else if (Input.GetKeyDown(KeyCode.U))
+            {
+                LevelUp();
+            }
 
-            if(Input.GetKeyDown(KeyCode.P))
+            else if (Input.GetKeyDown(KeyCode.P))
             {
                 fichePerso.SetActive(!fichePerso.gameObject.activeInHierarchy);
             }
@@ -577,6 +582,14 @@ public class NewBehaviourScript : MonoBehaviour
         }
         }
     
+
+    public void LevelUp()
+    {
+        level++;
+        tS.gameObject.SetActive(true);
+        tS.LevelUp();
+
+    }
 
     public void GainRessource(int or, int vie, int faim, int karma)
     {
@@ -625,6 +638,8 @@ public class NewBehaviourScript : MonoBehaviour
         //traitement des objets
         foreach (InventaireSlot item in equipement)
         {
+
+            
             switch(item.id)
             {
                 case 2: //épée en acier
