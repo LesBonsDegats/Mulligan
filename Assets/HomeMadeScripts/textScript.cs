@@ -15,6 +15,17 @@ public class textScript : MonoBehaviour {
     public Text Charisme;
     public Text Intelligence;
     public Text nom;
+
+    public Text mana;
+    public Text stamina;
+    public Text aspeed;
+    public Text armor;
+
+    public Text BladeDmg;
+    public Text BluntDmg;
+    public Text MagicalDmg;
+    public Text ElementalDmg;
+
     public GameObject fiche;
 
     public Button FrcPlus;
@@ -29,7 +40,7 @@ public class textScript : MonoBehaviour {
     public Button ChaMoins;
     public Button LckMoins;
 
-    public Text ChooseOne;
+    public GameObject ChooseOne;
     public Button Choice1;
     public Button Choice2;
 
@@ -61,11 +72,18 @@ public class textScript : MonoBehaviour {
 
     public int specPoints = 0;
 
+    private int abilityNumber = 0;
+
+    public GameObject ressources;
+    public GameObject fightAttributes;
+    public GameObject damages;
+    private int showcaseIndex = 0;
+
     void Start ()
     {
 
         GlobalAbilities = "";
-        change_text();
+        showcaseIndex = 0;
         gameObject.SetActive(false);
         nom.text = s.Name + ", niveau 1";
 
@@ -77,8 +95,6 @@ public class textScript : MonoBehaviour {
 
         PlusMoinsButtons = new List<Button>
       {
-        Choice1,
-        Choice2,
         FrcPlus,
         AgiPlus,
         IntPlus,
@@ -91,10 +107,10 @@ public class textScript : MonoBehaviour {
         LckMoins,
         ConfirmButton
      };
-
+        change_text();
     }
 
-    public string Get6LinesStartFromK(string txt, int k)
+    public string GetxLinesStartFromK(int x, string txt, int k)
     {
         string str = "";
         int L = txt.Length;
@@ -107,8 +123,7 @@ public class textScript : MonoBehaviour {
                 k--;
             compteur++;
         }
-        k = 6;
-        while (k > 0)
+        while (x > 0)
         {
             while (compteur < L && txt[compteur] != '\n')
             {
@@ -117,16 +132,34 @@ public class textScript : MonoBehaviour {
             }
             compteur++;
             str += '\n';
-            k--;
+            x--;
         }
         return str;
     }
     public void change_text()
     {
-        vie.text = "Vie : " + s.life.ToString() + "/" + s.lifemax.ToString(); ;
-        nourriture.text = "Nourriture :" + s.hunger.ToString() +"/" + s.hungermax.ToString(); ;
-        or.text = "Or : " + s.gold.ToString();
-        moral.text = "Moral: " + s.moral.ToString() + "/" + s.moralmax.ToString();
+
+        if (showcaseIndex == 0)
+        {
+            vie.text = "Vie : " + s.life.ToString() + "/" + s.lifemax.ToString(); ;
+            nourriture.text = "Nourriture :" + s.hunger.ToString() + "/" + s.hungermax.ToString(); ;
+            or.text = "Or : " + s.gold.ToString();
+            moral.text = "Moral: " + s.moral.ToString() + "/" + s.moralmax.ToString();
+        }
+        else if (showcaseIndex == 1)
+        {
+            mana.text = "Mana: " + s.mana.ToString();
+            stamina.text = "Stamina: " + s.stamina.ToString();
+            aspeed.text = "Vitesse d'Attaque: " + s.aspeed.ToString();
+            armor.text = "Armure: " + s.armor.ToString();
+        }
+        else
+        { 
+            BladeDmg.text = "Dégats Tranchants: " + s.BladeDmg.ToString();
+            BluntDmg.text = "Dégats d'Ecrasement: " + s.BluntDmg.ToString();
+            MagicalDmg.text = "Dégats Magiques: " + s.MagicalDmg.ToString();
+            ElementalDmg.text = "Dégats Elementaires: " + s.ElementalDmg.ToString();
+        }
         experience.text = "Experience:  " + s.xp.ToString() + "/" + s.xpmax.ToString();
         Force.text = "Force:  " + (s.strenght + PotentialFrc).ToString();
         Chance.text = "Chance:  " + (s.luck +PotentialLck).ToString();
@@ -148,6 +181,18 @@ public class textScript : MonoBehaviour {
             Choice2_img.color = Color.yellow;
             Choice1_img.color = Color.white;
         }
+    }
+
+    public void changeShowcaseIndex(int delta)
+    {
+        showcaseIndex += delta + 3;
+        showcaseIndex %= 3;
+
+        ressources.SetActive(showcaseIndex == 0);
+        fightAttributes.SetActive(showcaseIndex == 1);
+        damages.SetActive(showcaseIndex == 2);
+
+        change_text();
     }
 
 
@@ -182,7 +227,7 @@ public class textScript : MonoBehaviour {
     public void LevelUp()
     {
         nom.text = "Vous atteignez le niveau "+s.level.ToString()+" !";
-        ChooseOne.gameObject.SetActive(true);
+        ChooseOne.SetActive(true);
         s.canMove = false;
         specPoints++;
 
@@ -192,6 +237,8 @@ public class textScript : MonoBehaviour {
         Choice1_ability = s.allAbilities[rnd.Next(count)];
         s.allAbilities.Remove(Choice1_ability);
         count--;
+
+        
 
         Choice2_ability = s.allAbilities[rnd.Next(count)];
         s.allAbilities.Remove(Choice2_ability);
@@ -230,7 +277,9 @@ public class textScript : MonoBehaviour {
             GlobalAbilities += Choice2_ability + '\n';
             s.getAbility(Choice2_ability);
         }
+        abilityNumber++;
         AbilityTextUpdate();
+       
 
         PotentialFrc = 0;
         PotentialAgi = 0;
@@ -238,8 +287,12 @@ public class textScript : MonoBehaviour {
         PotentialCha = 0;
         PotentialLck = 0;
 
+        s.SetFightAttributes();
+
         Choice1_img.color = Color.white;
         Choice2_img.color = Color.white;
+
+        ChooseOne.SetActive(false);
 
         foreach (Button b in PlusMoinsButtons)
         {
@@ -254,7 +307,7 @@ public class textScript : MonoBehaviour {
     {
 
 
-        for (int i = 2; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             PlusMoinsButtons[i].enabled = (specPoints > 0);
         }
@@ -271,7 +324,7 @@ public class textScript : MonoBehaviour {
 
     public void AbilityTextUpdate()
     {
-        AbilityText.text = Get6LinesStartFromK(GlobalAbilities, (int)(AbilityScroll.value * 6f));
+        AbilityText.text = GetxLinesStartFromK(12, GlobalAbilities, (int)(AbilityScroll.value * abilityNumber * 2 - 6));    
 
     }
 

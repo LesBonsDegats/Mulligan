@@ -112,30 +112,9 @@ public class NewBehaviourScript : MonoBehaviour
     public int charisma;
     public int luck;
 
+
     private bool[] Abilities;
-    public List<string> allAbilities = new List<string>
-    {
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19"
-    };
+    public List<string> allAbilities = new List<string>();
     
     //stats de combat
     public int idArme;
@@ -164,8 +143,34 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Abilities[i] = false;
         }
+        allAbilities = new List<string>
+    {
+        "Force Surhumaine\n+3 points de force",
+        "Reflexes Eclair\n+3 points d'agilité",
+        "Intellect Superieur\n+3 points d'intelligence",
+        "Eloquence\n+3 points de charisme",
+        "Veinard\n+3 points de chance",
+        "Colporteur\nCompleter une carte Rencontre vous octroie 3 pièces d'or",
+        "Campeur des Hautes-Terres\nEn passant à la zone suivante, récuperez 25 points de nourriture",
+        "Roi des Mendiants\n+5 points de charisme tant que vous possedez moins de 3 pièces d'or",
+        "Coeur Simple\n+10% Dégats lorsque vous avez moins de 50% nourriture, -10% sinon",
+        "9\n",
+        "10\n",
+        "11\n",
+        "12\n",
+        "13\n",
+        "14\n",
+        "15\n",
+        "16\n",
+        "17\n",
+        "18\n",
+        "19\n"
+    };
+
+
 
         inventoryscript = inventory.GetComponent<Inventory>();
+        SetFightAttributes();
         SpriteRenderer sr = ShowCard.GetComponent<SpriteRenderer>();
         tS = fichePerso.GetComponent<textScript>();
         iniLvl(6);
@@ -623,13 +628,13 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void getAbility(string str)
     {
-        switch (str)
-        {
+        int index = allAbilities.FindIndex(x => x == str);
 
-
-        }
-
+        if (index > 0 && index < 20)
+            Abilities[allAbilities.FindIndex(x => x == str)] = true;
+        
     }
+
 
     public void GainRessource(int or, int vie, int faim, int karma)
     {
@@ -652,8 +657,9 @@ public class NewBehaviourScript : MonoBehaviour
         tS.change_text();
     }
 
-    public void SetFightAttributes(List<InventaireSlot> equipement)
+    public void SetFightAttributes()
     {
+        List<InventaireSlot> equipement = inventoryscript.equipSlots;
 
         idArme = 0;
         idArme2 = 0;
@@ -701,6 +707,7 @@ public class NewBehaviourScript : MonoBehaviour
             tS.change_text();
         }
     }
+
 
     
 

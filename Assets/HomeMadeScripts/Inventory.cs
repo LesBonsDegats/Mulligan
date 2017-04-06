@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
 
     private List<InventaireSlot> stashSlots = new List<InventaireSlot>();
 
-    private List<InventaireSlot> equipSlots = new List<InventaireSlot>();
+    public List<InventaireSlot> equipSlots = new List<InventaireSlot>();
 
     public bool holding = false;
     public int holdid = 0;
@@ -179,7 +179,7 @@ public class Inventory : MonoBehaviour
                 s.canMove = true;
                 if (equipSlots.GetType() != null)
                 {
-                    s.SetFightAttributes(equipSlots);
+                    s.SetFightAttributes();
                 }
 
             }
