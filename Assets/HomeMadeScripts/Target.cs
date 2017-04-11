@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Target : MonoBehaviour {
 
-    public Collider weapon;
-    public fightcontroller f;
-
     public int life;
 
 	// Use this for initialization
@@ -16,16 +13,14 @@ public class Target : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-
 
 	}
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider == weapon && f.isAttacking)
+        if (collision.collider.gameObject.tag == "weaponAttack")
         {
-            f.weapon.enabled = false;
+            collision.collider.gameObject.tag = "weapon";
             bool isDead = loseLife(10);
             if (isDead)
             {
@@ -41,6 +36,7 @@ public class Target : MonoBehaviour {
     {
         life -= dmg;
 
+        Debug.Log(this.gameObject.name + " lost " + dmg.ToString() + " health");
         return (life < 0);
     }
 }

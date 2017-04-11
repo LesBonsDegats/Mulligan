@@ -105,6 +105,7 @@
     <Compile Include="Assets\HomeMadeScripts\TableCard.cs" />
     <Compile Include="Assets\HomeMadeScripts\Target.cs" />
     <Compile Include="Assets\HomeMadeScripts\ToolBox.cs" />
+    <Compile Include="Assets\HomeMadeScripts\attackPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\bossCardFold.cs" />
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
@@ -312,6 +313,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\mobAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fantasy RPG Icon Set- Free\Notes.txt" />

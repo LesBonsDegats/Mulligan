@@ -676,6 +676,8 @@ public class NewBehaviourScript : MonoBehaviour
         mana = 0;
         stamina = 0;
 
+        //application effets uniques // attributs principaux
+
         // calcul initial de mana et stamina en fct de force, agilité, intelligence
 
         mana = 25 + (intel * 15);
@@ -701,7 +703,7 @@ public class NewBehaviourScript : MonoBehaviour
             //on augmente l'AS en fonction de l'agilité (un peu)
             aspeed += (int)(agility * (0.2));
 
-            //application des effets uniques
+            //application des effets uniques (reste)
 
             //update fiche perso
             tS.change_text();

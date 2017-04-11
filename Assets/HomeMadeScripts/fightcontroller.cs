@@ -47,9 +47,10 @@ public class fightcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+            weapon.enabled = weapon.gameObject.tag == "weaponAttack";
             AnimatorStateInfo animInfo = hit.GetCurrentAnimatorStateInfo(0);
             isAttacking = animInfo.IsName("hit1") || animInfo.IsName("hit2") || animInfo.IsName("chargedHit");
+            weapon.gameObject.tag = isAttacking ? "weaponAttack" : "weapon";
             if (Input.GetMouseButtonDown(1) && !isAttacking)
             {
                 hit.speed = 1;
@@ -77,6 +78,7 @@ public class fightcontroller : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 weapon.enabled = true;
+                weapon.gameObject.tag = "weaponAttack";
                 hit.SetBool("charging", false);
                 isCharging = false;
                 StopCoroutine("ChargeAttack");
