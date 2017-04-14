@@ -493,6 +493,7 @@ public class NewBehaviourScript : MonoBehaviour
             while (enemies[i] > 0)
             {
                 Instantiate(Gobelin, spawn, new Quaternion(0, 90, 0, 0));
+                enemies[i]--;
             }
         }
 

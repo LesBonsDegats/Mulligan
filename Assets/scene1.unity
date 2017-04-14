@@ -1630,6 +1630,7 @@ MonoBehaviour:
   armor: 0
   mana: 0
   stamina: 0
+  Gobelin: {fileID: 100702, guid: a8fe9acb1e0f9f74c81a0ac4738f9efe, type: 2}
 --- !u!81 &140618116
 AudioListener:
   m_ObjectHideFlags: 0
