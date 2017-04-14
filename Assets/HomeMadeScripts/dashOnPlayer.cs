@@ -31,11 +31,12 @@ public class dashOnPlayer : MonoBehaviour {
         
         closeEnough = isCloseEnough();
 
-        if (closeEnough && canDash)
+        if (closeEnough && canDash && !mobAnim.Anim.IsPlaying("attack1")) 
             dash();
 
         if (isDashing)
         {
+            
             this.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
             
         }

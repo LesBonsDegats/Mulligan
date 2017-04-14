@@ -133,11 +133,16 @@ public class NewBehaviourScript : MonoBehaviour
     public int mana;
     public int stamina;
 
+    //monstres
+    private Vector3 spawn;
+    public GameObject Gobelin;
+
 
 
     // Use this for initialization
     void Start()
     {
+        spawn = Gobelin.transform.position;
         Abilities = new bool[20];
         for (int i = 0; i < 19; i++)
         {
@@ -481,8 +486,16 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
 
-    public void launchFight()
+    public void launchFight(int[] enemies)
     {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            while (enemies[i] > 0)
+            {
+                Instantiate(Gobelin, spawn, new Quaternion(0, 90, 0, 0));
+            }
+        }
+
         sC.changeCamera();
         isFighting = true;
 
@@ -608,7 +621,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (!isFighting)
             {
-                launchFight();
+                launchFight(new int[] { 1 });
             }
             else
             {

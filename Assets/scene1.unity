@@ -13587,7 +13587,7 @@ MonoBehaviour:
   closeEnough: 0
   canDash: 1
   isDashing: 0
-  speed: 20
+  speed: 10
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1250300990
 MonoBehaviour:
@@ -13640,6 +13640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea19c50c607ad24085075a03be027d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
 --- !u!114 &1250300996
 MonoBehaviour:
   m_ObjectHideFlags: 0

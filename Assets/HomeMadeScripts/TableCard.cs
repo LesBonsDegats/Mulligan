@@ -9,10 +9,6 @@ public class TableCard : MonoBehaviour
 
     public Sprite Image;       //CHANGE NAME
 
-
-    //STAPLE
-
-
     public GameObject ShowCard;
     public GameObject cam;
     public SpriteRenderer sr;
@@ -487,6 +483,8 @@ public class TableCard : MonoBehaviour
                         B1text.text = "Combattre!";
                         break;
                     case "Gobelins! 1":
+                        s.launchFight(new int[] { 3 });
+
                         Recit.text = paragraph("Victorieux des créatures infâmes, vous finissez de piller les dépouilles, espérant trouver quelques écus entre deux colifichets d'os et et de silex.");
                         basicReward(2, 0, 0, 0);
                         B1text.text = "Reprendre votre périple";

@@ -34,6 +34,7 @@ public class attackPlayer : MonoBehaviour {
         canAttack = false;
 
         StartCoroutine("attackCd");
+        StartCoroutine("attackSpan");
     }
 
     public bool isCloseEnough()
@@ -60,7 +61,7 @@ public class attackPlayer : MonoBehaviour {
             }
 
             swtch = true;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
         }
     }
 
@@ -77,7 +78,7 @@ public class attackPlayer : MonoBehaviour {
             }
 
             swtch = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
         }
 
     }

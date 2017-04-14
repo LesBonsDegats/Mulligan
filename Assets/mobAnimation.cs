@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class mobAnimation : MonoBehaviour {
 
-    private Animation Anim;
+    public Animation Anim;
 
 	// Use this for initialization
 	void Start () {
