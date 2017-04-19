@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class multiTarget : MonoBehaviour {
 
-    public Collider weapon;
-    public fightcontroller f;
-
     public int life;
+    private Rigidbody r;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-
-
-	}
-
-    private void OnCollisionEnter(Collision collision)
+    // Use this for initialization
+    void Start()
     {
-        if (collision.collider == weapon && f.isAttacking)
+        r = this.GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "weapon")
         {
-            f.weapon.enabled = false;
-            bool isDead = loseLife(10);
-            if (isDead)
+           
+            if (loseLife(10))
             {
-                this.gameObject.SetActive(false);
+                Destroy(this.gameObject);
+            }
+            GameObject parent = other.gameObject;
+            while (parent.transform.parent != null) //?
+            {
+                parent = parent.transform.parent.gameObject;
             }
 
-            this.transform.Translate(new Vector3(0, 0, -2));
+
+            Vector3 distance = parent.transform.position - this.transform.position;
+
+                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
 
         }
     }
@@ -40,7 +44,6 @@ public class multiTarget : MonoBehaviour {
     private bool loseLife(int dmg)
     {
         life -= dmg;
-
-        return (life < 0);
+        return (life <= 0);
     }
 }
