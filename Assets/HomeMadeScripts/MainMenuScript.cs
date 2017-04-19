@@ -10,12 +10,21 @@ public class MainMenuScript : MonoBehaviour
     }
 
 
-    public void Load_Scene ()
+    public void Load_Solo()
     {
         Application.LoadLevel("Scene1");
 	}
-	
-	public void Quit ()
+    public void Load_Menu()
+    {
+        Application.LoadLevel("MainMenu");
+    }
+
+    public void Load_Multi()
+    {
+        Application.LoadLevel("2players");
+    }
+
+    public void Quit ()
     {
         Application.Quit();
 	}

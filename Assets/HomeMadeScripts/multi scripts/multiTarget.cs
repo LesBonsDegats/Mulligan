@@ -26,17 +26,16 @@ public class multiTarget : MonoBehaviour {
             if (loseLife(10))
             {
                 Destroy(this.gameObject);
+                Application.LoadLevel("deathscreen");
+
             }
             GameObject parent = other.gameObject;
             while (parent.transform.parent != null) //?
             {
                 parent = parent.transform.parent.gameObject;
             }
-
-
             Vector3 distance = parent.transform.position - this.transform.position;
-
-                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
+            r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
 
         }
     }
