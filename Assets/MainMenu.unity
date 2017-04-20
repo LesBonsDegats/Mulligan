@@ -159,7 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start solo mode
+  m_Text: Mode solo
 --- !u!222 &108971231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -924,7 +924,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Quitter
 --- !u!222 &1349094001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start multiplayeur mode
+  m_Text: Mode multijoueur
 --- !u!222 &1620352990
 CanvasRenderer:
   m_ObjectHideFlags: 0
