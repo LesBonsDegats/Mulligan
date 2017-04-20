@@ -45,6 +45,7 @@ public class multiTarget : MonoBehaviour {
             {
                 if(view.isMine)
                 {
+                    PhotonNetwork.Disconnect();
                     Application.LoadLevel("deathscreen");
                 }
                 Destroy(this.gameObject);
