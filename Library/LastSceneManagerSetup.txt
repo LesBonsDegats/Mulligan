@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/scene1.unity
+=======
+- path: Assets/deathscreen.unity
+>>>>>>> 7c1a169c412dc5b21221f14800e40190fe1a1e99
   isLoaded: 1
   isActive: 1

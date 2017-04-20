@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: "Assets/test-r\xE9seau.unity"
   - enabled: 1
     path: Assets/2players.unity
+  - enabled: 1
+    path: Assets/deathscreen.unity

@@ -6,7 +6,7 @@ public class multiTarget : MonoBehaviour {
 
     public int life;
     private Rigidbody r;
-
+    private PhotonView view;
     // Use this for initialization
     void Start()
     {
@@ -18,7 +18,7 @@ public class multiTarget : MonoBehaviour {
     {
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "weapon")
         {
@@ -26,8 +26,10 @@ public class multiTarget : MonoBehaviour {
             if (loseLife(10))
             {
                 Destroy(this.gameObject);
-                Application.LoadLevel("deathscreen");
-
+                if (view.isMine)
+                {
+                    Application.LoadLevel("deathscreen");
+                }
             }
             GameObject parent = other.gameObject;
             while (parent.transform.parent != null) //?
