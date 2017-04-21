@@ -8,23 +8,50 @@ public class attackPlayer : MonoBehaviour {
 
     public GameObject Player;
     public GameObject weapon;
+    public damageOutput damage;
 
+    public int distanceMax;
 
-    private mobAnimation mobAnim;
-    private bool canAttack = true;
 	// Use this for initialization
 	void Start () {
-        mobAnim = this.GetComponent<mobAnimation>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (isCloseEnough() && canAttack)
-        {
-            attack();
-        }
+        
  
 	}
+
+    public bool getCommand()
+    {
+        return isCloseEnough();
+    }
+
+    public bool isCloseEnough()
+    {
+        float posx = Player.transform.position.x;
+        float posz = Player.transform.position.z;
+
+        float distance = (float)Math.Sqrt((posx - transform.position.x) * (posx - transform.position.x) + (posz - transform.position.z) * (posz - transform.position.z));
+
+        return (distance < distanceMax);
+    }
+
+
+
+    /*
+
+    IEnumerator OneSecUpdate()
+    {
+        while (true)
+        {
+            if (isCloseEnough() && canAttack)
+            {
+                attack();
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
 
     public void attack()
     {
@@ -37,15 +64,7 @@ public class attackPlayer : MonoBehaviour {
         StartCoroutine("attackSpan");
     }
 
-    public bool isCloseEnough()
-    {
-        float posx = Player.transform.position.x;
-        float posz = Player.transform.position.z;
 
-        float distance = (float)Math.Sqrt((posx - transform.position.x) * (posx - transform.position.x) + (posz - transform.position.z) * (posz - transform.position.z));
-
-        return (distance < 2);
-    }
 
     IEnumerator attackCd()
     {
@@ -61,7 +80,7 @@ public class attackPlayer : MonoBehaviour {
             }
 
             swtch = true;
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1.5f);
         }
     }
 
@@ -82,4 +101,6 @@ public class attackPlayer : MonoBehaviour {
         }
 
     }
+
+    */
 }

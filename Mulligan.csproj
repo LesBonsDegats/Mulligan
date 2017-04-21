@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -66,6 +69,9 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -109,11 +115,13 @@
     <Compile Include="Assets\HomeMadeScripts\bossCardFold.cs" />
     <Compile Include="Assets\HomeMadeScripts\button_hover.cs" />
     <Compile Include="Assets\HomeMadeScripts\camFollowMouse.cs" />
+    <Compile Include="Assets\HomeMadeScripts\damageOutput.cs" />
     <Compile Include="Assets\HomeMadeScripts\dashOnPlayer.cs" />
     <Compile Include="Assets\HomeMadeScripts\fightcontroller.cs" />
     <Compile Include="Assets\HomeMadeScripts\helpButton.cs" />
     <Compile Include="Assets\HomeMadeScripts\jauges.cs" />
     <Compile Include="Assets\HomeMadeScripts\lookPlayer.cs" />
+    <Compile Include="Assets\HomeMadeScripts\mobAnimation.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\fightcontrollerMulti.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\multiCharacterControls.cs" />
     <Compile Include="Assets\HomeMadeScripts\multi scripts\multiMouseLook.cs" />
@@ -313,8 +321,11 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="Assets\SoundController.cs" />
     <Compile Include="Assets\mobAnimation.cs" />
+>>>>>>> 2f80a79c5089236b51c1bc218515224e66758f8b
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fantasy RPG Icon Set- Free\Notes.txt" />
