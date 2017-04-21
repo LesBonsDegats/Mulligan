@@ -4,43 +4,83 @@ using UnityEngine;
 
 public class multiTarget : MonoBehaviour {
 
-    public Collider weapon;
-    public fightcontroller f;
-
     public int life;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-
-
-	}
-
-    private void OnCollisionEnter(Collision collision)
+    private Rigidbody r;
+    private PhotonView view;
+    private float  time;
+    public Material[] materials;
+    private Renderer rend;
+    // Use this for initialization
+    void Start()
     {
-        if (collision.collider == weapon && f.isAttacking)
+        r = this.GetComponent<Rigidbody>();
+        view = this.GetComponent<PhotonView>();
+        time = Time.time;
+        rend = this.gameObject.GetComponent<Renderer>();
+        rend.enabled = true;
+        rend.sharedMaterial = materials[0];
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "weapon")
         {
-            f.weapon.enabled = false;
-            bool isDead = loseLife(10);
-            if (isDead)
+            if (Time.time - time > 0.6)
             {
-                this.gameObject.SetActive(false);
+                time = Time.time;
+                StartCoroutine(invulnerabilitySpan());
+                GameObject parent = other.gameObject;
+                while (parent.transform.parent != null) //?
+                {
+                    parent = parent.transform.parent.gameObject;
+                }
+                Vector3 distance = parent.transform.position - this.transform.position;
+                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
+                view.RPC("loselife", PhotonTargets.All, view.viewID);
             }
-
-            this.transform.Translate(new Vector3(0, 0, -2));
-
         }
     }
 
-    private bool loseLife(int dmg)
+    IEnumerator invulnerabilitySpan()
     {
-        life -= dmg;
+        bool swtch = false;
+        while (true)
+        {
+            rend.sharedMaterial = materials[1];
+            if (swtch)
+            {
+                rend.sharedMaterial = materials[0];
+                StopCoroutine(invulnerabilitySpan());
 
-        return (life < 0);
+            }
+           
+            swtch = true;
+            yield return new WaitForSeconds(0.60F);
+        }
     }
+
+    [PunRPC]
+    void loselife(int id)
+    {
+       
+        if (id == view.viewID)
+        {
+            life -= 10;
+            if (life <= 0)
+            {
+                if(view.isMine)
+                {
+                    PhotonNetwork.Disconnect();
+                    Application.LoadLevel("deathscreen");
+                }
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
 }

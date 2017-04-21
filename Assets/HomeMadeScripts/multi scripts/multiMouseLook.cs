@@ -53,6 +53,8 @@ using UnityEngine;
         {
             AudioListener ear = camera.GetComponent<AudioListener>();
             ear.enabled = true;
+            AudioSource sond = camera.GetComponent<AudioSource> ();
+            sond.enabled = true;
             Camera film = camera.GetComponent<Camera>();
             film.enabled = true;
             originalRotation = transform.localRotation;
