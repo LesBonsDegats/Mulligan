@@ -81,6 +81,8 @@ public class Inventory : MonoBehaviour
         };
 
         AddItem(2);
+        InventoryLeftHand.setId(2);
+        s.SetFightAttributes();
     }
 
     // Update is called once per frame

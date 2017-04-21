@@ -6,25 +6,34 @@ using System;
 public class dashOnPlayer : MonoBehaviour {
 
     public GameObject player;
-    public Collider playerCollider;
-    public mobAnimation mobAnim;
-
-    public Animation test;
-
-    private Collider mobCollider;
-
-    public bool closeEnough;
-    public bool canDash = true;
-    public bool isDashing = false;
     public int speed;
+    public int distanceMin;
+    public int distanceMax;
 
 
-    public Vector3 targetPos;
+ 
 	// Use this for initialization
 	void Start () {
-        mobCollider = this.GetComponent<Collider>();
 	}
-	
+
+
+    public bool getCommand()
+    {
+        return (isCloseEnough());
+    }
+
+    public bool isCloseEnough()
+    {
+        float posx = player.transform.position.x;
+        float posz = player.transform.position.z;
+
+        float distance = (float)Math.Sqrt((posx - transform.position.x) * (posx - transform.position.x) + (posz - transform.position.z) * (posz - transform.position.z));
+
+        return (distance < distanceMax) && (distance > distanceMin);
+    }
+
+
+    /*
 	// Update is called once per frame
 	void Update () {
 
@@ -34,7 +43,7 @@ public class dashOnPlayer : MonoBehaviour {
         if (closeEnough && canDash && !mobAnim.Anim.IsPlaying("attack1")) 
             dash();
 
-        if (isDashing)
+        if (isDashing)// && (float)Math.Sqrt((mobTarget.transform.position.x - transform.position.x) * (mobTarget.transform.position.x - transform.position.x) + (mobTarget.transform.position.z - transform.position.z) * (mobTarget.transform.position.z - transform.position.z)) > 1)
         {
             
             this.transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
@@ -51,25 +60,16 @@ public class dashOnPlayer : MonoBehaviour {
     {
         if (collision.collider.gameObject.tag == "Player")
         {
-            Debug.Log("player hit");
+          //  Debug.Log("player hit");
             isDashing = false;
+            mobAnim.playAnimation("attack2");
         }
     }
 
-    public bool isCloseEnough()
-    {
-        float posx = player.transform.position.x;
-        float posz = player.transform.position.z;
-
-        float distance = (float)Math.Sqrt((posx - transform.position.x) * (posx - transform.position.x) + (posz - transform.position.z) * (posz - transform.position.z));
-        
-    return (distance < 7) && (distance > 3);
-    }
-
+   
     public void dash()
     {
-      //  test.Play("attack1");
-        targetPos = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime);
+        //mobTarget.transform.parent = null;
         StartCoroutine("dashCd");
         StartCoroutine("dashSpan");
         isDashing = true;
@@ -83,13 +83,11 @@ public class dashOnPlayer : MonoBehaviour {
 
         while (true)
         {
-
             if (swtch)
             {
                 canDash = true;
                 StopCoroutine("dashCd");
             }
-
             swtch = true;
         yield return new WaitForSeconds(3);
         }
@@ -107,12 +105,15 @@ public class dashOnPlayer : MonoBehaviour {
                 isDashing = false;
                 StopCoroutine("dashSpan");
                 mobAnim.playAnimation("combat_idle");
+             //   mobTarget.transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+              //  mobTarget.transform.parent = player.transform;
             }
 
             swtch = true;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
         }
 
     }
+    */
 
 }
