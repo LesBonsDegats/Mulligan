@@ -7,11 +7,13 @@ public class multiTarget : MonoBehaviour {
     public int life;
     private Rigidbody r;
     private PhotonView view;
+    private float  time;
     // Use this for initialization
     void Start()
     {
         r = this.GetComponent<Rigidbody>();
         view = this.GetComponent<PhotonView>();
+        time = Time.time;
     }
 
     // Update is called once per frame
@@ -23,23 +25,54 @@ public class multiTarget : MonoBehaviour {
     {
         if (other.gameObject.tag == "weapon")
         {
-            GameObject parent = other.gameObject;
-            while (parent.transform.parent != null) //?
+            if (Time.time - time > 0.60)
             {
-                parent = parent.transform.parent.gameObject;
+                time = Time.time;
+                GameObject parent = other.gameObject;
+                while (parent.transform.parent != null) //?
+                {
+                    parent = parent.transform.parent.gameObject;
+                }
+                Vector3 distance = parent.transform.position - this.transform.position;
+                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);   
+                view.RPC("loselife", PhotonTargets.All, view.viewID);
             }
-            Vector3 distance = parent.transform.position - this.transform.position;
-            r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
-            view.RPC("loselife", PhotonTargets.All, view.viewID);
+
+
+           
         }
     }
+
+    IEnumerator invulnerabilitySpan()
+    {
+        bool swtch = false;
+        while (true)
+        {
+            if (swtch)
+            {
+                /*
+                 * 
+                 * 
+                 * 
+                 * 
+                 * 
+                 * */
+
+
+
+                StopCoroutine(invulnerabilitySpan());
+            }
+            swtch = true;
+            yield return new WaitForSeconds(0.60F);
+        }
+    }
+
     [PunRPC]
     void loselife(int id)
     {
        
         if (id == view.viewID)
         {
-            Debug.Log("TOUCHEE");
             life -= 10;
             if (life <= 0)
             {
