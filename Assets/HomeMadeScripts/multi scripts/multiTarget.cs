@@ -8,12 +8,17 @@ public class multiTarget : MonoBehaviour {
     private Rigidbody r;
     private PhotonView view;
     private float  time;
+    public Material[] materials;
+    private Renderer rend;
     // Use this for initialization
     void Start()
     {
         r = this.GetComponent<Rigidbody>();
         view = this.GetComponent<PhotonView>();
         time = Time.time;
+        rend = this.gameObject.GetComponent<Renderer>();
+        rend.enabled = true;
+        rend.sharedMaterial = materials[0];
     }
 
     // Update is called once per frame
@@ -25,21 +30,19 @@ public class multiTarget : MonoBehaviour {
     {
         if (other.gameObject.tag == "weapon")
         {
-            if (Time.time - time > 0.60)
+            if (Time.time - time > 0.6)
             {
                 time = Time.time;
+                StartCoroutine(invulnerabilitySpan());
                 GameObject parent = other.gameObject;
                 while (parent.transform.parent != null) //?
                 {
                     parent = parent.transform.parent.gameObject;
                 }
                 Vector3 distance = parent.transform.position - this.transform.position;
-                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);   
+                r.AddForce(new Vector3(-distance.x, 0, -distance.z) * 100000);
                 view.RPC("loselife", PhotonTargets.All, view.viewID);
             }
-
-
-           
         }
     }
 
@@ -48,20 +51,14 @@ public class multiTarget : MonoBehaviour {
         bool swtch = false;
         while (true)
         {
+            rend.sharedMaterial = materials[1];
             if (swtch)
             {
-                /*
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * */
-
-
-
+                rend.sharedMaterial = materials[0];
                 StopCoroutine(invulnerabilitySpan());
+
             }
+           
             swtch = true;
             yield return new WaitForSeconds(0.60F);
         }

@@ -461,6 +461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 50
+  materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 533f609fb5342c443a7753455723d7de, type: 2}
 --- !u!114 &114722602784250336
 MonoBehaviour:
   m_ObjectHideFlags: 1
