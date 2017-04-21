@@ -7,7 +7,9 @@ public class switchCamera : MonoBehaviour {
 
     public GameObject cam1;
     public GameObject cam2;
+    public AudioSource audiosource;
     private bool onBoard = true;
+    
 
     private AudioListener cam1Listener;
 
@@ -17,20 +19,14 @@ public class switchCamera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-
-
-	}
 
     public void changeCamera()
     {
         onBoard = !onBoard;
         Cursor.visible = onBoard;
 
-
-        cam2.SetActive(!cam2.activeInHierarchy);
-        cam1Listener.enabled = !cam2.activeInHierarchy;
-
+        bool cam = !cam2.activeInHierarchy;
+        cam2.SetActive(cam);
+        audiosource.enabled = !cam;
     }
 }
